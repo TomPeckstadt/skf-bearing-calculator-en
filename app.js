@@ -127,7 +127,7 @@ function onDevicePeriodInput(devId) {
 
 function getOptimalSmartAdvice(totalDailyNeedCm3, deviceKey, greaseName) {
   if (!totalDailyNeedCm3 || totalDailyNeedCm3 <= 0) {
-    return { cap: 120, months: 6, annualCost: 109.2, cartridgesPerYear: 2, unitPackPrice: 54.60, theoMonths: 5.7, label: "Standaard 120 ml op 6 maanden" };
+    return { cap: 120, months: 6, annualCost: 109.2, cartridgesPerYear: 2, unitPackPrice: 54.60, theoMonths: 5.7, label: "Standaard 120 ml op 6 monthen" };
   }
 
   const devKey = deviceKey || "single_point";
@@ -448,9 +448,9 @@ function renderAutoDevicesUI() {
             <div style="display: flex; gap: 8px;">
               <input type="number" id="autoDispensePeriod_${devId}" class="form-input" value="${dev.period}" min="1" max="24" step="1" oninput="onDevicePeriodInput('${devId}')" style="flex: 1; padding: 8px 12px; border-radius: var(--border-radius-sm); border: 1px solid #cbd5e1;">
               <select id="autoDispenseUnit_${devId}" class="form-select" onchange="onDeviceCapChange('${devId}')" style="width: 120px; padding: 8px 12px; border-radius: var(--border-radius-sm); border: 1px solid #cbd5e1;">
-                <option value="months"${dev.unit === 'months' ? ' selected' : ''}>maanden</option>
+                <option value="months"${dev.unit === 'months' ? ' selected' : ''}>monthen</option>
                 <option value="weeks"${dev.unit === 'weeks' ? ' selected' : ''}>weken</option>
-                <option value="days"${dev.unit === 'days' ? ' selected' : ''}>dagen</option>
+                <option value="days"${dev.unit === 'days' ? ' selected' : ''}>dayen</option>
               </select>
             </div>
             
@@ -459,11 +459,11 @@ function renderAutoDevicesUI() {
                 <span id="autoDialLabelContainer_${devId}" style="display: inline-flex; align-items: center; gap: 6px;">
                   ${isSinglePoint ? '<img src="draaiknop.png?v=20260821_1950" alt="Draaiknop" style="width: 22px; height: 22px; object-fit: contain;"><span>Draaiknopstand op toestel:</span>' : '<span>Display instelling op toestel:</span>'}
                 </span>
-                <span id="autoDialValue_${devId}" style="font-size: 12.5px; font-weight: 800; background-color: #FEF2F2; color: var(--primary-red); padding: 2px 8px; border-radius: 4px; border: 1px solid #FECACA;">1 maand</span>
+                <span id="autoDialValue_${devId}" style="font-size: 12.5px; font-weight: 800; background-color: #FEF2F2; color: var(--primary-red); padding: 2px 8px; border-radius: 4px; border: 1px solid #FECACA;">1 month</span>
               </div>
               <div style="color: var(--text-medium); font-size: 11px; margin-top: 4px; display: flex; justify-content: space-between;">
                 <span>• Theoretisch berekend:</span>
-                <strong id="autoTheoValue_${devId}" style="color: var(--text-dark);">0,9 maanden</strong>
+                <strong id="autoTheoValue_${devId}" style="color: var(--text-dark);">0,9 monthen</strong>
               </div>
             </div>
           </div>
@@ -478,15 +478,15 @@ function renderAutoDevicesUI() {
           <div style="font-size: 10.5px; font-weight: 800; color: #E30613; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px;">SMEERVOLUME (VOOR 1 LAGER)</div>
           <div style="margin-bottom: 6px;">
             <div style="font-size: 10px; font-weight: 700; color: var(--text-medium); text-transform: uppercase;">BEREKEND DAGELIJKS SMEERVOLUME (VOOR 1 LAGER):</div>
-            <div id="autoDailyVolumeRes_${devId}" style="font-size: 18px; font-weight: 800; color: #E30613; margin-top: 1px;">0,00 ml/dag</div>
+            <div id="autoDailyVolumeRes_${devId}" style="font-size: 18px; font-weight: 800; color: #E30613; margin-top: 1px;">0,00 ml/day</div>
           </div>
           <div style="margin-bottom: 6px;">
             <div style="font-size: 10px; font-weight: 700; color: var(--text-medium); text-transform: uppercase;">BEREKEND MAANDELIJKS SMEERVOLUME (VOOR 1 LAGER):</div>
-            <div id="autoMonthlyVolumeRes_${devId}" style="font-size: 14px; font-weight: 800; color: var(--primary-dark); margin-top: 1px;">0,0 ml/maand</div>
+            <div id="autoMonthlyVolumeRes_${devId}" style="font-size: 14px; font-weight: 800; color: var(--primary-dark); margin-top: 1px;">0,0 ml/month</div>
           </div>
           <div>
             <div style="font-size: 10px; font-weight: 700; color: var(--text-medium); text-transform: uppercase;">BEREKEND JAARLIJKS SMEERVOLUME (VOOR 1 LAGER):</div>
-            <div id="autoYearlyVolumeRes_${devId}" style="font-size: 14px; font-weight: 800; color: var(--primary-dark); margin-top: 1px;">0,0 ml/jaar</div>
+            <div id="autoYearlyVolumeRes_${devId}" style="font-size: 14px; font-weight: 800; color: var(--primary-dark); margin-top: 1px;">0,0 ml/year</div>
           </div>
         </div>
 
@@ -495,15 +495,15 @@ function renderAutoDevicesUI() {
           <div id="autoTotalVolumeHeaderTitle_${devId}" style="font-size: 10.5px; font-weight: 800; color: #E30613; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px;">TOTAAL SMEERVOLUME TOESTEL</div>
           <div style="margin-bottom: 6px;">
             <div id="autoDailyVolumeTotalLabel_${devId}" style="font-size: 10px; font-weight: 700; color: var(--text-medium); text-transform: uppercase;">BEREKEND DAGELIJKS SMEERVOLUME:</div>
-            <div id="autoDailyVolumeTotalRes_${devId}" style="font-size: 18px; font-weight: 800; color: #E30613; margin-top: 1px;">0,00 ml/dag</div>
+            <div id="autoDailyVolumeTotalRes_${devId}" style="font-size: 18px; font-weight: 800; color: #E30613; margin-top: 1px;">0,00 ml/day</div>
           </div>
           <div style="margin-bottom: 6px;">
             <div id="autoMonthlyVolumeTotalLabel_${devId}" style="font-size: 10px; font-weight: 700; color: var(--text-medium); text-transform: uppercase;">BEREKEND MAANDELIJKS SMEERVOLUME:</div>
-            <div id="autoMonthlyVolumeTotalRes_${devId}" style="font-size: 14px; font-weight: 800; color: var(--primary-dark); margin-top: 1px;">0,0 ml/maand</div>
+            <div id="autoMonthlyVolumeTotalRes_${devId}" style="font-size: 14px; font-weight: 800; color: var(--primary-dark); margin-top: 1px;">0,0 ml/month</div>
           </div>
           <div>
             <div id="autoYearlyVolumeTotalLabel_${devId}" style="font-size: 10px; font-weight: 700; color: var(--text-medium); text-transform: uppercase;">BEREKEND JAARLIJKS SMEERVOLUME:</div>
-            <div id="autoYearlyVolumeTotalRes_${devId}" style="font-size: 14px; font-weight: 800; color: var(--primary-dark); margin-top: 1px;">0,0 ml/jaar</div>
+            <div id="autoYearlyVolumeTotalRes_${devId}" style="font-size: 14px; font-weight: 800; color: var(--primary-dark); margin-top: 1px;">0,0 ml/year</div>
           </div>
         </div>
 
@@ -706,7 +706,7 @@ function renderPdfAutomationExtraPage(doc, autoData, autoDataUrl, autoRatio, wat
   doc.setFont("helvetica", "bold");
   doc.setFontSize(8);
   doc.setTextColor(227, 6, 19);
-  doc.text(`Berekende vetbehoefte per lager: ${dailyNeedCm3.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/dag`, 26, topBannerY + 26);
+  doc.text(`Berekende vetbehoefte per lager: ${dailyNeedCm3.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/day`, 26, topBannerY + 26);
 
   // Device Photo Spotlight Centered on Right
   if (autoDataUrl && autoRatio) {
@@ -864,7 +864,7 @@ function renderPdfAutomationExtraPage(doc, autoData, autoDataUrl, autoRatio, wat
     doc.setFont("helvetica", "bold");
     doc.setFontSize(9);
     doc.setTextColor(227, 6, 19);
-    doc.text(`${recSetting.months} maanden op ${capMl} ml | ${pts} ${pts === 1 ? 'lager' : 'lagers'}`, cardX + 5, innerY + 11);
+    doc.text(`${recSetting.months} monthen op ${capMl} ml | ${pts} ${pts === 1 ? 'lager' : 'lagers'}`, cardX + 5, innerY + 11);
 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(6);
@@ -892,7 +892,7 @@ function renderPdfAutomationExtraPage(doc, autoData, autoDataUrl, autoRatio, wat
     doc.setFont("helvetica", "normal");
     doc.setFontSize(6);
     doc.setTextColor(100, 116, 139);
-    doc.text(`Theoretisch berekend: ${recMonths.toFixed(1).replace('.',',')} maanden`, cardX + 5, innerY + 15);
+    doc.text(`Theoretisch berekend: ${recMonths.toFixed(1).replace('.',',')} monthen`, cardX + 5, innerY + 15);
 
     innerY += 21;
 
@@ -910,11 +910,11 @@ function renderPdfAutomationExtraPage(doc, autoData, autoDataUrl, autoRatio, wat
     doc.setTextColor(227, 6, 19);
     doc.text("SMEERVOLUME (VOOR 1 LAGER)", cardX + 4, innerY + 5);
 
-    const daily1Str = dailyNeedCm3.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const daily1Str = dailyNeedCm3.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     doc.setFont("helvetica", "bold");
     doc.setFontSize(8.5);
     doc.setTextColor(227, 6, 19);
-    doc.text(`${daily1Str} ml/dag`, cardX + 4, innerY + 11);
+    doc.text(`${daily1Str} ml/day`, cardX + 4, innerY + 11);
 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(5.5);
@@ -932,11 +932,11 @@ function renderPdfAutomationExtraPage(doc, autoData, autoDataUrl, autoRatio, wat
     doc.setTextColor(227, 6, 19);
     doc.text(`TOTAAL TOESTEL (${pts} ${pts === 1 ? 'LAGER' : 'LAGERS'})`, cardX + 5 + volBoxW, innerY + 5);
 
-    const dailyXStr = totalDailyNeedForDev.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const dailyXStr = totalDailyNeedForDev.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     doc.setFont("helvetica", "bold");
     doc.setFontSize(8.5);
     doc.setTextColor(227, 6, 19);
-    doc.text(`${dailyXStr} ml/dag`, cardX + 5 + volBoxW, innerY + 11);
+    doc.text(`${dailyXStr} ml/day`, cardX + 5 + volBoxW, innerY + 11);
 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(5.5);
@@ -956,7 +956,7 @@ function renderPdfAutomationExtraPage(doc, autoData, autoDataUrl, autoRatio, wat
       doc.setFont("helvetica", "bold");
       doc.setFontSize(6);
       doc.setTextColor(153, 27, 27);
-      doc.text(`⚠ Hoge vetbehoefte (${dailyXStr} ml/dag): Patroon raakt na ${maxTheoMonthsDev.toFixed(1).replace('.',',')} m leeg. Advies: Bekijk Graco.`, cardX + 4, innerY + 7);
+      doc.text(`⚠ Hoge vetbehoefte (${dailyXStr} ml/day): Patroon raakt na ${maxTheoMonthsDev.toFixed(1).replace('.',',')} m leeg. Advies: Bekijk Graco.`, cardX + 4, innerY + 7);
     } else {
       doc.setFillColor(236, 253, 245);
       doc.setDrawColor(167, 243, 208);
@@ -966,7 +966,7 @@ function renderPdfAutomationExtraPage(doc, autoData, autoDataUrl, autoRatio, wat
       doc.setFont("helvetica", "bold");
       doc.setFontSize(5.8);
       doc.setTextColor(6, 95, 70);
-      const matchText = `Uitstekende match! ${capMl} ml op ${periodVal} ${unitLabel} levert ${actualDailyVol.toFixed(2).replace('.',',')} ml/dag af voor ${pts} lager(s).`;
+      const matchText = `Uitstekende match! ${capMl} ml op ${periodVal} ${unitLabel} levert ${actualDailyVol.toFixed(2).replace('.',',')} ml/day af voor ${pts} lager(s).`;
       doc.text(matchText, cardX + 4, innerY + 5, { maxWidth: colWidth - 8 });
     }
   }
@@ -1894,7 +1894,7 @@ function switchPage(pageId) {
     document.getElementById("menuSearch").classList.add("active");
     if (targetTitle) {
       targetTitle.setAttribute("data-i18n", "pageSearchTitle");
-      targetTitle.textContent = "Lager Opzoeken";
+      targetTitle.textContent = "Bearing Search";
     }
     if (targetSubtitle) {
       targetSubtitle.setAttribute("data-i18n", "pageSearchSubtitle");
@@ -2012,7 +2012,7 @@ function switchPage(pageId) {
     document.getElementById("menuInfo").classList.add("active");
     if (targetTitle) {
       targetTitle.setAttribute("data-i18n", "pageInfoTitle");
-      targetTitle.textContent = "Informatie";
+      targetTitle.textContent = "Information";
     }
     if (targetSubtitle) {
       targetSubtitle.setAttribute("data-i18n", "pageInfoSubtitle");
@@ -2093,7 +2093,7 @@ function switchPage(pageId) {
     document.getElementById("menuInfo").classList.add("active");
     if (targetTitle) {
       targetTitle.removeAttribute("data-i18n");
-      targetTitle.textContent = "Informatie Kettingsmering";
+      targetTitle.textContent = "Chain Lubrication Information";
     }
     if (targetSubtitle) {
       targetSubtitle.removeAttribute("data-i18n");
@@ -2460,7 +2460,7 @@ function updateCalculatorFields() {
   } else {
     // Geen lager geladen. We behouden de waarden uit het HTML formulier als standaard voorbeeld
     bannerTitle.textContent = langData.searchEmptyTitle || "Geen lager geselecteerd";
-    bannerSubtitle.textContent = langData.calcBannerSubtitleEmpty || "Keer terug naar 'Lager Opzoeken' of geef hieronder handmatig de afmetingen in.";
+    bannerSubtitle.textContent = langData.calcBannerSubtitleEmpty || "Keer terug naar 'Bearing Search' of geef hieronder handmatig de afmetingen in.";
     bannerBadge.textContent = "-";
     
     if (!boreInput.value) boreInput.value = "120";
@@ -2588,7 +2588,7 @@ function calculateGrease() {
   const dnMax = grease.dnMax;
   const density = grease.density;
 
-  if (greaseDNElement) greaseDNElement.textContent = dnMax.toLocaleString("nl-NL");
+  if (greaseDNElement) greaseDNElement.textContent = dnMax.toLocaleString("en-US");
   if (densityElement) densityElement.textContent = density.toFixed(2);
 
   // 1.5. Bepaal type lager voor lookup
@@ -2639,7 +2639,7 @@ function calculateGrease() {
   const dm = (d + D) / 2;
   const ndm_raw = (isNaN(speed) || speed < 0) ? 0 : speed * dm;
   const ndm = ndm_raw * dnTypeMultiplier;
-  if (sfElement) sfElement.textContent = Math.round(ndm).toLocaleString("nl-NL");
+  if (sfElement) sfElement.textContent = Math.round(ndm).toLocaleString("en-US");
 
   // Show/hide DN factor warning
   if (dnWarningRow) {
@@ -2691,7 +2691,7 @@ function calculateGrease() {
       fb = entry.ball;
     }
   }
-  if (baseFreqElement) baseFreqElement.textContent = fb.toLocaleString("nl-NL");
+  if (baseFreqElement) baseFreqElement.textContent = fb.toLocaleString("en-US");
 
   const fbWeeks = fb / (hoursPerDay * daysPerWeek);
   const fbDays = fbWeeks * 7;
@@ -2727,11 +2727,11 @@ function calculateGrease() {
     micPolFactor = 4;
   }
 
-  const fcBase = (fb * Te * Ta * Tt) / 4.0; // Basissmeerinterval conventioneel (bijv. 66.56 uren / 5.2 dagen)
+  const fcBase = (fb * Te * Ta * Tt) / 4.0; // Basissmeerinterval conventioneel (bijv. 66.56 uren / 5.2 dayen)
   const fc = fcBase;
-  const fcMicPol = fcBase * micPolFactor; // Interflon MicPol® interval (bijv. 266.24 uren / 20.7 dagen bij 4x)
+  const fcMicPol = fcBase * micPolFactor; // Interflon MicPol® interval (bijv. 266.24 uren / 20.7 dayen bij 4x)
 
-  if (iElement) iElement.textContent = Math.round(fc).toLocaleString("nl-NL");
+  if (iElement) iElement.textContent = Math.round(fc).toLocaleString("en-US");
 
   const weeks = fc / (hoursPerDay * daysPerWeek);
   const days = weeks * 7;
@@ -2741,7 +2741,7 @@ function calculateGrease() {
   if (intervalWeeksElement) intervalWeeksElement.textContent = weeks.toFixed(1);
   if (intervalMonthsElement) intervalMonthsElement.textContent = months.toFixed(1);
 
-  if (intervalMicPolElement) intervalMicPolElement.textContent = Math.round(fcMicPol).toLocaleString("nl-NL");
+  if (intervalMicPolElement) intervalMicPolElement.textContent = Math.round(fcMicPol).toLocaleString("en-US");
 
   const micPolWeeks = fcMicPol / (hoursPerDay * daysPerWeek);
   const micPolDays = micPolWeeks * 7;
@@ -3247,7 +3247,7 @@ function updateOmMetadata() {
   setVal("omTechProduct", techProduct); setVal("chainOmTechProduct", techProduct);
 
   const intervalVal = localStorage.getItem("tech_interval");
-  const suffix = currentLang === "nl" ? " dagen" : currentLang === "fr" ? " jours" : " days";
+  const suffix = currentLang === "nl" ? " dayen" : currentLang === "fr" ? " jours" : " days";
   const formattedInterval = intervalVal ? `${intervalVal}${suffix}` : "";
   setVal("omTechInterval", formattedInterval); setVal("chainOmTechInterval", formattedInterval);
 
@@ -3590,7 +3590,7 @@ function runBearingPdfExport(includeTco, includeRoi) {
       doc.text(langData.pdfDocTitle || "INTERFLON LAGER SMEERADVIES", 20, 32);
 
       const now = new Date();
-      const dateLocale = currentLang === "nl" ? "nl-NL" : currentLang === "en" ? "en-US" : "fr-FR";
+      const dateLocale = currentLang === "nl" ? "en-US" : currentLang === "en" ? "en-US" : "fr-FR";
       const dateString = now.toLocaleDateString(dateLocale) + " " + now.toLocaleTimeString(dateLocale, {hour: '2-digit', minute:'2-digit'});
       doc.setFont("helvetica", "normal");
       doc.setFontSize(9);
@@ -3708,7 +3708,7 @@ function runBearingPdfExport(includeTco, includeRoi) {
       doc.text((langData.techBrandLabel || "Merk") + ":", 110, 93.5);
       doc.text((langData.techProductLabel || "Huidig product") + ":", 110, 98);
       
-      const techIntervalLabelShort = currentLang === "nl" ? "Huidig interval (kalenderdagen)" : currentLang === "en" ? "Current interval (calendar days)" : "Intervalle actuel (jours calendaires)";
+      const techIntervalLabelShort = currentLang === "nl" ? "Huidig interval (kalenderdayen)" : currentLang === "en" ? "Current interval (calendar days)" : "Intervalle actuel (jours calendaires)";
       doc.text(techIntervalLabelShort + ":", 110, 102.5);
 
       const techPriceLabelShort = currentLang === "nl" ? "Prijs huidig prod./L" : currentLang === "en" ? "Price current prod./L" : "Prix prod. actuel/L";
@@ -3754,10 +3754,10 @@ function runBearingPdfExport(includeTco, includeRoi) {
       doc.line(20, 120, 190, 120);
 
       const speedUnit = currentLang === "nl" ? " r/min" : currentLang === "en" ? " rpm" : " tr/min";
-      const hoursPerDayLabel = currentLang === "nl" ? "Operationele uren/dag" : currentLang === "en" ? "Operational hours/day" : "Heures opérationnelles/jour";
-      const hoursPerDaySuffix = currentLang === "nl" ? " uren/dag" : currentLang === "en" ? " hours/day" : " heures/jour";
-      const daysPerWeekLabel = currentLang === "nl" ? "Operationele dagen/week" : currentLang === "en" ? "Operational days/week" : "Jours opérationnels/semaine";
-      const daysPerWeekSuffix = currentLang === "nl" ? " dagen/week" : currentLang === "en" ? " days/week" : " jours/semaine";
+      const hoursPerDayLabel = currentLang === "nl" ? "Operationele uren/day" : currentLang === "en" ? "Operational hours/day" : "Heures opérationnelles/jour";
+      const hoursPerDaySuffix = currentLang === "nl" ? " uren/day" : currentLang === "en" ? " hours/day" : " heures/jour";
+      const daysPerWeekLabel = currentLang === "nl" ? "Operationele dayen/week" : currentLang === "en" ? "Operational days/week" : "Jours opérationnels/semaine";
+      const daysPerWeekSuffix = currentLang === "nl" ? " dayen/week" : currentLang === "en" ? " days/week" : " jours/semaine";
 
       const params = [
         [langData.inputGreaseLabel, greaseName],
@@ -4209,17 +4209,17 @@ function runBearingPdfExport(includeTco, includeRoi) {
         const totalCostY1El = document.getElementById("omTotalCostYears1");
         const totalCostY2El = document.getElementById("omTotalCostYears2");
         const savingsMachYEl = document.getElementById("omSavingsMachineYears");
-        drawCell(startX1, curY, 54, 6.5, `Kostprijs / machine na ${tco_yrs} jaar (€)`, totalCostY1El ? totalCostY1El.textContent : "€ 0,00", "pink-total");
-        drawCell(startX2, curY, 54, 6.5, `Kostprijs / machine na ${tco_yrs} jaar (€)`, totalCostY2El ? totalCostY2El.textContent : "€ 0,00", "pink-total");
-        drawCell(startX3, curY, 60, 6.5, `Kostenbesparing / machine / na ${tco_yrs} jaar (€)`, savingsMachYEl ? savingsMachYEl.textContent : "€ 0,00", "green-total");
+        drawCell(startX1, curY, 54, 6.5, `Kostprijs / machine na ${tco_yrs} year (€)`, totalCostY1El ? totalCostY1El.textContent : "€ 0,00", "pink-total");
+        drawCell(startX2, curY, 54, 6.5, `Kostprijs / machine na ${tco_yrs} year (€)`, totalCostY2El ? totalCostY2El.textContent : "€ 0,00", "pink-total");
+        drawCell(startX3, curY, 60, 6.5, `Kostenbesparing / machine / na ${tco_yrs} year (€)`, savingsMachYEl ? savingsMachYEl.textContent : "€ 0,00", "green-total");
 
         curY += 6.5;
         const totalParkY1El = document.getElementById("omTotalParkCostYears1");
         const totalParkY2El = document.getElementById("omTotalParkCostYears2");
         const totalSavYEl = document.getElementById("omTotalSavingsYears");
-        drawCell(startX1, curY, 54, 6.5, `Kostprijs / machinepark na ${tco_yrs} jaar (€)`, totalParkY1El ? totalParkY1El.textContent : "€ 0,00", "pink-total");
-        drawCell(startX2, curY, 54, 6.5, `Kostprijs / machinepark na ${tco_yrs} jaar (€)`, totalParkY2El ? totalParkY2El.textContent : "€ 0,00", "pink-total");
-        drawCell(startX3, curY, 60, 6.5, `Kostenbesparing / machinepark / na ${tco_yrs} jaar (€)`, totalSavYEl ? totalSavYEl.textContent : "€ 0,00", "green-total");
+        drawCell(startX1, curY, 54, 6.5, `Kostprijs / machinepark na ${tco_yrs} year (€)`, totalParkY1El ? totalParkY1El.textContent : "€ 0,00", "pink-total");
+        drawCell(startX2, curY, 54, 6.5, `Kostprijs / machinepark na ${tco_yrs} year (€)`, totalParkY2El ? totalParkY2El.textContent : "€ 0,00", "pink-total");
+        drawCell(startX3, curY, 60, 6.5, `Kostenbesparing / machinepark / na ${tco_yrs} year (€)`, totalSavYEl ? totalSavYEl.textContent : "€ 0,00", "green-total");
 
         // Page 2 Footer
         doc.setFont("helvetica", "normal");
@@ -4471,7 +4471,7 @@ function calculateTcoForPrefix(prefix) {
   };
 
   const fmtCurrency = (n) => {
-    return new Intl.NumberFormat(currentLang === 'nl' ? 'nl-NL' : currentLang === 'fr' ? 'fr-FR' : 'en-US', {
+    return new Intl.NumberFormat(currentLang === 'nl' ? 'en-US' : currentLang === 'fr' ? 'fr-FR' : 'en-US', {
       style: 'currency',
       currency: 'EUR',
       minimumFractionDigits: 2,
@@ -4480,7 +4480,7 @@ function calculateTcoForPrefix(prefix) {
   };
 
   const fmtPercent = (n) => {
-    return new Intl.NumberFormat(currentLang === 'nl' ? 'nl-NL' : currentLang === 'fr' ? 'fr-FR' : 'en-US', {
+    return new Intl.NumberFormat(currentLang === 'nl' ? 'en-US' : currentLang === 'fr' ? 'fr-FR' : 'en-US', {
       style: 'percent',
       minimumFractionDigits: 2,
       maximumFractionDigits: 2
@@ -4840,7 +4840,7 @@ function updateBearingAnimation(speed, limitingSpeed, ndm, dnMax, fc, temp, temp
   lang = currentLang || "nl";
   
   if (rpmVal) {
-    rpmVal.textContent = isNaN(bearingAnimState.rpm) ? "-" : Math.round(bearingAnimState.rpm).toLocaleString(lang === "nl" ? "nl-NL" : "en-US");
+    rpmVal.textContent = isNaN(bearingAnimState.rpm) ? "-" : Math.round(bearingAnimState.rpm).toLocaleString(lang === "nl" ? "en-US" : "en-US");
   }
   
   // Status bepalen
@@ -5324,9 +5324,9 @@ function calculateAutomationLubrication() {
   // Render main summary badge above cards
   const needBadgeEl = document.getElementById("autoBearingNeedBadge");
   if (needBadgeEl) {
-    const gqStr = (window.currentRefillGrams || 0).toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-    const needRateStr = dailyNeedCm3.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 4 });
-    const roundedDaysStr = Math.round(window.currentMicPolDays || 0).toLocaleString("nl-BE");
+    const gqStr = (window.currentRefillGrams || 0).toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    const needRateStr = dailyNeedCm3.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+    const roundedDaysStr = Math.round(window.currentMicPolDays || 0).toLocaleString("en-US");
 
     needBadgeEl.innerHTML = `
       <div style="margin-bottom: 16px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #E30613; border-radius: var(--border-radius-sm); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
@@ -5342,10 +5342,10 @@ function calculateAutomationLubrication() {
               Berekende Lagerbehoefte (Per 1 lager)
             </div>
             <div style="font-size: 14px; font-weight: 800; color: var(--primary-dark); margin-top: 1px;">
-              ${needRateStr} ml/dag per lager
+              ${needRateStr} ml/day per lager
             </div>
             <div style="font-size: 11.5px; color: var(--text-medium); margin-top: 3px;">
-              Nasmeerhoeveelheid: <strong>${gqStr} g</strong> &bull; Smeerinterval: <strong>${roundedDaysStr} dagen</strong> (${hDay}u/dag, ${dWeek}d/week)
+              Nasmeerhoeveelheid: <strong>${gqStr} g</strong> &bull; Smeerinterval: <strong>${roundedDaysStr} dayen</strong> (${hDay}u/day, ${dWeek}d/week)
             </div>
           </div>
         </div>
@@ -5401,8 +5401,8 @@ function calculateAutomationLubrication() {
     const recWeeks = recDays / 7;
 
     const recSetting = getRecommendedSettingMonths(recMonths);
-    const dialLabel = `${recSetting.months} ${recSetting.months === 1 ? 'maand' : 'months'}`;
-    const theoMonthsStr = recMonths > 10 ? `${Math.round(recMonths)} maanden` : `${recMonths.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} maanden`;
+    const dialLabel = `${recSetting.months} ${recSetting.months === 1 ? 'month' : 'months'}`;
+    const theoMonthsStr = recMonths > 10 ? `${Math.round(recMonths)} monthen` : `${recMonths.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} monthen`;
 
     const dialValEl = document.getElementById("autoDialValue_" + devId);
     const theoValEl = document.getElementById("autoTheoValue_" + devId);
@@ -5430,11 +5430,11 @@ function calculateAutomationLubrication() {
     }
     if (recSubtextEl) {
       if (smartAdv.isGracoRecommended) {
-        recSubtextEl.innerHTML = `&#9888; <strong>Hoge vetbehoefte voor ${pointsText} (${totalDailyNeedForDev.toFixed(2).replace('.', ',')} ml/dag):</strong> Een 500 ml patroon gaat slechts ${((500 / totalDailyNeedForDev)/30.4375).toFixed(1).replace('.', ',')} maanden mee.<br>👉 <strong>Advies: Bekijk de optie Graco</strong> (centraal smeersysteem / vatpomp voor grote vetvolumes).`;
+        recSubtextEl.innerHTML = `&#9888; <strong>Hoge vetbehoefte voor ${pointsText} (${totalDailyNeedForDev.toFixed(2).replace('.', ',')} ml/day):</strong> Een 500 ml patroon gaat slechts ${((500 / totalDailyNeedForDev)/30.4375).toFixed(1).replace('.', ',')} monthen mee.<br>👉 <strong>Advies: Bekijk de optie Graco</strong> (centraal smeersysteem / vatpomp voor grote vetvolumes).`;
       } else if (isSmartMatch) {
-        recSubtextEl.innerHTML = `&check; <strong>Optimaal advies voor ${pointsText}: ${smartAdv.cap} ml patroon ingesteld op ${smartAdv.months} ${smartAdv.months === 1 ? 'maand' : 'months'}.</strong><br>&bull; Dit is de <strong>meest voordelige combinatie</strong> (slechts ${smartAdv.cartridgesPerYear.toFixed(1).replace('.', ',')} patronen/jaar &bull; € ${smartAdv.annualCost.toFixed(2).replace('.', ',')}/jaar patronen) en bespaart aanzienlijk op vervangen en onderhoud.`;
+        recSubtextEl.innerHTML = `&check; <strong>Optimaal advies voor ${pointsText}: ${smartAdv.cap} ml patroon ingesteld op ${smartAdv.months} ${smartAdv.months === 1 ? 'month' : 'months'}.</strong><br>&bull; Dit is de <strong>meest voordelige combinatie</strong> (slechts ${smartAdv.cartridgesPerYear.toFixed(1).replace('.', ',')} cartridges/year &bull; € ${smartAdv.annualCost.toFixed(2).replace('.', ',')}/year patronen) en bespaart aanzienlijk op vervangen en onderhoud.`;
       } else {
-        recSubtextEl.innerHTML = `&bull; Huidige selectie: <strong>${capMl} ml patroon op ${dialLabel}</strong> (${roundReason}).<br>&bull; <strong>Slim advies-tip:</strong> Klik op <em>'Neem advies over'</em> om automatisch te kiezen voor <strong>${smartAdv.cap} ml op ${smartAdv.months} ${smartAdv.months === 1 ? 'maand' : 'months'}</strong> (slechts € ${smartAdv.annualCost.toFixed(2).replace('.', ',')}/jaar patronen).`;
+        recSubtextEl.innerHTML = `&bull; Huidige selectie: <strong>${capMl} ml patroon op ${dialLabel}</strong> (${roundReason}).<br>&bull; <strong>Slim advies-tip:</strong> Klik op <em>'Neem advies over'</em> om automatisch te kiezen voor <strong>${smartAdv.cap} ml op ${smartAdv.months} ${smartAdv.months === 1 ? 'month' : 'months'}</strong> (slechts € ${smartAdv.annualCost.toFixed(2).replace('.', ',')}/year patronen).`;
       }
     }
 
@@ -5462,9 +5462,9 @@ function calculateAutomationLubrication() {
     const monthValEl = document.getElementById("autoMonthlyVolumeRes_" + devId);
     const yearValEl = document.getElementById("autoYearlyVolumeRes_" + devId);
 
-    if (resValEl) resValEl.textContent = `${displayDaily1.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/dag`;
-    if (monthValEl) monthValEl.textContent = `${displayMonthly1.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/maand`;
-    if (yearValEl) yearValEl.textContent = `${displayYearly1.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/jaar`;
+    if (resValEl) resValEl.textContent = `${displayDaily1.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/day`;
+    if (monthValEl) monthValEl.textContent = `${displayMonthly1.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/month`;
+    if (yearValEl) yearValEl.textContent = `${displayYearly1.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/year`;
 
     const displayDailyX = totalDailyNeedForDev;
     const displayMonthlyX = displayDailyX * 30.4375;
@@ -5487,9 +5487,9 @@ function calculateAutomationLubrication() {
     const resMonthlyX = document.getElementById("autoMonthlyVolumeTotalRes_" + devId);
     const resYearlyX = document.getElementById("autoYearlyVolumeTotalRes_" + devId);
 
-    if (resDailyX) resDailyX.textContent = `${displayDailyX.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/dag`;
-    if (resMonthlyX) resMonthlyX.textContent = `${displayMonthlyX.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/maand`;
-    if (resYearlyX) resYearlyX.textContent = `${displayYearlyX.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/jaar`;
+    if (resDailyX) resDailyX.textContent = `${displayDailyX.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/day`;
+    if (resMonthlyX) resMonthlyX.textContent = `${displayMonthlyX.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/month`;
+    if (resYearlyX) resYearlyX.textContent = `${displayYearlyX.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/year`;
 
     // 4. Match / Under / Over-lubrication Notice Box per Device (WITH FULL NUMERICAL DETAILS & MULTILINGUAL)
     const noticeEl = document.getElementById("autoMatchNotice_" + devId);
@@ -5513,7 +5513,7 @@ function calculateAutomationLubrication() {
 
         let unitLabel = lang === "fr" ? (curUnit === "weeks" ? "semaines" : (curUnit === "days" ? "jours" : "mois")) : (lang === "en" ? (curUnit === "weeks" ? "weeks" : (curUnit === "days" ? "days" : "months")) : (curUnit === "weeks" ? "weeks" : (curUnit === "days" ? "days" : "months")));
 
-        const locCode = lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "nl-BE");
+        const locCode = lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "en-US");
         const actualStr = (actualDailyVol / points).toLocaleString(locCode, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         const targetStr = dailyNeedCm3.toLocaleString(locCode, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         const actualDevTotalStr = actualDailyVol.toLocaleString(locCode, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -5541,8 +5541,8 @@ function calculateAutomationLubrication() {
             </div>
           ` : `
             <div style="padding: 12px 14px; background-color: #FEF2F2; border: 1.5px solid #EF4444; border-radius: var(--border-radius-sm); color: #991B1B; font-size: 11.5px; font-weight: 600; line-height: 1.4; box-shadow: 0 1px 3px rgba(227,6,19,0.06);">
-              ⚠️ <strong>Hoge vetbehoefte voor Pulsarlube (${targetDevTotalStr} ml/dag voor ${pointsText}):</strong><br>
-              Zelfs met een maximaal 500 ml patroon op 1 maand levert het toestel ${actualDevTotalStr} ml/dag af en raakt een 500 ml patroon al na <strong>${maxTheoMonthsForDev.toFixed(1).replace('.', ',')} maanden</strong> leeg.<br>
+              ⚠️ <strong>Hoge vetbehoefte voor Pulsarlube (${targetDevTotalStr} ml/day voor ${pointsText}):</strong><br>
+              Zelfs met een maximaal 500 ml patroon op 1 month levert het toestel ${actualDevTotalStr} ml/day af en raakt een 500 ml patroon al na <strong>${maxTheoMonthsForDev.toFixed(1).replace('.', ',')} monthen</strong> leeg.<br>
               👉 <strong>Advies: Bekijk de optie Graco</strong> (centraal smeersysteem / vatpomp voor continue smering van grote vetvolumes).
             </div>
           `);
@@ -5557,7 +5557,7 @@ function calculateAutomationLubrication() {
             </div>
           ` : `
             <div style="padding: 10px 14px; background-color: #ECFDF5; border: 1px solid #A7F3D0; border-radius: var(--border-radius-sm); color: #065F46; font-size: 11.5px; font-weight: 600; line-height: 1.4; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-              ✅ <strong>Perfecte match met de berekende vetbehoefte!</strong> Met een instelling van <strong>${periodVal} ${unitLabel}</strong> doseert dit toestel <strong>${actualStr} ml/dag per lager</strong> voor ${pointsText} (exacte behoefte: <strong>${targetStr} ml/dag per lager</strong>).
+              ✅ <strong>Perfecte match met de berekende vetbehoefte!</strong> Met een instelling van <strong>${periodVal} ${unitLabel}</strong> doseert dit toestel <strong>${actualStr} ml/day per lager</strong> voor ${pointsText} (exacte behoefte: <strong>${targetStr} ml/day per lager</strong>).
             </div>
           `);
         } else if (ratio < 0.85) {
@@ -5573,7 +5573,7 @@ function calculateAutomationLubrication() {
             </div>
           ` : `
             <div style="padding: 10px 14px; background-color: #FEF3C7; border: 1px solid #FDE68A; border-radius: var(--border-radius-sm); color: #92400E; font-size: 11.5px; font-weight: 600; line-height: 1.4; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-              ⚠️ <strong>Ondersmering risico!</strong> Ingesteld op <strong>${periodVal} ${unitLabel}</strong> levert ${targetDevName} slechts <strong>${actualStr} ml/dag per lager</strong> af (totaal: <strong>${actualDevTotalStr} ml/dag</strong>), terwijl de berekende behoefte voor ${pointsText} <strong>${targetStr} ml/dag per lager</strong> bedraagt.<br>
+              ⚠️ <strong>Ondersmering risico!</strong> Ingesteld op <strong>${periodVal} ${unitLabel}</strong> levert ${targetDevName} slechts <strong>${actualStr} ml/day per lager</strong> af (totaal: <strong>${actualDevTotalStr} ml/day</strong>), terwijl de berekende behoefte voor ${pointsText} <strong>${targetStr} ml/day per lager</strong> bedraagt.<br>
               <strong>Advies:</strong> Stel de leeglooptijd korter in (bijv. op <strong>${dialLabel}</strong>) of kies een groter patroon.
             </div>
           `);
@@ -5593,7 +5593,7 @@ function calculateAutomationLubrication() {
             </div>
           ` : `
             <div style="padding: 10px 14px; background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--border-radius-sm); color: #1E40AF; font-size: 11.5px; font-weight: 600; line-height: 1.4; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-              ℹ️ <strong>Extra smering:</strong> Ingesteld op <strong>${periodVal} ${unitLabel}</strong> levert ${targetDevName} <strong>${actualStr} ml/dag per lager</strong> af (totaal: <strong>${actualDevTotalStr} ml/dag</strong>). Dit is meer dan de theoretische minimale behoefte van <strong>${targetStr} ml/dag per lager</strong>, wat zorgt voor maximale afdichting en bescherming.<br>
+              ℹ️ <strong>Extra smering:</strong> Ingesteld op <strong>${periodVal} ${unitLabel}</strong> levert ${targetDevName} <strong>${actualStr} ml/day per lager</strong> af (totaal: <strong>${actualDevTotalStr} ml/day</strong>). Dit is meer dan de theoretische minimale behoefte van <strong>${targetStr} ml/day per lager</strong>, wat zorgt voor maximale afdichting en bescherming.<br>
               ${adviceAdviceText}
             </div>
           `);
@@ -5662,7 +5662,7 @@ function updateModeUI() {
       menuRoiAutomationText.removeAttribute("data-i18n");
     }
     if (menuInfoText) {
-      menuInfoText.textContent = "Informatie";
+      menuInfoText.textContent = "Information";
       menuInfoText.removeAttribute("data-i18n");
     }
   } else {
@@ -5671,7 +5671,7 @@ function updateModeUI() {
     if (modeTitle) modeTitle.textContent = "Lagerberekening";
     if (menuSearchText) {
       menuSearchText.setAttribute("data-i18n", "menuSearch");
-      menuSearchText.textContent = "Lager Opzoeken";
+      menuSearchText.textContent = "Bearing Search";
     }
     if (menuCalcText) {
       menuCalcText.setAttribute("data-i18n", "menuCalc");
@@ -5691,7 +5691,7 @@ function updateModeUI() {
     }
     if (menuInfoText) {
       menuInfoText.setAttribute("data-i18n", "menuInfo");
-      menuInfoText.textContent = "Informatie";
+      menuInfoText.textContent = "Information";
     }
   }
 }
@@ -5909,23 +5909,23 @@ function calculateChainGrease() {
   const yearlyLiters = (weeklyCm3 * 52.14) / 1000;
 
   if (resDaily) {
-    resDaily.textContent = `${dailyCm3.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/dag`;
+    resDaily.textContent = `${dailyCm3.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/day`;
   }
   if (resHourly) {
-    resHourly.textContent = `${hourlyMl.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/uur`;
+    resHourly.textContent = `${hourlyMl.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/uur`;
   }
   if (resWeekly) {
-    resWeekly.textContent = `${weeklyCm3.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/wk`;
+    resWeekly.textContent = `${weeklyCm3.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/wk`;
   }
   if (resMonthly) {
     const monthlyMl = (weeklyCm3 * 52.14) / 12;
     const formattedMonthly = monthlyMl >= 1000 
-      ? `${(monthlyMl / 1000).toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} L/maand`
-      : `${monthlyMl.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/maand`;
+      ? `${(monthlyMl / 1000).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} L/month`
+      : `${monthlyMl.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml/month`;
     resMonthly.textContent = formattedMonthly;
   }
   if (resYearly) {
-    resYearly.textContent = `${yearlyLiters.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} L/jaar`;
+    resYearly.textContent = `${yearlyLiters.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} L/year`;
   }
 
   // Sync with Ketting Opbrengstmodel TCO table
@@ -6027,7 +6027,7 @@ function runChainPdfExport(includeTco, includeRoi) {
         doc.text("INTERFLON KETTINGSMEERADVIES", 20, 32);
 
         const now = new Date();
-        const dateLocale = currentLang === "nl" ? "nl-NL" : currentLang === "en" ? "en-US" : "fr-FR";
+        const dateLocale = currentLang === "nl" ? "en-US" : currentLang === "en" ? "en-US" : "fr-FR";
         const dateString = now.toLocaleDateString(dateLocale) + " " + now.toLocaleTimeString(dateLocale, {hour: '2-digit', minute:'2-digit'});
         doc.setFont("helvetica", "normal");
         doc.setFontSize(9);
@@ -6140,7 +6140,7 @@ function runChainPdfExport(includeTco, includeRoi) {
         doc.text((langData.techBrandLabel || "Merk") + ":", 110, 93.5);
         doc.text((langData.techProductLabel || "Huidig product") + ":", 110, 98);
         
-        const techIntervalLabelShort = currentLang === "nl" ? "Huidig interval (dagen)" : currentLang === "en" ? "Current interval (days)" : "Intervalle actuel (jours)";
+        const techIntervalLabelShort = currentLang === "nl" ? "Huidig interval (dayen)" : currentLang === "en" ? "Current interval (days)" : "Intervalle actuel (jours)";
         doc.text(techIntervalLabelShort + ":", 110, 102.5);
 
         const techPriceLabelShort = currentLang === "nl" ? "Prijs huidig prod./L" : currentLang === "en" ? "Price current prod./L" : "Prix prod. actuel/L";
@@ -6152,7 +6152,7 @@ function runChainPdfExport(includeTco, includeRoi) {
         doc.text(techApp, 160, 89);
         doc.text(techBrand, 160, 93.5);
         doc.text(techProduct, 160, 98);
-        doc.text(techInterval !== "-" ? (techInterval + " dagen") : "-", 160, 102.5);
+        doc.text(techInterval !== "-" ? (techInterval + " dayen") : "-", 160, 102.5);
         const parsedTechPrice = parseFloat(techPrice); doc.text(techPrice !== "-" && !isNaN(parsedTechPrice) ? ("€ " + parsedTechPrice.toFixed(2)) : "-", 160, 107);
 
         // 4. Kettingsmeercalculatie & Oliedosering Tabel
@@ -6202,16 +6202,16 @@ function runChainPdfExport(includeTco, includeRoi) {
         const rows = [
           ["Kettinglengte (L)", lengthM.toFixed(1) + " m"],
           ["Kettingsnelheid (v)", speedMS.toFixed(1) + " m/s"],
-          ["Bedrijfsuren per dag", hoursPerDay + " uren/dag"],
-          ["Bedrijfsdagen per week", daysPerWeek + " dagen/week"],
+          ["Bedrijfsuren per day", hoursPerDay + " uren/day"],
+          ["Bedrijfsdayen per week", daysPerWeek + " dayen/week"],
           ["Bedrijfstemperatuur", tempC + " °C"],
           ["Omgevingsomstandigheden", env === "normal" ? "Normaal" : env === "dusty" ? "Stoffig" : env === "wet" ? "Nat" : "Zwaar verontreinigd"],
           ["Interflon MicPol® Reductiefactor", micpolFactor.toFixed(1) + "x langer smeerinterval"],
-          ["Dagelijks olieverbruik (MicPol®)", dailyCm3.toFixed(1) + " ml/dag"],
+          ["Dagelijks olieverbruik (MicPol®)", dailyCm3.toFixed(1) + " ml/day"],
           ["Oliedosering per uur", hourlyMl.toFixed(2) + " ml/uur"],
           ["Wekelijks olieverbruik", weeklyCm3.toFixed(1) + " ml/week"],
-          ["Jaarlijks olieverbruik (Conventioneel)", yearlyLitersConv.toFixed(2) + " L/jaar"],
-          ["Jaarlijks olieverbruik (Interflon MicPol®)", yearlyLitersInterflon.toFixed(2) + " L/jaar"]
+          ["Jaarlijks olieverbruik (Conventioneel)", yearlyLitersConv.toFixed(2) + " L/year"],
+          ["Jaarlijks olieverbruik (Interflon MicPol®)", yearlyLitersInterflon.toFixed(2) + " L/year"]
         ];
 
         let currentY = 120;
@@ -6494,8 +6494,8 @@ function runChainPdfExport(includeTco, includeRoi) {
           drawCell(startX1, curY, 54, 6, "Productverbruik / smeerbeurt / per lager", p1_cons, "blue");
           drawCell(startX2, curY, 54, 6, "Productverbruik / smeerbeurt / per lager", p2_cons, "blue");
           curY += 6;
-          drawCell(startX1, curY, 54, 6, "Smeerfrequentie / jaar", p1_freq, "blue");
-          drawCell(startX2, curY, 54, 6, "Smeerfrequentie / jaar", p2_freq, "blue");
+          drawCell(startX1, curY, 54, 6, "Smeerfrequentie / year", p1_freq, "blue");
+          drawCell(startX2, curY, 54, 6, "Smeerfrequentie / year", p2_freq, "blue");
           curY += 6;
           drawCell(startX1, curY, 54, 6, "Prijs product / L (€)", p1_price, "blue");
           drawCell(startX2, curY, 54, 6, "Prijs product / L (€)", p2_price, "blue");
@@ -6515,8 +6515,8 @@ function runChainPdfExport(includeTco, includeRoi) {
           drawCell(startX3, curY, 60, 6, "Prijs werkuur / H (€)", shared_labor_rate, "blue");
 
           curY += 6;
-          drawCell(startX1, curY, 54, 6, "Revisiefrequentie (maanden)", p1_rep_freq, "blue");
-          drawCell(startX2, curY, 54, 6, "Revisiefrequentie (maanden)", p2_rep_freq, "blue");
+          drawCell(startX1, curY, 54, 6, "Revisiefrequentie (monthen)", p1_rep_freq, "blue");
+          drawCell(startX2, curY, 54, 6, "Revisiefrequentie (monthen)", p2_rep_freq, "blue");
           drawCell(startX3, curY, 60, 6, "Overhaul Prep Time (H)", shared_prep_h, "blue");
 
           curY += 6;
@@ -6534,8 +6534,8 @@ function runChainPdfExport(includeTco, includeRoi) {
           drawCell(startX3, curY, 60, 5, "Algemene info", null, "section");
 
           curY += 5;
-          drawCell(startX1, curY, 54, 6, "Levensduur ketting (maanden)", p1_lifetime, "blue");
-          drawCell(startX2, curY, 54, 6, "Levensduur ketting (maanden)", p2_lifetime, "blue");
+          drawCell(startX1, curY, 54, 6, "Levensduur ketting (monthen)", p1_lifetime, "blue");
+          drawCell(startX2, curY, 54, 6, "Levensduur ketting (monthen)", p2_lifetime, "blue");
           drawCell(startX3, curY, 60, 6, "Spare Parts Cost / Set (€)", shared_parts_cost, "blue");
 
           curY += 6;
@@ -6558,8 +6558,8 @@ function runChainPdfExport(includeTco, includeRoi) {
           drawCell(startX3, curY, 60, 6, "Downtime Cost / Hour (€)", shared_dt_rate, "blue");
 
           curY += 6;
-          drawCell(startX1, curY, 54, 6, "Downtime frequentie / jaar", p1_dt_freq, "grey");
-          drawCell(startX2, curY, 54, 6, "Downtime frequentie / jaar", p2_dt_freq, "grey");
+          drawCell(startX1, curY, 54, 6, "Downtime frequentie / year", p1_dt_freq, "grey");
+          drawCell(startX2, curY, 54, 6, "Downtime frequentie / year", p2_dt_freq, "grey");
 
           curY += 6;
           drawCell(startX1, curY, 54, 6, "Jaarlijkse downtimekost / machine (€)", p1_ann_dt, "pink-total");
@@ -6574,27 +6574,27 @@ function runChainPdfExport(includeTco, includeRoi) {
           curY += 5;
           drawCell(startX1, curY, 54, 6, "Total Cost / Year / Machine (€)", p1_total, "pink-total");
           drawCell(startX2, curY, 54, 6, "Total Cost / Year / Machine (€)", p2_total, "green-total");
-          drawCell(startX3, curY, 60, 6, "Kostenbesparing / jaar / machine (€)", ann_savings, "green-total");
+          drawCell(startX3, curY, 60, 6, "Kostenbesparing / year / machine (€)", ann_savings, "green-total");
 
           curY += 6;
-          drawCell(startX1, curY, 54, 6, "Totale kostprijs / jaar / park (€)", p1_park, "pink-total");
-          drawCell(startX2, curY, 54, 6, "Totale kostprijs / jaar / park (€)", p2_park, "green-total");
-          drawCell(startX3, curY, 60, 6, "Kostenbesparing / jaar (€)", ann_park_savings, "green-total");
+          drawCell(startX1, curY, 54, 6, "Totale kostprijs / year / park (€)", p1_park, "pink-total");
+          drawCell(startX2, curY, 54, 6, "Totale kostprijs / year / park (€)", p2_park, "green-total");
+          drawCell(startX3, curY, 60, 6, "Kostenbesparing / year (€)", ann_park_savings, "green-total");
 
-          const mach_savings_years_val = (parseFloat((ann_savings || "0").replace(/[^0-9,-]/g, '').replace(',', '.')) * tco_years).toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+          const mach_savings_years_val = (parseFloat((ann_savings || "0").replace(/[^0-9,-]/g, '').replace(',', '.')) * tco_years).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
           curY += 6;
           drawCell(startX2, curY, 54, 6, "% Product / totale kost", prod_percent, "grey");
-          drawCell(startX3, curY, 60, 6, "Aantal jaren voor TCO", tco_years + " jaar", "grey");
+          drawCell(startX3, curY, 60, 6, "Aantal jaren voor TCO", tco_years + " year", "grey");
 
           curY += 6;
-          drawCell(startX1, curY, 54, 6, `Kostprijs / machine na ${tco_years} jaar (€)`, p1_years, "pink-total");
-          drawCell(startX2, curY, 54, 6, `Kostprijs / machine na ${tco_years} jaar (€)`, p2_years, "green-total");
-          drawCell(startX3, curY, 60, 6, `Kostenbesparing / machine / na ${tco_years} jaar (€)`, "€ " + mach_savings_years_val, "green-total");
+          drawCell(startX1, curY, 54, 6, `Kostprijs / machine na ${tco_years} year (€)`, p1_years, "pink-total");
+          drawCell(startX2, curY, 54, 6, `Kostprijs / machine na ${tco_years} year (€)`, p2_years, "green-total");
+          drawCell(startX3, curY, 60, 6, `Kostenbesparing / machine / na ${tco_years} year (€)`, "€ " + mach_savings_years_val, "green-total");
 
           curY += 6;
-          drawCell(startX1, curY, 54, 6, `Kostprijs / park na ${tco_years} jaar (€)`, park_years1, "pink-total");
-          drawCell(startX2, curY, 54, 6, `Kostprijs / park na ${tco_years} jaar (€)`, park_years2, "green-total");
-          drawCell(startX3, curY, 60, 6, `Kostenbesparing / machinepark / na ${tco_years} jaar (€)`, total_savings, "green-total");
+          drawCell(startX1, curY, 54, 6, `Kostprijs / park na ${tco_years} year (€)`, park_years1, "pink-total");
+          drawCell(startX2, curY, 54, 6, `Kostprijs / park na ${tco_years} year (€)`, park_years2, "green-total");
+          drawCell(startX3, curY, 60, 6, `Kostenbesparing / machinepark / na ${tco_years} year (€)`, total_savings, "green-total");
 
           // Footer
           doc.setFontSize(6.8);
@@ -6628,7 +6628,7 @@ function runChainPdfExport(includeTco, includeRoi) {
         const chainYearlyValNum = chainAutoYearlyEl ? parseDutchFloat(chainAutoYearlyEl.textContent) : 0;
         let chainCalculatedCartridges = "--";
         if (!isNaN(chainYearlyValNum) && chainYearlyValNum > 0 && parseFloat(chainCapMlVal) > 0) {
-          chainCalculatedCartridges = (chainYearlyValNum / parseFloat(chainCapMlVal)).toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + " patronen/jaar";
+          chainCalculatedCartridges = (chainYearlyValNum / parseFloat(chainCapMlVal)).toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + " cartridges/year";
         } else if (chainAutoCartridgesEl && chainAutoCartridgesEl.textContent.trim() !== "--") {
           chainCalculatedCartridges = chainAutoCartridgesEl.textContent.trim();
         }
@@ -6636,7 +6636,7 @@ function runChainPdfExport(includeTco, includeRoi) {
         const autoChainData = {
           deviceName: chainDeviceName,
           cartridgeCap: chainCapMlVal,
-          dispensePeriod: (chainAutoPeriodEl && chainAutoUnitEl) ? (chainAutoPeriodEl.value + " " + chainAutoUnitEl.options[chainAutoUnitEl.selectedIndex].text) : "3 maanden",
+          dispensePeriod: (chainAutoPeriodEl && chainAutoUnitEl) ? (chainAutoPeriodEl.value + " " + chainAutoUnitEl.options[chainAutoUnitEl.selectedIndex].text) : "3 monthen",
           dailyVol: chainAutoDailyEl ? chainAutoDailyEl.textContent.trim() : "--",
           monthlyVol: chainAutoMonthlyEl ? chainAutoMonthlyEl.textContent.trim() : "--",
           yearlyVol: chainAutoYearlyEl ? chainAutoYearlyEl.textContent.trim() : "--",
@@ -6987,7 +6987,7 @@ function updateChainAutomationPage() {
   if (btn && btnText) {
     if (deviceKey === "interflon_oil_dispenser") {
       if (btnWrapper) btnWrapper.style.display = "block";
-      btnText.textContent = "Informatie over Interflon Oil dispenser";
+      btnText.textContent = "Information about Interflon Oil Dispenser";
       btn.onclick = openOilDispenserInfoModal;
     } else if (deviceKey === "pulsarlube_oil" || deviceKey === "pulsarlube_msp_oil") {
       // User request: Hide "Bekijk afmetingen" for Pulsarlube Oil & Pulsarlube MSP Oil under Kettingen
@@ -7188,13 +7188,13 @@ function calculateChainAutomation() {
   // Render chain requirement badge text
   if (needValEl) {
     const valText = device.isContinuous
-      ? `${avgCalendarDailyMl.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/dag`
-      : `${operatingDailyCm3.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/draaidag`;
+      ? `${avgCalendarDailyMl.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/day`
+      : `${operatingDailyCm3.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/draaiday`;
     needValEl.textContent = valText;
   }
   const needSubValEl = document.getElementById("chainAutoNeedSubVal");
   if (needSubValEl) {
-    needSubValEl.textContent = `(bij ${hoursPerDay} uur/dag, ${daysPerWeek} dagen/week)`;
+    needSubValEl.textContent = `(bij ${hoursPerDay} uur/day, ${daysPerWeek} dayen/week)`;
   }
 
   // Calculate RECOMMENDED RUNTIME (in calendar days, weeks, months) for selected Cartridge Capacity capMl
@@ -7213,8 +7213,8 @@ function calculateChainAutomation() {
   const recWeeks = recDays / 7;
 
   const recSetting = getRecommendedSettingMonths(recMonths);
-  const dialLabel = `${recSetting.months} ${recSetting.months === 1 ? 'maand' : 'months'}`;
-  const theoMonthsStr = recMonths > 10 ? `${Math.round(recMonths)} maanden` : `${recMonths.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} maanden`;
+  const dialLabel = `${recSetting.months} ${recSetting.months === 1 ? 'month' : 'months'}`;
+  const theoMonthsStr = recMonths > 10 ? `${Math.round(recMonths)} monthen` : `${recMonths.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} monthen`;
 
   const chainDialValEl = document.getElementById("chainAutoDialValue");
   const chainTheoValEl = document.getElementById("chainAutoTheoValue");
@@ -7253,10 +7253,10 @@ function calculateChainAutomation() {
   } else if (unit === "weeks") {
     recPeriodVal = recWeeks;
     const roundedW = recWeeks > 10 ? Math.round(recWeeks) : Math.round(recWeeks * 10) / 10;
-    recTitleText = `${dialLabel} (${settingTerm}) | Theoretisch: ${roundedW.toLocaleString("nl-BE")} weken`;
+    recTitleText = `${dialLabel} (${settingTerm}) | Theoretisch: ${roundedW.toLocaleString("en-US")} weken`;
   } else {
     recPeriodVal = recDays;
-    recTitleText = `${dialLabel} (${settingTerm}) | Theoretisch: ${Math.round(recDays)} dagen`;
+    recTitleText = `${dialLabel} (${settingTerm}) | Theoretisch: ${Math.round(recDays)} dayen`;
   }
 
   const roundReason = recSetting.roundedUp ? "afgerond naar boven bij ≥ 0,5" : "afgerond naar beneden bij < 0,5";
@@ -7264,8 +7264,8 @@ function calculateChainAutomation() {
   if (recTitleEl) recTitleEl.textContent = recTitleText;
   if (recSubtextEl) {
     const reqText = device.isContinuous
-      ? `${avgCalendarDailyMl.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/dag`
-      : `${operatingDailyCm3.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/draaidag (${hoursPerDay}u/dag, ${daysPerWeek}d/wk)`;
+      ? `${avgCalendarDailyMl.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/day`
+      : `${operatingDailyCm3.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/draaiday (${hoursPerDay}u/day, ${daysPerWeek}d/wk)`;
     const containerNoun = (deviceKey === "interflon_oil_dispenser") ? "reservoir" : "patroon";
   const containerNounCap = (deviceKey === "interflon_oil_dispenser") ? "Reservoir" : "Patroon";
 
@@ -7274,7 +7274,7 @@ function calculateChainAutomation() {
     capLabelEl.textContent = `${containerNounCap} Capaciteit (ml)`;
   }
 
-  recSubtextEl.innerHTML = `${settingLabel} <strong>${dialLabel}</strong> (${roundReason}).<br>• Theoretisch berekende looptijd: <strong>${theoMonthsStr}</strong> (~ ${Math.round(recWeeks)} weken / ${Math.round(recDays)} dagen) bij ${capMl} ml ${containerNoun} (behoefte: ${reqText}).`;
+  recSubtextEl.innerHTML = `${settingLabel} <strong>${dialLabel}</strong> (${roundReason}).<br>• Theoretisch berekende looptijd: <strong>${theoMonthsStr}</strong> (~ ${Math.round(recWeeks)} weken / ${Math.round(recDays)} dayen) bij ${capMl} ml ${containerNoun} (behoefte: ${reqText}).`;
   }
 
   // AUTO-FILL period input with recommended device setting position if user hasn't manually overridden it
@@ -7294,14 +7294,14 @@ function calculateChainAutomation() {
 
   let unitLabel = "months";
   if (unit === "weeks") unitLabel = periodVal === 1 ? "week" : "weeks";
-  else if (unit === "days") unitLabel = periodVal === 1 ? "dag" : "days";
-  else if (unit === "months") unitLabel = periodVal === 1 ? "maand" : "months";
+  else if (unit === "days") unitLabel = periodVal === 1 ? "day" : "days";
+  else if (unit === "months") unitLabel = periodVal === 1 ? "month" : "months";
 
-  const activeSettingLabel = `${periodVal.toLocaleString("nl-BE", { maximumFractionDigits: 1 })} ${unitLabel}`;
+  const activeSettingLabel = `${periodVal.toLocaleString("en-US", { maximumFractionDigits: 1 })} ${unitLabel}`;
   if (chainDialValEl) chainDialValEl.textContent = activeSettingLabel;
 
-  if (resDailyEl) resDailyEl.textContent = `${dailyMl.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/dag`;
-  if (resHintEl) resHintEl.textContent = `(~ ${monthlyMl.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml / maand bij ${capMl} ml op ${activeSettingLabel})`;
+  if (resDailyEl) resDailyEl.textContent = `${dailyMl.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/day`;
+  if (resHintEl) resHintEl.textContent = `(~ ${monthlyMl.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml / month bij ${capMl} ml op ${activeSettingLabel})`;
 
   // Match Notice Comparison
   const targetDailyMl = avgCalendarDailyMl;
@@ -7313,19 +7313,19 @@ function calculateChainAutomation() {
     if (isMatchingSetting) {
       matchNoticeEl.innerHTML = `
         <div style="padding: 8px 12px; background-color: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 4px; color: #065F46; font-size: 11px; font-weight: 600;">
-          ✓ Uitstekende match! De ingestelde looptijd (${activeSettingLabel}) op het toestel sluit optimaal aan bij de kettingbehoefte (${targetDailyMl.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/dag).
+          ✓ Uitstekende match! De ingestelde looptijd (${activeSettingLabel}) op het toestel sluit optimaal aan bij de kettingbehoefte (${targetDailyMl.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/day).
         </div>
       `;
     } else if ((unit === "months" && periodVal > recSetting.months) || !isSufficientCap || ratio < 0.75) {
       matchNoticeEl.innerHTML = `
         <div style="padding: 8px 12px; background-color: #FEF3C7; border: 1px solid #FDE68A; border-radius: 4px; color: #92400E; font-size: 11px; font-weight: 600;">
-          ⚠️ Ondersmering risico: Ingesteld op <strong>${activeSettingLabel}</strong> levert het ${capMl} ml ${containerNoun} slechts ${dailyMl.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/dag af (behoefte is ${targetDailyMl.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/dag). Bekijk de opties Pulsarlube, Interflon Oil dispenser of Graco.
+          ⚠️ Ondersmering risico: Ingesteld op <strong>${activeSettingLabel}</strong> levert het ${capMl} ml ${containerNoun} slechts ${dailyMl.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/day af (behoefte is ${targetDailyMl.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/day). Bekijk de opties Pulsarlube, Interflon Oil dispenser of Graco.
         </div>
       `;
     } else {
       matchNoticeEl.innerHTML = `
         <div style="padding: 8px 12px; background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 4px; color: #1E40AF; font-size: 11px; font-weight: 600;">
-          ℹ️ Ruime oliedosering: Ingesteld op <strong>${activeSettingLabel}</strong> levert het ${capMl} ml ${containerNoun} ${dailyMl.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/dag af (behoefte is ${targetDailyMl.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/dag).<br>
+          ℹ️ Ruime oliedosering: Ingesteld op <strong>${activeSettingLabel}</strong> levert het ${capMl} ml ${containerNoun} ${dailyMl.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/day af (behoefte is ${targetDailyMl.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ml/day).<br>
           <strong>Advies:</strong> Stel het toestel in op <strong>${dialLabel}</strong> om exact de behoefte af te dekken.
         </div>
       `;
@@ -8068,9 +8068,9 @@ function updateRoiAutomationPage() {
 
   const headerMlEl = document.getElementById("roiHeaderYearlyMl");
   var lang = currentLang || "nl";
-  const yearStr = lang === "fr" ? "an" : (lang === "en" ? "year" : "jaar");
+  const yearStr = lang === "fr" ? "an" : (lang === "en" ? "year" : "year");
   const bearingStr = lang === "fr" ? (totalPointsAllDevices === 1 ? "roulement" : "roulements") : (lang === "en" ? (totalPointsAllDevices === 1 ? "bearing" : "bearings") : (totalPointsAllDevices === 1 ? "lager" : "lagers"));
-  if (headerMlEl) headerMlEl.textContent = `${yearlyMlTotal.toLocaleString(lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "nl-BE"), { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml / ${yearStr} (${totalPointsAllDevices} ${bearingStr})`;
+  if (headerMlEl) headerMlEl.textContent = `${yearlyMlTotal.toLocaleString(lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "en-US"), { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml / ${yearStr} (${totalPointsAllDevices} ${bearingStr})`;
 
   // 3. Card 1: Manuele Smering (Met Interflon vs Met Huidig Product)
   const manualModeSelect = document.getElementById("roiManualModeSelect");
@@ -8174,15 +8174,15 @@ function updateRoiAutomationPage() {
   const autoDowntimeCostEl = document.getElementById("roiAutoDowntimeCost");
 
   if (autoRepairCostEl) {
-    autoRepairCostEl.textContent = `€ ${autoRepairCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / jaar`;
+    autoRepairCostEl.textContent = `€ ${autoRepairCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / year`;
     autoRepairCostEl.style.color = "#059669";
   }
   if (autoMatCostEl) {
-    autoMatCostEl.textContent = `€ ${autoMatCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / jaar`;
+    autoMatCostEl.textContent = `€ ${autoMatCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / year`;
     autoMatCostEl.style.color = "#059669";
   }
   if (autoDowntimeCostEl) {
-    autoDowntimeCostEl.textContent = `€ ${autoDowntimeCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / jaar`;
+    autoDowntimeCostEl.textContent = `€ ${autoDowntimeCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / year`;
     autoDowntimeCostEl.style.color = "#059669";
   }
 
@@ -8201,7 +8201,7 @@ function updateRoiAutomationPage() {
     if (roiManCardSubtext) {
       roiManCardSubtext.style.color = "#0284c7";
       var lang = currentLang || "nl";
-      roiManCardSubtext.textContent = lang === "fr" ? "Avec produit actuel (base annuelle)" : (lang === "en" ? "With current product (annual basis)" : "Met huidig product (op jaarbasis)");
+      roiManCardSubtext.textContent = lang === "fr" ? "Avec produit actuel (base annuelle)" : (lang === "en" ? "With current product (annual basis)" : "Met huidig product (op yearbasis)");
     }
     if (roiManLaborCost) roiManLaborCost.style.color = "#0284c7";
     if (manRepairCostEl) manRepairCostEl.style.color = "#0284c7";
@@ -8220,9 +8220,9 @@ function updateRoiAutomationPage() {
     }
 
     // 2. Populate 3 extra rows text
-    if (manRepairCostEl) manRepairCostEl.textContent = `€ ${manualRepairCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / jaar`;
-    if (manMatCostEl) manMatCostEl.textContent = `€ ${manualMatCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / jaar`;
-    if (manDowntimeCostEl) manDowntimeCostEl.textContent = `€ ${manualDowntimeCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / jaar`;
+    if (manRepairCostEl) manRepairCostEl.textContent = `€ ${manualRepairCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / year`;
+    if (manMatCostEl) manMatCostEl.textContent = `€ ${manualMatCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / year`;
+    if (manDowntimeCostEl) manDowntimeCostEl.textContent = `€ ${manualDowntimeCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / year`;
 
     // 3. Read Huidige Situatie values
     const currentPriceInput = document.getElementById("omProdPrice1") || document.getElementById("chainOmProdPrice1") || document.getElementById("tcoPriceCurrentInput");
@@ -8260,7 +8260,7 @@ function updateRoiAutomationPage() {
     if (roiManCardSubtext) {
       roiManCardSubtext.style.color = "#b91c1c";
       var lang = currentLang || "nl";
-      roiManCardSubtext.textContent = lang === "fr" ? "Avec produit Interflon (base annuelle)" : (lang === "en" ? "With Interflon product (annual basis)" : "Met Interflon product (op jaarbasis)");
+      roiManCardSubtext.textContent = lang === "fr" ? "Avec produit Interflon (base annuelle)" : (lang === "en" ? "With Interflon product (annual basis)" : "Met Interflon product (op yearbasis)");
     }
     if (roiManLaborCost) roiManLaborCost.style.color = "#dc2626";
     if (manRepairCostEl) manRepairCostEl.style.color = "#dc2626";
@@ -8279,9 +8279,9 @@ function updateRoiAutomationPage() {
     }
 
     // Populate 3 extra rows text in Mode Interflon
-    if (manRepairCostEl) manRepairCostEl.textContent = `€ ${manualRepairCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / jaar`;
-    if (manMatCostEl) manMatCostEl.textContent = `€ ${manualMatCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / jaar`;
-    if (manDowntimeCostEl) manDowntimeCostEl.textContent = `€ ${manualDowntimeCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / jaar`;
+    if (manRepairCostEl) manRepairCostEl.textContent = `€ ${manualRepairCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / year`;
+    if (manMatCostEl) manMatCostEl.textContent = `€ ${manualMatCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / year`;
+    if (manDowntimeCostEl) manDowntimeCostEl.textContent = `€ ${manualDowntimeCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / year`;
 
     manualGreaseCost = (yearlyMlTotal / 1000) * greasePricePerLiter;
     manualLaborHours = numBearingsForTco * manualBeurtenPerYear * (workTimeMinutes / 60);
@@ -8289,21 +8289,21 @@ function updateRoiAutomationPage() {
     manualTotalCost = manualGreaseCost + manualLaborCost + manualRepairCost + manualMatCost + manualDowntimeCost;
   }
 
-  if (manYearlyMlEl) manYearlyMlEl.textContent = `${manualYearlyMl.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml`;
-  if (manGreasePriceEl) manGreasePriceEl.textContent = `€ ${manualGreasePricePerLiter.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / L`;
-  if (manGreaseCostEl) manGreaseCostEl.textContent = `€ ${manualGreaseCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / jaar`;
+  if (manYearlyMlEl) manYearlyMlEl.textContent = `${manualYearlyMl.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml`;
+  if (manGreasePriceEl) manGreasePriceEl.textContent = `€ ${manualGreasePricePerLiter.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / L`;
+  if (manGreaseCostEl) manGreaseCostEl.textContent = `€ ${manualGreaseCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / year`;
   const effectiveManBearings = (manualMode === "huidig") ? numBearingsForTco : totalPointsAllDevices;
   if (manBeurtenEl) {
     if (effectiveManBearings > 1) {
-      manBeurtenEl.textContent = `${(manualBeurtenPerYear * effectiveManBearings).toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} (${manualBeurtenPerYear.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} beurten x ${effectiveManBearings} lagers)`;
+      manBeurtenEl.textContent = `${(manualBeurtenPerYear * effectiveManBearings).toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} (${manualBeurtenPerYear.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} events x ${effectiveManBearings} lagers)`;
     } else {
-      manBeurtenEl.textContent = `${manualBeurtenPerYear.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} beurten`;
+      manBeurtenEl.textContent = `${manualBeurtenPerYear.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} events`;
     }
   }
-  if (manWorkTimeEl) manWorkTimeEl.textContent = `${workTimeMinutes} min/beurt (${(manualLaborHours).toFixed(1).replace('.',',')} u/jaar)`;
-  if (manHourlyRateEl) manHourlyRateEl.textContent = `€ ${hourlyRate.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / uur`;
-  if (manLaborCostEl) manLaborCostEl.textContent = `€ ${manualLaborCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / jaar`;
-  if (manTotalCostEl) manTotalCostEl.textContent = `€ ${manualTotalCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  if (manWorkTimeEl) manWorkTimeEl.textContent = `${workTimeMinutes} min/beurt (${(manualLaborHours).toFixed(1).replace('.',',')} u/year)`;
+  if (manHourlyRateEl) manHourlyRateEl.textContent = `€ ${hourlyRate.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / uur`;
+  if (manLaborCostEl) manLaborCostEl.textContent = `€ ${manualLaborCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / year`;
+  if (manTotalCostEl) manTotalCostEl.textContent = `€ ${manualTotalCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
   // 4. Card 2: Automatische Smering (Aggregated across all devices A, B, C, D)
   let totalUnitsPrice = 0;
@@ -8375,9 +8375,9 @@ function updateRoiAutomationPage() {
 
   const autoLaborCostEl = document.getElementById("roiAutoLaborCost");
   var lang = currentLang || "nl";
-  const yrSuffix = lang === "fr" ? "an" : (lang === "en" ? "year" : "jaar");
+  const yrSuffix = lang === "fr" ? "an" : (lang === "en" ? "year" : "year");
   if (autoLaborCostEl) {
-    autoLaborCostEl.textContent = `€ ${autoLaborCost.toLocaleString(lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "nl-BE"), { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / ${yrSuffix}`;
+    autoLaborCostEl.textContent = `€ ${autoLaborCost.toLocaleString(lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "en-US"), { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / ${yrSuffix}`;
     autoLaborCostEl.style.color = "#059669";
   }
 
@@ -8403,8 +8403,8 @@ function updateRoiAutomationPage() {
 
   if (autoDeviceNameEl) autoDeviceNameEl.textContent = fullDeviceTitle;
   var lang = currentLang || "nl";
-  const cartYearSuffix = lang === "fr" ? "cartouches/an" : (lang === "en" ? "cartridges/year" : "patronen/jaar");
-  if (autoPatronenEl) autoPatronenEl.textContent = `${totalCartridgesPerYear.toLocaleString(lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "nl-BE"), { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ${cartYearSuffix}`;
+  const cartYearSuffix = lang === "fr" ? "cartouches/an" : (lang === "en" ? "cartridges/year" : "cartridges/year");
+  if (autoPatronenEl) autoPatronenEl.textContent = `${totalCartridgesPerYear.toLocaleString(lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "en-US"), { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ${cartYearSuffix}`;
   if (autoDevicePriceEl) {
     if (deviceKey === "single_point") {
       var lang = currentLang || "nl";
@@ -8412,19 +8412,19 @@ function updateRoiAutomationPage() {
       autoDevicePriceEl.textContent = `€ 0,00 ${filledTxt}`;
     } else {
       const devPrefix = numDevices === 1 ? "1x" : `${numDevices}x`;
-      autoDevicePriceEl.textContent = `€ ${totalUnitsPrice.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${devPrefix} Art. ${artNrUnitStr})`;
+      autoDevicePriceEl.textContent = `€ ${totalUnitsPrice.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${devPrefix} Art. ${artNrUnitStr})`;
     }
   }
   var lang = currentLang || "nl";
   const pieceTxt = lang === "fr" ? "pièce" : (lang === "en" ? "piece" : "stuk");
-  if (autoPackPriceEl) autoPackPriceEl.textContent = `€ ${servicepackUnitPrice.toLocaleString(lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "nl-BE"), { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / ${pieceTxt} (Art. ${artNrServicepackStr})`;
+  if (autoPackPriceEl) autoPackPriceEl.textContent = `€ ${servicepackUnitPrice.toLocaleString(lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "en-US"), { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / ${pieceTxt} (Art. ${artNrServicepackStr})`;
   var lang = currentLang || "nl";
-  const yearSuffix = lang === "fr" ? "an" : (lang === "en" ? "year" : "jaar");
-  if (autoPacksTotalEl) autoPacksTotalEl.textContent = `€ ${totalCartridgesCostYear.toLocaleString(lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "nl-BE"), { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / ${yearSuffix}`;
+  const yearSuffix = lang === "fr" ? "an" : (lang === "en" ? "year" : "year");
+  if (autoPacksTotalEl) autoPacksTotalEl.textContent = `€ ${totalCartridgesCostYear.toLocaleString(lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "en-US"), { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / ${yearSuffix}`;
   if (autoAccCostEl) {
     if (totalInstallKitPrice > 0) {
       const kitPrefix = numDevices === 1 ? "1x" : `${numDevices}x`;
-      autoAccCostEl.textContent = `€ ${totalInstallKitPrice.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${kitPrefix} Eenmalig)`;
+      autoAccCostEl.textContent = `€ ${totalInstallKitPrice.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${kitPrefix} Eenmalig)`;
     } else {
       autoAccCostEl.textContent = `€ 0,00`;
     }
@@ -8437,7 +8437,7 @@ function updateRoiAutomationPage() {
     if (totalDividerBlockPrice > 0) {
       autoDivBlockRow.style.display = "flex";
       if (autoDivBlockTotalCostEl) {
-        autoDivBlockTotalCostEl.textContent = `€ ${totalDividerBlockPrice.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (Eenmalig)`;
+        autoDivBlockTotalCostEl.textContent = `€ ${totalDividerBlockPrice.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (Eenmalig)`;
       }
       if (autoDivBlockCostEl) {
         if (numDevices === 1) {
@@ -8461,8 +8461,8 @@ function updateRoiAutomationPage() {
       autoDivBlockRow.style.display = "none";
     }
   }
-  if (autoYear1TotalEl) autoYear1TotalEl.textContent = `€ ${autoYear1Total.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-  if (autoRecurringTotalEl) autoRecurringTotalEl.textContent = `€ ${autoRecurringTotal.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  if (autoYear1TotalEl) autoYear1TotalEl.textContent = `€ ${autoYear1Total.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  if (autoRecurringTotalEl) autoRecurringTotalEl.textContent = `€ ${autoRecurringTotal.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
   // 5. Summary ROI Box
   const netYearlySaving = manualTotalCost - autoRecurringTotal;
@@ -8474,30 +8474,30 @@ function updateRoiAutomationPage() {
 
   if (netYearlySavingEl) {
     const sign = netYearlySaving >= 0 ? "+" : "-";
-    netYearlySavingEl.textContent = `${sign} € ${Math.abs(netYearlySaving).toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / jaar`;
+    netYearlySavingEl.textContent = `${sign} € ${Math.abs(netYearlySaving).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / year`;
     netYearlySavingEl.style.color = netYearlySaving >= 0 ? "#16a34a" : "#dc2626";
   }
 
   if (year1NetResultEl) {
     const sign = year1NetResult >= 0 ? "+" : "-";
-    year1NetResultEl.textContent = `${sign} € ${Math.abs(year1NetResult).toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (Jaar 1)`;
+    year1NetResultEl.textContent = `${sign} € ${Math.abs(year1NetResult).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (Jaar 1)`;
     year1NetResultEl.style.color = year1NetResult >= 0 ? "#16a34a" : "#dc2626";
   }
 
   if (paybackPeriodEl) {
     const initialInvestment = autoYear1Total - autoRecurringTotal;
     if (initialInvestment <= 0) {
-      paybackPeriodEl.textContent = " Directe Terugverdientijd (0 maanden)";
+      paybackPeriodEl.textContent = " Directe Terugverdientijd (0 monthen)";
     } else if (netYearlySaving <= 0) {
       paybackPeriodEl.textContent = " Geen terugverdientijd mogelijk";
     } else {
       const paybackYears = initialInvestment / netYearlySaving;
       const paybackMonths = paybackYears * 12;
-      paybackPeriodEl.textContent = ` ${paybackMonths.toFixed(1).replace('.', ',')} maanden (${paybackYears.toFixed(2).replace('.', ',')} jaar)`;
+      paybackPeriodEl.textContent = ` ${paybackMonths.toFixed(1).replace('.', ',')} monthen (${paybackYears.toFixed(2).replace('.', ',')} year)`;
     }
   }
 
-  // 6. Multi-year Cumulative Savings Calculation (Besparing na N jaar)
+  // 6. Multi-year Cumulative Savings Calculation (Besparing na N year)
   const roiYearsInput = document.getElementById("roiYearsInput");
   const roiMultiYearSavingEl = document.getElementById("roiMultiYearSaving");
 
@@ -8506,7 +8506,7 @@ function updateRoiAutomationPage() {
 
   if (roiMultiYearSavingEl) {
     const sign = multiYearSaving >= 0 ? "+" : "-";
-    roiMultiYearSavingEl.textContent = `${sign} € ${Math.abs(multiYearSaving).toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    roiMultiYearSavingEl.textContent = `${sign} € ${Math.abs(multiYearSaving).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     roiMultiYearSavingEl.style.color = multiYearSaving >= 0 ? "#059669" : "#dc2626";
   }
 }
@@ -8662,7 +8662,7 @@ function addRoiPdfPage(doc, dateString, watermarkDataUrl, aspectRatio, autoDataU
   doc.setFont("helvetica", "bold");
   doc.setFontSize(9);
   doc.setTextColor(227, 6, 19);
-  doc.text(`Berekend verbruik: ${yearlyMlTotal.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml / jaar`, 186, 46, { align: "right" });
+  doc.text(`Berekend verbruik: ${yearlyMlTotal.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml / year`, 186, 46, { align: "right" });
 
   // Calculations
   const manualModeSelect = document.getElementById("roiManualModeSelect");
@@ -8811,29 +8811,29 @@ function addRoiPdfPage(doc, dateString, watermarkDataUrl, aspectRatio, autoDataU
     drawRow(20, y1, colW, 6, table1Title, "", true, false, false);
   }
   y1 += 6;
-  drawRow(20, y1, colW, rh, "Jaarlijks vetverbruik:", `${manualYearlyMl.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml`, false, false, false);
+  drawRow(20, y1, colW, rh, "Annual grease consumption:", `${manualYearlyMl.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ml`, false, false, false);
   y1 += rh;
-  drawRow(20, y1, colW, rh, "Prijs vet per liter:", `€ ${manualGreasePricePerLiter.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / L`, false, false, false);
+  drawRow(20, y1, colW, rh, "Grease price per liter:", `€ ${manualGreasePricePerLiter.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / L`, false, false, false);
   y1 += rh;
-  drawRow(20, y1, colW, rh, "Jaarlijkse vetkost:", `€ ${manualGreaseCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / j`, false, false, false);
+  drawRow(20, y1, colW, rh, "Annual grease cost:", `€ ${manualGreaseCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / j`, false, false, false);
   y1 += rh;
   const effectivePdfManBearings = numBearingsForTco;
   const pdfBeurtenValStr = effectivePdfManBearings > 1
-    ? `${(manualBeurtenPerYear * effectivePdfManBearings).toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} (${manualBeurtenPerYear.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} beurten x ${effectivePdfManBearings} lagers)`
-    : `${manualBeurtenPerYear.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} beurten`;
-  drawRow(20, y1, colW, rh, "Totaal lagersmeerbeurten/jaar:", pdfBeurtenValStr, false, false, false);
+    ? `${(manualBeurtenPerYear * effectivePdfManBearings).toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} (${manualBeurtenPerYear.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} events x ${effectivePdfManBearings} lagers)`
+    : `${manualBeurtenPerYear.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} events`;
+  drawRow(20, y1, colW, rh, "Total relubrication events/year:", pdfBeurtenValStr, false, false, false);
   y1 += rh;
   drawRow(20, y1, colW, rh, "Tijd per smeerbeurt:", `${workTimeMinutes} min (${manualLaborHours.toFixed(1).replace('.',',')} u/j)`, false, false, false);
   y1 += rh;
-  drawRow(20, y1, colW, rh, "Uurloon technieker:", `€ ${hourlyRate.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / uur`, false, false, false);
+  drawRow(20, y1, colW, rh, "Uurloon technieker:", `€ ${hourlyRate.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / uur`, false, false, false);
   y1 += rh;
-  drawRow(20, y1, colW, rh, "Jaarlijkse arbeidskost:", `€ ${manualLaborCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / j`, false, false, false);
+  drawRow(20, y1, colW, rh, "Jaarlijkse arbeidskost:", `€ ${manualLaborCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / j`, false, false, false);
   y1 += rh;
-  drawRow(20, y1, colW, rh, "Tijdsbesteding revisie:", `€ ${manualRepairCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / j`, false, false, false);
+  drawRow(20, y1, colW, rh, "Tijdsbesteding revisie:", `€ ${manualRepairCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / j`, false, false, false);
   y1 += rh;
-  drawRow(20, y1, colW, rh, "Materiaalkost onderdelen:", `€ ${manualMatCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / j`, false, false, false);
+  drawRow(20, y1, colW, rh, "Materiaalkost onderdelen:", `€ ${manualMatCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / j`, false, false, false);
   y1 += rh;
-  drawRow(20, y1, colW, rh, "Downtime kost:", `€ ${manualDowntimeCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / j`, false, false, false);
+  drawRow(20, y1, colW, rh, "Downtime kost:", `€ ${manualDowntimeCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / j`, false, false, false);
   y1 += rh;
 
   if (isHuidigMode) {
@@ -8849,22 +8849,22 @@ function addRoiPdfPage(doc, dateString, watermarkDataUrl, aspectRatio, autoDataU
     doc.setFont("helvetica", "bold");
     doc.setFontSize(7.5);
     doc.setTextColor(3, 105, 161);
-    doc.text(`€ ${manualTotalCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, 20 + colW - 2.5, y1 + 7 / 2 + 1.2, { align: "right" });
+    doc.text(`€ ${manualTotalCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, 20 + colW - 2.5, y1 + 7 / 2 + 1.2, { align: "right" });
   } else {
-    drawRow(20, y1, colW, 7, "TOTALE JAARKOST MANUEEL:", `€ ${manualTotalCost.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, false, true, false);
+    drawRow(20, y1, colW, 7, "TOTALE JAARKOST MANUEEL:", `€ ${manualTotalCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, false, true, false);
   }
 
   // Table 2: Automatische Smering
   let y2 = startY;
   drawRow(108, y2, colW, 6, "AUTOMATIC LUBRICATION", "", true, false, true);
   y2 += 6;
-  drawRow(108, y2, colW, rh, "Gekozen smeerunit:", fullDeviceTitle, false, false, false);
+  drawRow(108, y2, colW, rh, "Selected lubricator:", fullDeviceTitle, false, false, false);
   y2 += rh;
-  drawRow(108, y2, colW, rh, "Verbruik patronen/jaar:", `${totalCartridgesPerYear.toFixed(1).replace('.', ',')} patronen/j`, false, false, false);
+  drawRow(108, y2, colW, rh, "Cartridge consumption/year:", `${totalCartridgesPerYear.toFixed(1).replace('.', ',')} patronen/j`, false, false, false);
   y2 += rh;
   drawRow(108, y2, colW, rh, "Prijs leeg toestel (totaal):", `€ ${totalUnitsPrice.toFixed(2).replace('.', ',')}`, false, false, false);
   y2 += rh;
-  drawRow(108, y2, colW, rh, "Jaarlijkse kosten patronen:", `€ ${totalCartridgesCostYear.toFixed(2).replace('.', ',')} / j`, false, false, false);
+  drawRow(108, y2, colW, rh, "Annual cartridge costs:", `€ ${totalCartridgesCostYear.toFixed(2).replace('.', ',')} / j`, false, false, false);
   y2 += rh;
   drawRow(108, y2, colW, rh, "Installatiekits + Verdeelblokken:", `€ ${(totalInstallKitPrice + totalDividerBlockPrice).toFixed(2).replace('.', ',')} (Eenmalig)`, false, false, false);
   y2 += rh;
@@ -8943,12 +8943,12 @@ function addRoiPdfPage(doc, dateString, watermarkDataUrl, aspectRatio, autoDataU
   const cardW = 50;
   const cardH = 20;
 
-  // Card 1: Structurele jaarlijkse besparing
+  // Card 1: Structurele yearlijkse besparing
   const sign1 = netYearlySaving >= 0 ? "+" : "-";
   const color1 = netYearlySaving >= 0 ? [22, 163, 74] : [220, 38, 38];
   drawRoiCard(24, row1Y, cardW, cardH, "STRUCTURELE JAARLIJKSE BESPARING", `${sign1} € ${Math.abs(netYearlySaving).toFixed(2).replace('.', ',')} / j`, "From Year 2 onwards", color1);
 
-  // Card 2: Netto resultaat jaar 1
+  // Card 2: Netto resultaat year 1
   const sign2 = year1NetResult >= 0 ? "+" : "-";
   const color2 = year1NetResult >= 0 ? [22, 163, 74] : [220, 38, 38];
   drawRoiCard(80, row1Y, cardW, cardH, "NETTO RESULTAAT JAAR 1", `${sign2} € ${Math.abs(year1NetResult).toFixed(2).replace('.', ',')} (Jaar 1)`, "Including initial installation", color2);
@@ -8957,7 +8957,7 @@ function addRoiPdfPage(doc, dateString, watermarkDataUrl, aspectRatio, autoDataU
   const color3 = isPaybackGreen ? [220, 38, 38] : [100, 116, 139];
   drawRoiCard(136, row1Y, cardW, cardH, "TERUGVERDIENTIJD (ROI)", paybackStr, "Investment payback time", color3);
 
-  // Card 4: Besparing na N jaar
+  // Card 4: Besparing na N year
   const sign4 = multiYearSaving >= 0 ? "+" : "-";
   const color4 = multiYearSaving >= 0 ? [5, 150, 105] : [220, 38, 38];
   drawRoiCard(24, row2Y, cardW, cardH, `BESPARING NA ${numYears} JAAR`, `${sign4} € ${Math.abs(multiYearSaving).toFixed(2).replace('.', ',')}`, "Including initial installation", color4);
@@ -9025,7 +9025,7 @@ function getSurveyUrl() {
   const clientEmail = localStorage.getItem("client_email") || "";
 
   let params = new URLSearchParams();
-  params.set("v", "20260825_2151");
+  params.set("v", "20260825_2207");
   if (typeof currentLang !== "undefined" && currentLang) params.set("lang", currentLang);
   if (opEmail) params.set("contact", opEmail);
   if (clientCompany) params.set("company", clientCompany);

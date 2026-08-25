@@ -1088,13 +1088,13 @@ const TRANSLATIONS = {
     descPulsarlubeM2: "De <strong>Pulsarlube M2</strong> is een elektro-mechanische automatische smeerunit die <strong>continu 24u/24u en 7d/7d doorsmeert</strong>, gestuurd door een interne micro-processor en pomp. Dit garandeert een uiterst nauwkeurige en constante vetdosering.",
     descPulsarlubeMsp: "De <strong>Pulsarlube MSP</strong> is een extern gevoede, elektro-mechanische automatische smeerunit. Het toestel werkt synchroon met de machine en doseert enkel smeervet gedurende de actieve bedrijfsuren van de installatie.",
     descPulsarlubePlc: "De <strong>Pulsarlube PLC</strong> is een geavanceerde, extern gestuurde elektro-mechanische smeerunit die rechtstreeks wordt aangestuurd door de <strong>PLC-besturing van de machine</strong>. Het toestel doseert uiterst nauwkeurig enkel tijdens actieve machinetijd.",
-    roiTitle: "ROI Automatisering",
+    roiTitle: "Automation ROI",
     roiSyncLabel: "Synchroon met Automatisering",
     roiCalculatedGreaseCons: "Berekend Vetverbruik",
     roiPerYear: "jaar",
     roiLifetimeExtensionLabel: "Levensduur verlenging:",
     roiLifetimeInfoText: "De overstap van manuele naar automatische smering verlengt de levensduur van lagers in de praktijk doorgaans met 50% tot 300% (een factor 1,5 tot 4). In zware, vervuilde of continu draaiende toepassingen kan de levensduur zelfs met een factor 4 tot 8 toenemen.",
-    roiManualCardTitle: "Manuele Smering",
+    roiManualCardTitle: "Manual Lubrication",
     roiManualWithInterflonSubtext: "Met Interflon product (op jaarbasis)",
     roiManualWithCurrentSubtext: "Met huidig product (op jaarbasis)",
     roiOptionManualInterflon: "Manuele smering met Interflon product",
@@ -1110,7 +1110,7 @@ const TRANSLATIONS = {
     roiLabelPartsCost: "Materiaalkost onderdelen (jaar):",
     roiLabelDowntimeCost: "Downtime kost (jaar):",
     roiTotalManualTitle: "Totale Jaarkost Manueel",
-    roiAutoCardTitle: "Automatische Smering",
+    roiAutoCardTitle: "Automatic Lubrication",
     roiAutoCardSubtext: "Met gekozen smeerunit (op jaarbasis)",
     roiLabelChosenDevice: "Gekozen smeerunit:",
     roiLabelCartridgesCons: "Verbruik patronen/jaar:",
@@ -1133,10 +1133,10 @@ const TRANSLATIONS = {
     "modeModalTitle": "Welkom bij de Interflon Berekeningsmodule",
 
     "menuSearch": "Lager Opzoeken",
-    "menuCalc": "Smeercalculatie",
-    "menuOm": "Opbrengstmodel",
-    "menuAutomation": "Automatisering",
-    "menuRoiAutomation": "ROI Automatisering",
+    "menuCalc": "Grease Calculation",
+    "menuOm": "TCO / Yield Model",
+    "menuAutomation": "Automation",
+    "menuRoiAutomation": "Automation ROI",
     "menuInfo": "Informatie",
     "menuVragenlijst": "Vragenlijst",
     "btnPdfReport": "Rapport PDF",
@@ -1146,7 +1146,7 @@ const TRANSLATIONS = {
     "selectBearingCalcTitle": "Lagerberekening",
     "selectBearingCalcDesc": "Bepaal type vet, nasmeervolumes, smeerintervallen en instellingen voor automatisatie.",
     "selectBearingCalcBtn": "Open Lagerberekening",
-    "selectChainCalcTitle": "Kettingberekening",
+    "selectChainCalcTitle": "Chain Calculation",
     "selectChainCalcDesc": "Bereken olie-doseringen, volume per minuut, smeerintervallen en instellingen voor automatisatie voor aandrijf- en transportkettingen.",
     "selectChainCalcBtn": "Open Kettingberekening",
     "searchBearingTitle": "Lager Opzoeken",
@@ -1223,11 +1223,11 @@ const TRANSLATIONS = {
 
     roiAutoSub: "Met gekozen smeerunit (op jaarbasis)",
 
-    roiAutoLubricationTitle: "Automatische Smering",
+    roiAutoLubricationTitle: "Automatic Lubrication",
 
     roiManualSub: "Met Interflon product (op jaarbasis)",
 
-    roiManualLubricationTitle: "Manuele Smering",
+    roiManualLubricationTitle: "Manual Lubrication",
 
     chainAnnualConsumptionLabel: "Jaarlijks verbruik:",
 
@@ -1297,7 +1297,7 @@ const TRANSLATIONS = {
 
     selectChainCalcDesc: "Bereken olie-doseringen, volume per minuut, smeerintervallen en instellingen voor automatisatie voor aandrijf- en transportkettingen.",
 
-    selectChainCalcTitle: "Kettingberekening",
+    selectChainCalcTitle: "Chain Calculation",
 
     selectBearingCalcBtn: "Open Lagerberekening",
 
@@ -1333,15 +1333,15 @@ const TRANSLATIONS = {
     frequencyIntervalTitle: "Smeerfrequentie / Smeerinterval",
     pageSearchTitle: "Lager Opzoeken",
     pageSearchSubtitle: "Geef een SKF lagernummer op om alle technische specificaties te tonen.",
-    pageCalcTitle: "Smeercalculatie",
+    pageCalcTitle: "Grease Calculation",
     pageCalcSubtitle: "Bereken de optimale smeerhoeveelheid en smeerinterval op basis van lagertype en bedrijfsparameters.",
     pageInfoTitle: "Informatie",
     pageInfoSubtitle: "Uitleg over werking, gebruikte formules en het ontwerp van de applicatie.",
-    menuAutomation: "Automatisering",
-    menuRoiAutomation: "ROI Automatisering",
-    pageRoiAutomationTitle: "ROI Automatisering",
+    menuAutomation: "Automation",
+    menuRoiAutomation: "Automation ROI",
+    pageRoiAutomationTitle: "Automation ROI",
     pageRoiAutomationSubtitle: "Return on Investment berekening voor automatische smeersystemen",
-    pageAutomationTitle: "Automatisering",
+    pageAutomationTitle: "Automation",
     pageAutomationSubtitle: "Berekening bij inzet van automatische smeertoestellen",
     automationTitle: "Automatische Smeertoestellen",
     automationSubtitle: "Berekening bij inzet van automatische smeertoestellen",
@@ -1443,14 +1443,14 @@ const TRANSLATIONS = {
     estimatedNote: "<strong>Let op:</strong> Dit lager is niet gevonden in de vaste database. De afmetingen hieronder zijn berekend en geschat op basis van de SKF aanduiding. Gelieve te verifiëren.",
     warningSpeedLimit: "Waarschuwing: Het toerental (RPM) is hoger dan het grenstoerental van de lager!",
     warningDnLimit: "Waarschuwing: De DN-factor (RPM * dm) overschrijdt de limiet van het geselecteerde vet!",
-    teOptionAvg: "Gemiddeld (0,8)",
-    teOptionDust: "Stof en/of vocht / Hoog (0,5)",
+    teOptionAvg: "Average (0.8)",
+    teOptionDust: "Dust and/or Moisture / High (0.5)",
     teOptionMoisture: "Stof en/of vocht / Erg hoog (0,3)",
     teOptionCondense: "Condensatie / Extreem (0,15)",
-    taOptionAvg: "Gemiddeld (0,8)",
-    taOptionShock: "Schokken / Hoog (0,5)",
-    taOptionVibe: "Vibraties / Erg hoog (0,3)",
-    taOptionVert: "Verticale as / Extreem (0,15)",
+    taOptionAvg: "Average (0.8)",
+    taOptionShock: "Shocks / High (0.5)",
+    taOptionVibe: "Vibrations / Very High (0.3)",
+    taOptionVert: "Vertical Shaft / Extreme (0.15)",
     unitHours: "bedrijfsuren",
     unitDays: "dagen",
     unitWeeks: "weken",
@@ -1544,7 +1544,7 @@ const TRANSLATIONS = {
     "Dubbelrijig hoekcontactkogellager": "Dubbelrijig hoekcontactkogellager",
     "Pendelkogellager": "Pendelkogellager",
     "Axiaalkogellager": "Axiaalkogellager",
-    menuOm: "Opbrengstmodel",
+    menuOm: "TCO / Yield Model",
     pageOmTitle: "Opbrengstmodel (TCO)",
     pageOmSubtitle: "Calculatiesheet berekening kostenbesparingen door inzet van Interflon smeermiddelen volgens TCO.",
     omClientHeader: "Algemene Projectgegevens",
@@ -1555,7 +1555,7 @@ const TRANSLATIONS = {
     omTableTitle: "TCO Calculatie Model",
     omInstructionText: "Vul de grijze cellen in",
     omAutoInstructionText: "De blauwe cellen zijn automatisch berekend maar kunnen handmatig aangepast worden",
-    omGroupCurrent: "Huidige situatie",
+    omGroupCurrent: "Current Situation",
     omGroupInterflon: "Nieuwe situatie (Interflon)",
     omGroupGeneral: "Algemene info",
     omProductLabel: "PRODUCT",
@@ -3291,7 +3291,7 @@ function switchPage(pageId) {
     document.getElementById("menuCalc").classList.add("active");
     if (targetTitle) {
       targetTitle.setAttribute("data-i18n", "pageCalcTitle");
-      targetTitle.textContent = "Smeercalculatie";
+      targetTitle.textContent = "Grease Calculation";
     }
     if (targetSubtitle) {
       targetSubtitle.setAttribute("data-i18n", "pageCalcSubtitle");
@@ -3331,7 +3331,7 @@ function switchPage(pageId) {
     document.getElementById("menuOm").classList.add("active");
     if (targetTitle) {
       targetTitle.setAttribute("data-i18n", "pageOmTitle");
-      targetTitle.textContent = "Opbrengstmodel";
+      targetTitle.textContent = "TCO / Yield Model";
     }
     if (targetSubtitle) {
       targetSubtitle.setAttribute("data-i18n", "pageOmSubtitle");
@@ -3372,7 +3372,7 @@ function switchPage(pageId) {
     document.getElementById("menuAutomation").classList.add("active");
     if (targetTitle) {
       targetTitle.setAttribute("data-i18n", "pageAutomationTitle");
-      targetTitle.textContent = "Automatisering";
+      targetTitle.textContent = "Automation";
     }
     if (targetSubtitle) {
       targetSubtitle.setAttribute("data-i18n", "pageAutomationSubtitle");
@@ -3386,7 +3386,7 @@ function switchPage(pageId) {
     if (menuBtn) menuBtn.classList.add("active");
     if (targetTitle) {
       targetTitle.setAttribute("data-i18n", "pageRoiAutomationTitle");
-      targetTitle.textContent = "ROI Automatisering";
+      targetTitle.textContent = "Automation ROI";
     }
     if (targetSubtitle) {
       targetSubtitle.setAttribute("data-i18n", "pageRoiAutomationSubtitle");
@@ -6736,7 +6736,7 @@ function calculateAutomationLubrication() {
           </div>
         </div>
         <div style="background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 20px; padding: 4px 12px; font-size: 11.5px; font-weight: 600; color: var(--text-dark);">
-          Afkomstig uit 'Smeercalculatie'
+          Afkomstig uit 'Grease Calculation'
         </div>
       </div>
     `;
@@ -7026,7 +7026,7 @@ function updateModeUI() {
 
   if (currentAppMode === "chain") {
     if (modeIcon) modeIcon.textContent = "⛓️";
-    if (modeTitle) modeTitle.textContent = "Kettingberekening";
+    if (modeTitle) modeTitle.textContent = "Chain Calculation";
     if (menuSearchText) {
       menuSearchText.textContent = "Ketting Zoeken";
       menuSearchText.removeAttribute("data-i18n");
@@ -7036,15 +7036,15 @@ function updateModeUI() {
       menuCalcText.removeAttribute("data-i18n");
     }
     if (menuOmText) {
-      menuOmText.textContent = "Opbrengstmodel";
+      menuOmText.textContent = "TCO / Yield Model";
       menuOmText.removeAttribute("data-i18n");
     }
     if (menuAutomationText) {
-      menuAutomationText.textContent = "Automatisering";
+      menuAutomationText.textContent = "Automation";
       menuAutomationText.removeAttribute("data-i18n");
     }
     if (menuRoiAutomationText) {
-      menuRoiAutomationText.textContent = "ROI Automatisering";
+      menuRoiAutomationText.textContent = "Automation ROI";
       menuRoiAutomationText.removeAttribute("data-i18n");
     }
     if (menuInfoText) {
@@ -7061,19 +7061,19 @@ function updateModeUI() {
     }
     if (menuCalcText) {
       menuCalcText.setAttribute("data-i18n", "menuCalc");
-      menuCalcText.textContent = "Smeercalculatie";
+      menuCalcText.textContent = "Grease Calculation";
     }
     if (menuOmText) {
       menuOmText.setAttribute("data-i18n", "menuOm");
-      menuOmText.textContent = "Opbrengstmodel";
+      menuOmText.textContent = "TCO / Yield Model";
     }
     if (menuAutomationText) {
       menuAutomationText.setAttribute("data-i18n", "menuAutomation");
-      menuAutomationText.textContent = "Automatisering";
+      menuAutomationText.textContent = "Automation";
     }
     if (menuRoiAutomationText) {
       menuRoiAutomationText.setAttribute("data-i18n", "menuRoiAutomation");
-      menuRoiAutomationText.textContent = "ROI Automatisering";
+      menuRoiAutomationText.textContent = "Automation ROI";
     }
     if (menuInfoText) {
       menuInfoText.setAttribute("data-i18n", "menuInfo");
@@ -7782,7 +7782,7 @@ function runChainPdfExport(includeTco, includeRoi) {
 
           // Header blocks
           const chainMode = localStorage.getItem("chain_tco_calc_mode") || "formula";
-          let chainHeaderLabel = "Huidige situatie";
+          let chainHeaderLabel = "Current Situation";
           if (chainMode === "practical") {
             const techIntervalVal = localStorage.getItem("tech_interval");
             const intervalDays = techIntervalVal ? parseFloat(techIntervalVal) : 0;
@@ -9582,7 +9582,7 @@ function updateRoiAutomationPage() {
     var lang = currentLang || "nl";
     if (roiManCardTitle) {
       roiManCardTitle.style.color = "#0369a1";
-      roiManCardTitle.textContent = lang === "fr" ? "Lubrification Manuelle" : (lang === "en" ? "Manual Lubrication" : "Manuele Smering");
+      roiManCardTitle.textContent = lang === "fr" ? "Lubrification Manuelle" : (lang === "en" ? "Manual Lubrication" : "Manual Lubrication");
     }
     if (roiManCardSubtext) {
       roiManCardSubtext.style.color = "#0284c7";
@@ -9641,7 +9641,7 @@ function updateRoiAutomationPage() {
     var lang = currentLang || "nl";
     if (roiManCardTitle) {
       roiManCardTitle.style.color = "#991b1b";
-      roiManCardTitle.textContent = lang === "fr" ? "Lubrification Manuelle" : (lang === "en" ? "Manual Lubrication" : "Manuele Smering");
+      roiManCardTitle.textContent = lang === "fr" ? "Lubrification Manuelle" : (lang === "en" ? "Manual Lubrication" : "Manual Lubrication");
     }
     if (roiManCardSubtext) {
       roiManCardSubtext.style.color = "#b91c1c";
@@ -10411,7 +10411,7 @@ function getSurveyUrl() {
   const clientEmail = localStorage.getItem("client_email") || "";
 
   let params = new URLSearchParams();
-  params.set("v", "20260825_2118");
+  params.set("v", "20260825_2143");
   if (typeof currentLang !== "undefined" && currentLang) params.set("lang", currentLang);
   if (opEmail) params.set("contact", opEmail);
   if (clientCompany) params.set("company", clientCompany);

@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Interflon Smeeranalyse - Vragenlijst</title>
+  <meta name="description" content="Vul de vragenlijst in voor een nauwkeurige Interflon smeeranalyse en TCO-kostenberekening van uw machines.">
+  <link rel="icon" type="image/png" href="interflon-logo-clean.png">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f8fafc;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #0f172a;
+      margin: 0;
+      padding: 20px 12px 60px 12px;
+      min-height: 100vh;
+    }
+    .survey-container {
+      max-width: 860px;
+      margin: 0 auto 40px auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      overflow: hidden;
+    }
+    .survey-header {
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+      padding: 32px 28px 24px 28px;
+      border-bottom: 2px solid #E30613;
+      text-align: center;
+      position: relative;
+    }
+    .survey-logo {
+      max-width: 280px;
+      height: auto;
+      margin: 0 auto 16px auto;
+      display: block;
+    }
+    .survey-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 10px 0;
+      letter-spacing: -0.3px;
+    }
+    .survey-intro {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #475569;
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+    .survey-body {
+      padding: 32px 28px;
+    }
+    .survey-section {
+      margin-bottom: 36px;
+      background: #f8fafc;
+      padding: 24px 20px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    .survey-section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #E30613;
+      margin: 0 0 18px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 10px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .survey-body { padding: 20px 16px; }
+      .survey-header { padding: 24px 16px; }
+      .bearing-row { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background-color: #ffffff;
+      box-sizing: border-box;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-control:focus {
+      border-color: #E30613;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.15);
+    }
+    .range-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .range-group input[type="range"] {
+      flex: 1;
+      accent-color: #E30613;
+      cursor: pointer;
+    }
+    .range-badge {
+      width: 42px;
+      height: 32px;
+      background: #E30613;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bearing-badge {
+      background: #E30613;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 3px 9px;
+      border-radius: 6px;
+      display: inline-block;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #E30613 0%, #b9040f 100%);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(227, 6, 19, 0.3);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(227, 6, 19, 0.4);
+    }
+    .btn-secondary {
+      width: 100%;
+      background: #ffffff;
+      color: #334155;
+      border: 1.5px solid #cbd5e1;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .success-banner {
+      display: none;
+      background: #dcfce7;
+      border: 1.5px solid #86efac;
+      color: #166534;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 28px 0 28px;
+      text-align: center;
+    }
+    .success-banner h3 { font-size: 18px; font-weight: 800; margin-bottom: 4px; }
+    .success-banner p { font-size: 14px; }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .survey-container {
+        box-shadow: none !important;
+        border: none !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+      }
+      .submit-btn, .btn-secondary, button[onclick="addBearingRow()"], button[onclick*="removeBearingRow"] {
+        display: none !important;
+      }
+      .survey-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid #cbd5e1 !important;
+        background: #f8fafc !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="survey-container">
+    <!-- Header with Interflon Logo & Intro Text -->
+    <div class="survey-header">
+      <img src="interflon-logo-clean.png" alt="Interflon Logo" class="survey-logo">
+      <h1 class="survey-title">Smeeranalyse & TCO Vragenlijst</h1>
+      <p class="survey-intro">
+        Beste klant, om een nauwkeurige smeeranalyse en rendementsberekening (TCO) voor uw machinepark uit te voeren, vragen wij u vriendelijk onderstaande vragen in te vullen. Met deze gegevens berekenen onze technische specialisten de optimale smeerfrequentie, kostenbesparing en levensduurverlenging.
+      </p>
+    </div>
+
+    <!-- Success Banner -->
+    <div id="successBanner" class="success-banner">
+      <h3>✅ Vragenlijst Succesvol Verzonden!</h3>
+      <p>Hartelijk dank voor uw invoer. Uw Interflon adviseur neemt zo snel mogelijk contact met u op.</p>
+    </div>
+
+    <!-- Survey Form -->
+    <form id="publicSurveyForm" class="survey-body" action="https://formsubmit.co/tom.peckstadt@interflon.com" method="POST" onsubmit="prepareFormSubmission(event)">
+      
+      <input type="hidden" name="_subject" value="Nieuwe Smeeranalyse Vragenlijst Ingevuld!">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://www.interflonapps.com/vragenlijst.html?submitted=true">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_replyto" id="hiddenReplyTo" value="">
+      <div id="dynamicHiddenFormSubmitContainer"></div>
+
+      <!-- Section 1: Machinedetails -->
+      <div class="survey-section">
+        <h2 class="survey-section-title">⚙️ 1. Machinedetails & Lagersificaties</h2>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="q1">1. Naam van de machine *</label>
+            <input type="text" name="1. Machine Naam" id="q1" class="form-control" placeholder="Bijv. Vullijn 3 / Hoofdtransportband" required>
+          </div>
+          <div class="form-group">
+            <label for="q2">2. Merk van de machine</label>
+            <input type="text" name="2. Machine Merk" id="q2" class="form-control" placeholder="Bijv. Krones, Bosch, New Holland">
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="q3">3. Toepassing van de machine</label>
+            <input type="text" name="3. Toepassing" id="q3" class="form-control" placeholder="Bijv. Transportband, Menger, Ventilator, Pomp">
+          </div>
+          <div class="form-group">
+            <label for="q10">4. Aantal identieke machines in het park</label>
+            <input type="number" name="4. Aantal Machines" id="q10" class="form-control" min="1" value="1">
+          </div>
+        </div>
+
+        <!-- Dynamic 5-field Bearing Rows Section with Automatic Letters A, B, C... -->
+        <div class="form-group" style="margin-top: 16px; background: #ffffff; padding: 18px; border-radius: 10px; border: 1px solid #cbd5e1;">
+          <label style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin-bottom: 4px; display: block;">
+            5. Lagers op deze machine *
+          </label>
+          <p style="font-size: 13px; color: #64748b; margin-top: 0; margin-bottom: 14px;">
+            Elk lager krijgt automatisch een letter (A, B, C...). Specificeer per lager het <strong>Aantal</strong>, het <strong>Lagernummer</strong>, een optionele <strong>Omschrijving / Positie</strong>, het <strong>Toerental (RPM)</strong> en de <strong>As Positie</strong>.
+          </p>
+
+          <div id="bearingRowsContainer">
+            <!-- Initial Bearing Row 1 (Lager A) -->
+            <div class="bearing-row" id="bearingRow_1" data-letter="A" style="display: grid; grid-template-columns: 75px 65px 1fr 1fr 100px 120px 36px; gap: 8px; margin-bottom: 12px; align-items: end;">
+              <div>
+                <label style="font-size: 11.5px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px;">Lager</label>
+                <span class="bearing-badge">Lager A</span>
+              </div>
+              <div>
+                <label style="font-size: 11.5px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px;">Aantal *</label>
+                <input type="number" name="Lager A - Aantal" class="form-control bearing-qty-input" value="1" min="1" required onchange="onBearingRowChanged()">
+              </div>
+              <div>
+                <label style="font-size: 11.5px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px;">Lagernummer *</label>
+                <input type="text" name="Lager A - Lagernummer" id="q5" class="form-control bearing-nr-input" placeholder="bijv. 6208 2RS of 22215" required oninput="onBearingRowChanged()">
+              </div>
+              <div>
+                <label style="font-size: 11.5px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px;">Omschrijving / Positie</label>
+                <input type="text" name="Lager A - Omschrijving" class="form-control bearing-desc-input" placeholder="bijv. Keerzijde transportband" oninput="onBearingRowChanged()">
+              </div>
+              <div>
+                <label style="font-size: 11.5px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px;">Toerental (RPM)</label>
+                <input type="number" name="Lager A - Toerental RPM" id="q8" class="form-control bearing-rpm-input" placeholder="bijv. 1450" oninput="onBearingRowChanged()">
+              </div>
+              <div>
+                <label style="font-size: 11.5px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px;">As Positie</label>
+                <select name="Lager A - As Positie" class="form-control bearing-pos-input" onchange="onBearingRowChanged()">
+                  <option value="Horizontaal">Horizontaal</option>
+                  <option value="Verticaal">Verticaal</option>
+                </select>
+              </div>
+              <div></div>
+            </div>
+          </div>
+
+          <button type="button" onclick="addBearingRow()" style="background: #ffffff; border: 1.5px dashed #E30613; color: #E30613; font-weight: 700; font-size: 13px; padding: 8px 14px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; transition: all 0.2s;">
+            ➕ Extra lager toevoegen
+          </button>
+        </div>
+      </div>
+
+      <!-- Section 2: Huidige Smeersituatie & Bedrijfsuren WITH PER-BEARING DROPDOWN -->
+      <div class="survey-section">
+        <h2 class="survey-section-title">🛢️ 2. Huidige Smeersituatie & Bedrijfsuren</h2>
+        
+        <!-- Bearing Selector Bar for Section 2 -->
+        <div style="background: #ffffff; padding: 14px 18px; border-radius: 10px; border: 1.5px solid #cbd5e1; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+          <div>
+            <label for="bearingSelectorSection2" style="font-size: 14px; font-weight: 800; color: #0f172a; margin-bottom: 2px; display: block;">
+              📌 Selecteer lager om de huidige smeersituatie in te vullen:
+            </label>
+            <span style="font-size: 12.5px; color: #64748b;">
+              Vul de gegevens (punten 6 t/m 11) in per specifiek geselecteerd lager.
+            </span>
+          </div>
+          <select id="bearingSelectorSection2" class="form-control" style="width: auto; min-width: 240px; font-weight: 700; border-color: #E30613; color: #E30613; background: #fff5f5;" onchange="switchSection2Bearing(this.value)">
+            <option value="A">Lager A</option>
+          </select>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="q11">6. Huidig smeermiddel (Merk & Type)</label>
+            <input type="text" id="q11" class="form-control" placeholder="Bijv. Shell Gadus S2 V220, Mobilux EP2" oninput="saveCurrentSection2Data()">
+          </div>
+          <div class="form-group">
+            <label for="q12_price">7. Wat is de prijs van het huidig smeermiddel (Liter)? (€)</label>
+            <input type="number" step="0.01" id="q12_price" class="form-control" placeholder="Bijv. 18.50" oninput="saveCurrentSection2Data()">
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- Question 8: 2 Fields (Number Input + Unit Dropdown) -->
+          <div class="form-group">
+            <label for="q4_freq_num">8. Huidige smeerfrequentie / interval</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="number" id="q4_freq_num" class="form-control" style="flex: 1;" placeholder="Bijv. 1, 500" oninput="saveCurrentSection2Data()">
+              <select id="q4_freq_unit" class="form-control" style="width: 130px;" onchange="saveCurrentSection2Data()">
+                <option value="Uren">Uren</option>
+                <option value="Weken" selected>Weken</option>
+                <option value="Maanden">Maanden</option>
+                <option value="Jaren">Jaren</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="q29_life">9. Wat is de huidige gemiddelde levensduur van het lager (Maanden)?</label>
+            <input type="number" id="q29_life" class="form-control" placeholder="Bijv. 12 maanden" oninput="saveCurrentSection2Data()">
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="q13">10. Operationele uren per dag</label>
+            <input type="number" id="q13" class="form-control" min="1" max="24" value="16" oninput="saveCurrentSection2Data()">
+          </div>
+          <div class="form-group">
+            <label for="q14">11. Operationele dagen per week</label>
+            <input type="number" id="q14" class="form-control" min="1" max="7" value="5" oninput="saveCurrentSection2Data()">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Omgevingscondities & Belastingen WITH PER-BEARING DROPDOWN -->
+      <div class="survey-section">
+        <h2 class="survey-section-title">🌡️ 3. Omgevingscondities & Belastingen</h2>
+        
+        <!-- Bearing Selector Bar for Section 3 -->
+        <div style="background: #ffffff; padding: 14px 18px; border-radius: 10px; border: 1.5px solid #cbd5e1; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+          <div>
+            <label for="bearingSelectorSection3" style="font-size: 14px; font-weight: 800; color: #0f172a; margin-bottom: 2px; display: block;">
+              📌 Selecteer lager om de omgevingscondities & belastingen in te vullen:
+            </label>
+            <span style="font-size: 12.5px; color: #64748b;">
+              Vul de omgevingsfactoren (punten 12 t/m 19) in per geselecteerd lager.
+            </span>
+          </div>
+          <select id="bearingSelectorSection3" class="form-control" style="width: auto; min-width: 240px; font-weight: 700; border-color: #E30613; color: #E30613; background: #fff5f5;" onchange="switchSection3Bearing(this.value)">
+            <option value="A">Lager A</option>
+          </select>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="q15">12. Omgevingstemperatuur (°C)</label>
+            <input type="number" id="q15" class="form-control" placeholder="Bijv. 20 °C" oninput="saveCurrentSection3Data()">
+          </div>
+          <div class="form-group">
+            <label for="q16">13. Huidige (maximum) lagertemperatuur (°C)</label>
+            <input type="number" id="q16" class="form-control" placeholder="Bijv. 65 °C" oninput="saveCurrentSection3Data()">
+          </div>
+        </div>
+
+        <p style="font-size: 13.5px; font-weight: 600; color: #475569; margin: 16px 0 14px 0;">Beoordeel onderstaande omgevingsinvloeden (schaal 1 = Geen invloed, 10 = Zeer zware invloed):</p>
+
+        <div class="form-group">
+          <label>14. Water, vocht of stoom</label>
+          <div class="range-group">
+            <input type="range" id="q17" min="1" max="10" value="3" oninput="document.getElementById('b17').innerText=this.value; saveCurrentSection3Data()">
+            <div id="b17" class="range-badge">3</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>15. Stof of zand</label>
+          <div class="range-group">
+            <input type="range" id="q18" min="1" max="10" value="4" oninput="document.getElementById('b18').innerText=this.value; saveCurrentSection3Data()">
+            <div id="b18" class="range-badge">4</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>16. Abrasieve stoffen / vervuiling</label>
+          <div class="range-group">
+            <input type="range" id="q19" min="1" max="10" value="2" oninput="document.getElementById('b19').innerText=this.value; saveCurrentSection3Data()">
+            <div id="b19" class="range-badge">2</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>17. Schokbelastingen</label>
+          <div class="range-group">
+            <input type="range" id="q20" min="1" max="10" value="3" oninput="document.getElementById('b20').innerText=this.value; saveCurrentSection3Data()">
+            <div id="b20" class="range-badge">3</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>18. Vibraties & trillingen</label>
+          <div class="range-group">
+            <input type="range" id="q21" min="1" max="10" value="3" oninput="document.getElementById('b21').innerText=this.value; saveCurrentSection3Data()">
+            <div id="b21" class="range-badge">3</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>19. Condensatie</label>
+          <div class="range-group">
+            <input type="range" id="q22" min="1" max="10" value="2" oninput="document.getElementById('b22').innerText=this.value; saveCurrentSection3Data()">
+            <div id="b22" class="range-badge">2</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Onderhoud & Downtime WITH PER-BEARING DROPDOWN -->
+      <div class="survey-section">
+        <h2 class="survey-section-title">⏱️ 4. Onderhouds- & Downtimekosten</h2>
+        
+        <!-- Bearing Selector Bar for Section 4 -->
+        <div style="background: #ffffff; padding: 14px 18px; border-radius: 10px; border: 1.5px solid #cbd5e1; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+          <div>
+            <label for="bearingSelectorSection4" style="font-size: 14px; font-weight: 800; color: #0f172a; margin-bottom: 2px; display: block;">
+              📌 Selecteer lager om de onderhouds- & downtimekosten in te vullen:
+            </label>
+            <span style="font-size: 12.5px; color: #64748b;">
+              Vul de kosten & uren (punten 20 t/m 25) in per geselecteerd lager.
+            </span>
+          </div>
+          <select id="bearingSelectorSection4" class="form-control" style="width: auto; min-width: 240px; font-weight: 700; border-color: #E30613; color: #E30613; background: #fff5f5;" onchange="switchSection4Bearing(this.value)">
+            <option value="A">Lager A</option>
+          </select>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="q24">20. Tijdsduur per smeerbeurt (minuten)</label>
+            <input type="number" id="q24" class="form-control" placeholder="Bijv. 10 minuten" oninput="saveCurrentSection4Data()">
+          </div>
+          <div class="form-group">
+            <label for="q25">21. Uurloon onderhoudstechnicus (€/uur)</label>
+            <input type="number" step="0.01" id="q25" class="form-control" placeholder="Bijv. 65.00" oninput="saveCurrentSection4Data()">
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="q26">22. Tijdsduur revisie/vervanging lager (uren)</label>
+            <input type="number" step="0.5" id="q26" class="form-control" placeholder="Bijv. 3 uren" oninput="saveCurrentSection4Data()">
+          </div>
+          <div class="form-group">
+            <label for="q27">23. Voorbereidingstijd revisie (uren)</label>
+            <input type="number" step="0.5" id="q27" class="form-control" placeholder="Bijv. 1 uur" oninput="saveCurrentSection4Data()">
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="q28">24. Kostprijs stilstand / downtime (€/uur)</label>
+            <input type="number" step="0.01" id="q28" class="form-control" placeholder="Bijv. 450.00" oninput="saveCurrentSection4Data()">
+          </div>
+          <div class="form-group">
+            <label for="q30">25. Prijs lager + wisselstukken (€)</label>
+            <input type="number" step="0.01" id="q30" class="form-control" placeholder="Bijv. 125.00" oninput="saveCurrentSection4Data()">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Contact & Verzenden -->
+      <div class="survey-section">
+        <h2 class="survey-section-title">📩 5. Uw Contactgegevens & Verzenden</h2>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="clientCompany">Bedrijfsnaam *</label>
+            <input type="text" name="Bedrijfsnaam" id="clientCompany" class="form-control" placeholder="Uw bedrijfsnaam" required>
+          </div>
+          <div class="form-group">
+            <label for="clientContact">Naam contactpersoon *</label>
+            <input type="text" name="Contactpersoon" id="clientContact" class="form-control" placeholder="Uw naam" required>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="clientEmail">Uw E-mailadres *</label>
+            <input type="email" name="Klant Email" id="clientEmail" class="form-control" placeholder="naam@bedrijf.com" required onchange="syncReplyTo(this.value)">
+          </div>
+          <div class="form-group">
+            <label for="interflonContactEmail">Interflon Contactpersoon E-mail (Bestemming)</label>
+            <input type="email" name="Interflon Adviseur Email" id="interflonContactEmail" class="form-control" placeholder="contactpersoon@interflon.com" value="tom.peckstadt@interflon.com" onchange="updateFormSubmitAction(this.value)">
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
+        <button type="submit" class="submit-btn">
+          🚀 1. Verstuur Vragenlijst Direct via Mail Service →
+        </button>
+
+        <div class="grid-2">
+          <button type="button" onclick="sendViaGmail()" class="btn-secondary" style="border-color: #ea4335; color: #c5221f;">
+            ✉️ 2. Open in Gmail
+          </button>
+
+          <button type="button" onclick="sendViaOutlookMailto()" class="btn-secondary" style="border-color: #0078d4; color: #005a9e;">
+            📧 3. Open in Outlook
+          </button>
+        </div>
+
+        <button type="button" onclick="copyFullReportText()" class="btn-secondary">
+          📋 4. Kopieer uw antwoorden naar klembord om zelf in een mail te plakken
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+    // State management for per-bearing Section 2, 3, and 4 answers
+    const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    let activeBearingSec2 = 'A';
+    let activeBearingSec3 = 'A';
+    let activeBearingSec4 = 'A';
+    
+    // Maps storing section inputs per bearing letter
+    let bearingDataMapSec2 = {
+      'A': { q11: '', q12_price: '', q4_freq_num: '', q4_freq_unit: 'Weken', q29_life: '', q13: '16', q14: '5' }
+    };
+    let bearingDataMapSec3 = {
+      'A': { q15: '', q16: '', q17: '3', q18: '4', q19: '2', q20: '3', q21: '3', q22: '2' }
+    };
+    let bearingDataMapSec4 = {
+      'A': { q24: '', q25: '', q26: '', q27: '', q28: '', q30: '' }
+    };
+
+    function updateBearingLettersAndDropdown() {
+      const rows = document.querySelectorAll('.bearing-row');
+      const selector2 = document.getElementById('bearingSelectorSection2');
+      const selector3 = document.getElementById('bearingSelectorSection3');
+      const selector4 = document.getElementById('bearingSelectorSection4');
+
+      const prevSelected2 = activeBearingSec2;
+      const prevSelected3 = activeBearingSec3;
+      const prevSelected4 = activeBearingSec4;
+
+      selector2.innerHTML = '';
+      selector3.innerHTML = '';
+      selector4.innerHTML = '';
+      
+      rows.forEach((r, idx) => {
+        const letter = LETTERS[idx] || ('L' + (idx+1));
+        r.setAttribute('data-letter', letter);
+        
+        // Update badge inside row
+        const badge = r.querySelector('.bearing-badge');
+        if (badge) badge.innerText = 'Lager ' + letter;
+
+        // Update name attributes in row
+        const qtyIn = r.querySelector('.bearing-qty-input');
+        const nrIn = r.querySelector('.bearing-nr-input');
+        const descIn = r.querySelector('.bearing-desc-input');
+        const rpmIn = r.querySelector('.bearing-rpm-input');
+        const posIn = r.querySelector('.bearing-pos-input');
+
+        if (qtyIn) qtyIn.name = 'Lager ' + letter + ' - Aantal';
+        if (nrIn) nrIn.name = 'Lager ' + letter + ' - Lagernummer';
+        if (descIn) descIn.name = 'Lager ' + letter + ' - Omschrijving';
+        if (rpmIn) rpmIn.name = 'Lager ' + letter + ' - Toerental RPM';
+        if (posIn) posIn.name = 'Lager ' + letter + ' - As Positie';
+
+        // Ensure state entries exist
+        if (!bearingDataMapSec2[letter]) bearingDataMapSec2[letter] = { q11: '', q12_price: '', q4_freq_num: '', q4_freq_unit: 'Weken', q29_life: '', q13: '16', q14: '5' };
+        if (!bearingDataMapSec3[letter]) bearingDataMapSec3[letter] = { q15: '', q16: '', q17: '3', q18: '4', q19: '2', q20: '3', q21: '3', q22: '2' };
+        if (!bearingDataMapSec4[letter]) bearingDataMapSec4[letter] = { q24: '', q25: '', q26: '', q27: '', q28: '', q30: '' };
+
+        const nrVal = nrIn && nrIn.value ? nrIn.value.trim() : '';
+        const descVal = descIn && descIn.value ? descIn.value.trim() : '';
+        
+        let labelDetails = '';
+        if (nrVal && descVal) labelDetails = ' (' + nrVal + ' - ' + descVal + ')';
+        else if (nrVal) labelDetails = ' (' + nrVal + ')';
+        else if (descVal) labelDetails = ' (' + descVal + ')';
+
+        const optText = 'Lager ' + letter + labelDetails;
+
+        const opt2 = document.createElement('option');
+        opt2.value = letter;
+        opt2.innerText = optText;
+        selector2.appendChild(opt2);
+
+        const opt3 = document.createElement('option');
+        opt3.value = letter;
+        opt3.innerText = optText;
+        selector3.appendChild(opt3);
+
+        const opt4 = document.createElement('option');
+        opt4.value = letter;
+        opt4.innerText = optText;
+        selector4.appendChild(opt4);
+      });
+
+      // Maintain selections if valid, else fallback to first
+      const setValidSelection = (selector, prevValue, setGlobalVar, loadFunc) => {
+        if (bearingDataMapSec2[prevValue] && Array.from(selector.options).some(o => o.value === prevValue)) {
+          selector.value = prevValue;
+          setGlobalVar(prevValue);
+          loadFunc(prevValue);
+        } else {
+          selector.value = LETTERS[0];
+          setGlobalVar(LETTERS[0]);
+          loadFunc(LETTERS[0]);
+        }
+      };
+
+      setValidSelection(selector2, prevSelected2, v => activeBearingSec2 = v, loadSection2DataForBearing);
+      setValidSelection(selector3, prevSelected3, v => activeBearingSec3 = v, loadSection3DataForBearing);
+      setValidSelection(selector4, prevSelected4, v => activeBearingSec4 = v, loadSection4DataForBearing);
+    }
+
+    function addBearingRow() {
+      const rows = document.querySelectorAll('.bearing-row');
+      const nextIndex = rows.length;
+      const letter = LETTERS[nextIndex] || ('L' + (nextIndex+1));
+
+      const container = document.getElementById('bearingRowsContainer');
+      const row = document.createElement('div');
+      row.className = 'bearing-row';
+      row.id = 'bearingRow_' + (nextIndex + 1);
+      row.setAttribute('data-letter', letter);
+      row.style.cssText = 'display: grid; grid-template-columns: 75px 65px 1fr 1fr 100px 120px 36px; gap: 8px; margin-bottom: 10px; align-items: center; animation: fadeIn 0.2s ease-in;';
+      
+      row.innerHTML = `
+        <div>
+          <span class="bearing-badge">Lager ${letter}</span>
+        </div>
+        <div>
+          <input type="number" name="Lager ${letter} - Aantal" class="form-control bearing-qty-input" value="1" min="1" placeholder="1" required onchange="onBearingRowChanged()">
+        </div>
+        <div>
+          <input type="text" name="Lager ${letter} - Lagernummer" class="form-control bearing-nr-input" placeholder="bijv. 6208 2RS of 22215" required oninput="onBearingRowChanged()">
+        </div>
+        <div>
+          <input type="text" name="Lager ${letter} - Omschrijving" class="form-control bearing-desc-input" placeholder="bijv. Keerzijde transportband" oninput="onBearingRowChanged()">
+        </div>
+        <div>
+          <input type="number" name="Lager ${letter} - Toerental RPM" class="form-control bearing-rpm-input" placeholder="1450" oninput="onBearingRowChanged()">
+        </div>
+        <div>
+          <select name="Lager ${letter} - As Positie" class="form-control bearing-pos-input" onchange="onBearingRowChanged()">
+            <option value="Horizontaal">Horizontaal</option>
+            <option value="Verticaal">Verticaal</option>
+          </select>
+        </div>
+        <div>
+          <button type="button" onclick="removeBearingRow(this)" title="Sluiten" style="background: #fee2e2; border: 1px solid #fca5a5; color: #dc2626; border-radius: 6px; width: 36px; height: 36px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px;">✕</button>
+        </div>
+      `;
+      container.appendChild(row);
+
+      bearingDataMapSec2[letter] = { q11: '', q12_price: '', q4_freq_num: '', q4_freq_unit: 'Weken', q29_life: '', q13: '16', q14: '5' };
+      bearingDataMapSec3[letter] = { q15: '', q16: '', q17: '3', q18: '4', q19: '2', q20: '3', q21: '3', q22: '2' };
+      bearingDataMapSec4[letter] = { q24: '', q25: '', q26: '', q27: '', q28: '', q30: '' };
+
+      updateBearingLettersAndDropdown();
+      
+      // Auto-switch dropdowns to newly added bearing
+      document.getElementById('bearingSelectorSection2').value = letter;
+      switchSection2Bearing(letter);
+      document.getElementById('bearingSelectorSection3').value = letter;
+      switchSection3Bearing(letter);
+      document.getElementById('bearingSelectorSection4').value = letter;
+      switchSection4Bearing(letter);
+    }
+
+    function removeBearingRow(btn) {
+      const row = btn.closest('.bearing-row');
+      const rows = document.querySelectorAll('.bearing-row');
+      if (rows.length <= 1) {
+        alert('Er moet minimaal 1 lager aanwezig zijn op de machine.');
+        return;
+      }
+      if (row) row.remove();
+      updateBearingLettersAndDropdown();
+    }
+
+    function onBearingRowChanged() {
+      saveCurrentSection2Data();
+      saveCurrentSection3Data();
+      saveCurrentSection4Data();
+      updateBearingLettersAndDropdown();
+    }
+
+    // --- SECTION 2 HANDLERS ---
+    function saveCurrentSection2Data() {
+      if (!activeBearingSec2 || !bearingDataMapSec2[activeBearingSec2]) {
+        bearingDataMapSec2[activeBearingSec2] = {};
+      }
+      bearingDataMapSec2[activeBearingSec2].q11 = document.getElementById('q11').value;
+      bearingDataMapSec2[activeBearingSec2].q12_price = document.getElementById('q12_price').value;
+      bearingDataMapSec2[activeBearingSec2].q4_freq_num = document.getElementById('q4_freq_num').value;
+      bearingDataMapSec2[activeBearingSec2].q4_freq_unit = document.getElementById('q4_freq_unit').value;
+      bearingDataMapSec2[activeBearingSec2].q29_life = document.getElementById('q29_life').value;
+      bearingDataMapSec2[activeBearingSec2].q13 = document.getElementById('q13').value;
+      bearingDataMapSec2[activeBearingSec2].q14 = document.getElementById('q14').value;
+    }
+
+    function loadSection2DataForBearing(letter) {
+      const data = bearingDataMapSec2[letter] || { q11: '', q12_price: '', q4_freq_num: '', q4_freq_unit: 'Weken', q29_life: '', q13: '16', q14: '5' };
+      document.getElementById('q11').value = data.q11 || '';
+      document.getElementById('q12_price').value = data.q12_price || '';
+      document.getElementById('q4_freq_num').value = data.q4_freq_num || '';
+      document.getElementById('q4_freq_unit').value = data.q4_freq_unit || 'Weken';
+      document.getElementById('q29_life').value = data.q29_life || '';
+      document.getElementById('q13').value = data.q13 || '16';
+      document.getElementById('q14').value = data.q14 || '5';
+    }
+
+    function switchSection2Bearing(newLetter) {
+      saveCurrentSection2Data();
+      activeBearingSec2 = newLetter;
+      loadSection2DataForBearing(newLetter);
+    }
+
+    // --- SECTION 3 HANDLERS ---
+    function saveCurrentSection3Data() {
+      if (!activeBearingSec3 || !bearingDataMapSec3[activeBearingSec3]) {
+        bearingDataMapSec3[activeBearingSec3] = {};
+      }
+      bearingDataMapSec3[activeBearingSec3].q15 = document.getElementById('q15').value;
+      bearingDataMapSec3[activeBearingSec3].q16 = document.getElementById('q16').value;
+      bearingDataMapSec3[activeBearingSec3].q17 = document.getElementById('q17').value;
+      bearingDataMapSec3[activeBearingSec3].q18 = document.getElementById('q18').value;
+      bearingDataMapSec3[activeBearingSec3].q19 = document.getElementById('q19').value;
+      bearingDataMapSec3[activeBearingSec3].q20 = document.getElementById('q20').value;
+      bearingDataMapSec3[activeBearingSec3].q21 = document.getElementById('q21').value;
+      bearingDataMapSec3[activeBearingSec3].q22 = document.getElementById('q22').value;
+    }
+
+    function loadSection3DataForBearing(letter) {
+      const data = bearingDataMapSec3[letter] || { q15: '', q16: '', q17: '3', q18: '4', q19: '2', q20: '3', q21: '3', q22: '2' };
+      document.getElementById('q15').value = data.q15 || '';
+      document.getElementById('q16').value = data.q16 || '';
+      document.getElementById('q17').value = data.q17 || '3';
+      document.getElementById('b17').innerText = data.q17 || '3';
+      document.getElementById('q18').value = data.q18 || '4';
+      document.getElementById('b18').innerText = data.q18 || '4';
+      document.getElementById('q19').value = data.q19 || '2';
+      document.getElementById('b19').innerText = data.q19 || '2';
+      document.getElementById('q20').value = data.q20 || '3';
+      document.getElementById('b20').innerText = data.q20 || '3';
+      document.getElementById('q21').value = data.q21 || '3';
+      document.getElementById('b21').innerText = data.q21 || '3';
+      document.getElementById('q22').value = data.q22 || '2';
+      document.getElementById('b22').innerText = data.q22 || '2';
+    }
+
+    function switchSection3Bearing(newLetter) {
+      saveCurrentSection3Data();
+      activeBearingSec3 = newLetter;
+      loadSection3DataForBearing(newLetter);
+    }
+
+    // --- SECTION 4 HANDLERS ---
+    function saveCurrentSection4Data() {
+      if (!activeBearingSec4 || !bearingDataMapSec4[activeBearingSec4]) {
+        bearingDataMapSec4[activeBearingSec4] = {};
+      }
+      bearingDataMapSec4[activeBearingSec4].q24 = document.getElementById('q24').value;
+      bearingDataMapSec4[activeBearingSec4].q25 = document.getElementById('q25').value;
+      bearingDataMapSec4[activeBearingSec4].q26 = document.getElementById('q26').value;
+      bearingDataMapSec4[activeBearingSec4].q27 = document.getElementById('q27').value;
+      bearingDataMapSec4[activeBearingSec4].q28 = document.getElementById('q28').value;
+      bearingDataMapSec4[activeBearingSec4].q30 = document.getElementById('q30').value;
+    }
+
+    function loadSection4DataForBearing(letter) {
+      const data = bearingDataMapSec4[letter] || { q24: '', q25: '', q26: '', q27: '', q28: '', q30: '' };
+      document.getElementById('q24').value = data.q24 || '';
+      document.getElementById('q25').value = data.q25 || '';
+      document.getElementById('q26').value = data.q26 || '';
+      document.getElementById('q27').value = data.q27 || '';
+      document.getElementById('q28').value = data.q28 || '';
+      document.getElementById('q30').value = data.q30 || '';
+    }
+
+    function switchSection4Bearing(newLetter) {
+      saveCurrentSection4Data();
+      activeBearingSec4 = newLetter;
+      loadSection4DataForBearing(newLetter);
+    }
+
+    function syncReplyTo(val) {
+      document.getElementById('hiddenReplyTo').value = val;
+    }
+
+    function updateFormSubmitAction(email) {
+      const form = document.getElementById('publicSurveyForm');
+      if (email && email.includes('@')) {
+        form.action = "https://formsubmit.co/" + email.trim();
+      }
+    }
+
+    function prepareFormSubmission(e) {
+      // Save current active inputs before submitting
+      saveCurrentSection2Data();
+      saveCurrentSection3Data();
+      saveCurrentSection4Data();
+
+      // Create dynamic hidden inputs for FormSubmit with data for ALL bearings
+      const container = document.getElementById('dynamicHiddenFormSubmitContainer');
+      container.innerHTML = '';
+
+      const rows = document.querySelectorAll('.bearing-row');
+      rows.forEach((r, idx) => {
+        const letter = r.getAttribute('data-letter') || (LETTERS[idx] || ('L' + (idx+1)));
+        const d2 = bearingDataMapSec2[letter] || {};
+        const d3 = bearingDataMapSec3[letter] || {};
+        const d4 = bearingDataMapSec4[letter] || {};
+
+        const descIn = r.querySelector('.bearing-desc-input');
+        const descVal = descIn && descIn.value ? descIn.value.trim() : '';
+        
+        const createHidden = (name, val) => {
+          const inp = document.createElement('input');
+          inp.type = 'hidden';
+          inp.name = name;
+          inp.value = val || '-';
+          container.appendChild(inp);
+        };
+
+        if (descVal) createHidden('Lager ' + letter + ' - Omschrijving', descVal);
+
+        const freqStr = d2.q4_freq_num ? (d2.q4_freq_num + ' ' + (d2.q4_freq_unit || 'Weken')) : '-';
+
+        // Section 2 per bearing
+        createHidden('Lager ' + letter + ' - 6. Huidig Smeermiddel', d2.q11);
+        createHidden('Lager ' + letter + ' - 7. Prijs per Liter (€)', d2.q12_price ? '€' + d2.q12_price : '-');
+        createHidden('Lager ' + letter + ' - 8. Smeerfrequentie', freqStr);
+        createHidden('Lager ' + letter + ' - 9. Gemiddelde Levensduur (mnd)', d2.q29_life ? d2.q29_life + ' mnd' : '-');
+        createHidden('Lager ' + letter + ' - 10. Uren per dag', d2.q13 || '16');
+        createHidden('Lager ' + letter + ' - 11. Dagen per week', d2.q14 || '5');
+
+        // Section 3 per bearing
+        createHidden('Lager ' + letter + ' - 12. Omgevingstemp (°C)', d3.q15 ? d3.q15 + ' °C' : '-');
+        createHidden('Lager ' + letter + ' - 13. Lagertemp (°C)', d3.q16 ? d3.q16 + ' °C' : '-');
+        createHidden('Lager ' + letter + ' - 14. Water Vocht Stoom (1-10)', d3.q17 || '3');
+        createHidden('Lager ' + letter + ' - 15. Stof Zand (1-10)', d3.q18 || '4');
+        createHidden('Lager ' + letter + ' - 16. Abrasief Vervuiling (1-10)', d3.q19 || '2');
+        createHidden('Lager ' + letter + ' - 17. Schokbelasting (1-10)', d3.q20 || '3');
+        createHidden('Lager ' + letter + ' - 18. Vibraties (1-10)', d3.q21 || '3');
+        createHidden('Lager ' + letter + ' - 19. Condensatie (1-10)', d3.q22 || '2');
+
+        // Section 4 per bearing
+        createHidden('Lager ' + letter + ' - 20. Tijdsduur per beurt (min)', d4.q24 ? d4.q24 + ' min' : '-');
+        createHidden('Lager ' + letter + ' - 21. Uurloon technicus (€)', d4.q25 ? '€' + d4.q25 : '-');
+        createHidden('Lager ' + letter + ' - 22. Downtime per lager (H)', d4.q26 ? d4.q26 + ' H' : '-');
+        createHidden('Lager ' + letter + ' - 23. Voorbereidingstijd (H)', d4.q27 ? d4.q27 + ' H' : '-');
+        createHidden('Lager ' + letter + ' - 24. Downtime kost (€/H)', d4.q28 ? '€' + d4.q28 : '-');
+        createHidden('Lager ' + letter + ' - 25. Prijs wisselstukken (€)', d4.q30 ? '€' + d4.q30 : '-');
+      });
+    }
+
+    function buildReportSummary() {
+      saveCurrentSection2Data();
+      saveCurrentSection3Data();
+      saveCurrentSection4Data();
+
+      let bodyText = "INTERFLON SMEERANALYSE VRAGENLIJST\n====================================\n\n";
+      
+      bodyText += "--- KLANT & CONTACTGEGEVENS ---\n";
+      bodyText += "Bedrijf: " + (document.getElementById('clientCompany').value || '-') + "\n";
+      bodyText += "Contactpersoon: " + (document.getElementById('clientContact').value || '-') + "\n";
+      bodyText += "E-mail: " + (document.getElementById('clientEmail').value || '-') + "\n";
+      bodyText += "Interflon Adviseur E-mail: " + (document.getElementById('interflonContactEmail').value || '-') + "\n\n";
+
+      bodyText += "--- 1. MACHINEDETAILS ---\n";
+      bodyText += "Machine Naam: " + (document.getElementById('q1').value || '-') + "\n";
+      bodyText += "Machine Merk: " + (document.getElementById('q2').value || '-') + "\n";
+      bodyText += "Toepassing: " + (document.getElementById('q3').value || '-') + "\n";
+      bodyText += "Aantal Machines: " + (document.getElementById('q10').value || '1') + "\n\n";
+
+      bodyText += "--- SPECIFICATIES & CONDITIES PER LAGER ---\n";
+      const rows = document.querySelectorAll('.bearing-row');
+      rows.forEach((r, idx) => {
+        const letter = r.getAttribute('data-letter') || (LETTERS[idx] || ('L' + (idx+1)));
+        const inputs = r.querySelectorAll('input');
+        const select = r.querySelector('select');
+        
+        const d2 = bearingDataMapSec2[letter] || {};
+        const d3 = bearingDataMapSec3[letter] || {};
+        const d4 = bearingDataMapSec4[letter] || {};
+
+        if (inputs.length >= 2) {
+          const aantal = inputs[0].value || '1';
+          const nr = inputs[1].value || '';
+          const descIn = r.querySelector('.bearing-desc-input');
+          const desc = descIn ? descIn.value.trim() : '';
+          const rpm = inputs[3] ? inputs[3].value : '';
+          const positie = select ? select.value : 'Horizontaal';
+
+          const freqStr = d2.q4_freq_num ? (d2.q4_freq_num + ' ' + (d2.q4_freq_unit || 'Weken')) : '-';
+
+          bodyText += "========================================\n";
+          bodyText += "📌 [LAGER " + letter + "]: " + aantal + "x " + (nr || 'Lager') + (desc ? " - " + desc : "") + (rpm ? " (" + rpm + " RPM)" : "") + " - " + positie + "\n";
+          bodyText += "========================================\n";
+          bodyText += "2. SMEERSITUATIE:\n";
+          bodyText += "  • Huidig smeermiddel: " + (d2.q11 || '-') + "\n";
+          bodyText += "  • Prijs smeermiddel: " + (d2.q12_price ? '€' + d2.q12_price + ' / L' : '-') + "\n";
+          bodyText += "  • Smeerfrequentie/interval: " + freqStr + "\n";
+          bodyText += "  • Gemiddelde levensduur: " + (d2.q29_life ? d2.q29_life + ' maanden' : '-') + "\n";
+          bodyText += "  • Operationele uren/dag: " + (d2.q13 || '16') + "\n";
+          bodyText += "  • Operationele dagen/week: " + (d2.q14 || '5') + "\n\n";
+
+          bodyText += "3. OMGEVING & BELASTINGEN:\n";
+          bodyText += "  • Omgevingstemperatuur: " + (d3.q15 ? d3.q15 + ' °C' : '-') + "\n";
+          bodyText += "  • Lagertemperatuur: " + (d3.q16 ? d3.q16 + ' °C' : '-') + "\n";
+          bodyText += "  • Water / Vocht / Stoom (1-10): " + (d3.q17 || '3') + "\n";
+          bodyText += "  • Stof / Zand (1-10): " + (d3.q18 || '4') + "\n";
+          bodyText += "  • Abrasieve stoffen (1-10): " + (d3.q19 || '2') + "\n";
+          bodyText += "  • Schokbelastingen (1-10): " + (d3.q20 || '3') + "\n";
+          bodyText += "  • Vibraties & trillingen (1-10): " + (d3.q21 || '3') + "\n";
+          bodyText += "  • Condensatie (1-10): " + (d3.q22 || '2') + "\n\n";
+
+          bodyText += "4. ONDERHOUDS- & DOWNTIMEKOSTEN:\n";
+          bodyText += "  • Tijdsduur per beurt: " + (d4.q24 ? d4.q24 + ' min' : '-') + "\n";
+          bodyText += "  • Uurloon technicus: " + (d4.q25 ? '€' + d4.q25 : '-') + "\n";
+          bodyText += "  • Downtime per lager: " + (d4.q26 ? d4.q26 + ' uur' : '-') + "\n";
+          bodyText += "  • Voorbereidingstijd: " + (d4.q27 ? d4.q27 + ' uur' : '-') + "\n";
+          bodyText += "  • Downtime kost/uur: " + (d4.q28 ? '€' + d4.q28 : '-') + "\n";
+          bodyText += "  • Prijs wisselstukken: " + (d4.q30 ? '€' + d4.q30 : '-') + "\n\n";
+        }
+      });
+
+      return bodyText;
+    }
+
+    function sendViaGmail() {
+      prepareFormSubmission();
+      const targetEmail = document.getElementById('interflonContactEmail').value || 'tom.peckstadt@interflon.com';
+      const subject = encodeURIComponent("Smeeranalyse Vragenlijst - " + (document.getElementById('clientCompany').value || 'Klant'));
+      const body = encodeURIComponent(buildReportSummary());
+      const gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(targetEmail) + "&su=" + subject + "&body=" + body;
+      window.open(gmailUrl, '_blank');
+    }
+
+    function sendViaOutlookMailto() {
+      prepareFormSubmission();
+      const targetEmail = document.getElementById('interflonContactEmail').value || 'tom.peckstadt@interflon.com';
+      const subject = encodeURIComponent("Smeeranalyse Vragenlijst - " + (document.getElementById('clientCompany').value || 'Klant'));
+      const body = encodeURIComponent(buildReportSummary());
+      window.location.href = "mailto:" + encodeURIComponent(targetEmail) + "?subject=" + subject + "&body=" + body;
+    }
+
+    function copyFullReportText() {
+      prepareFormSubmission();
+      const reportText = buildReportSummary();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(reportText).then(() => {
+          alert("📋 Alle ingevulde antwoorden zijn gekopieerd naar uw klembord!\n\nU kunt deze nu direct plakken (Ctrl + V) in een e-mailbericht.");
+        }).catch(err => {
+          prompt("Kopieer onderstaande antwoorden:", reportText);
+        });
+      } else {
+        prompt("Kopieer onderstaande antwoorden:", reportText);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+
+      const contactEmail = urlParams.get('contact') || urlParams.get('contact_email') || urlParams.get('interflon_email');
+      if (contactEmail) {
+        document.getElementById('interflonContactEmail').value = contactEmail;
+        updateFormSubmitAction(contactEmail);
+      }
+
+      const company = urlParams.get('company') || urlParams.get('client_company');
+      if (company) document.getElementById('clientCompany').value = company;
+
+      const clientContact = urlParams.get('client_contact') || urlParams.get('contact_name');
+      if (clientContact) document.getElementById('clientContact').value = clientContact;
+
+      const clientEmail = urlParams.get('client_email');
+      if (clientEmail) {
+        document.getElementById('clientEmail').value = clientEmail;
+        syncReplyTo(clientEmail);
+      }
+
+      if (urlParams.get('submitted') === 'true') {
+        document.getElementById('successBanner').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      
+      if (urlParams.get('autoprint') === 'true' || urlParams.get('autoPrint') === 'true') {
+        setTimeout(() => {
+          window.print();
+        }, 600);
+      }
+
+      // Initialize bearing letters and dropdowns across Sections 2, 3, and 4
+      updateBearingLettersAndDropdown();
+    });
+  </script>
+</body>
+</html>

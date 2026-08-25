@@ -766,9 +766,9 @@ function renderPdfAutomationExtraPage(doc, autoData, autoDataUrl, autoRatio, wat
     const actualDailyVol = capMl / totalDays;
     const cartridgesPerYearDev = 12 / periodMonths;
 
-    let unitLabel = "maanden";
-    if (curUnit === "weeks") unitLabel = "weken";
-    else if (curUnit === "days") unitLabel = "dagen";
+    let unitLabel = "months";
+    if (curUnit === "weeks") unitLabel = "weeks";
+    else if (curUnit === "days") unitLabel = "days";
 
     // Column positions
     let cardX = 20;
@@ -1044,1594 +1044,208 @@ if (typeof window !== "undefined" && window.location && window.location.href.end
 }
 
 const TRANSLATIONS = {
-  nl: {
-    autoNumDevOpt1: "1 toestel (Pulsarlube A)",
-    autoNumDevOpt2: "2 toestellen (Pulsarlube A & Pulsarlube B)",
-    autoNumDevOpt3: "3 toestellen (Pulsarlube A, B & C)",
-    autoNumDevOpt4: "4 toestellen (Pulsarlube A, B, C & D)",
-    roiNetYearlySavingTitle: "Structurele Jaarlijkse Besparing",
-    roiFromYear2: "Vanaf Jaar 2",
-    roiYear1NetTitle: "Netto Resultaat Jaar 1",
-    roiInclInstall: "Inclusief initiële installatie",
-    roiPaybackTitle: "Terugverdientijd (ROI)",
-    roiPaybackSubtitle: "Investerings-terugverdientijd",
-    roiSavingsAfter: "Besparing na",
-    roiImportantNoteHeader: "Belangrijke toelichting:",
-    roiImportantNoteText: "Bovenstaande berekening weerspiegelt uitsluitend de directe overgang van handmatige naar automatische smering. In de praktijk ontstaat het grootste financiële en operationele voordeel echter door een verhoogde bedrijfszekerheid (hogere output), een langere levensduur van componenten (minder reserveonderdelen) en een aanzienlijke reductie in revisie-uren.",
-
-    photoLibraryBadge: "Foto bibliotheek",
-    photoLibraryTitle: "📷 Foto bibliotheek",
-    photoLibrarySubtitle: "Upload en beheer tot 20 foto's van de machine, lagers of smeerpunten met een optionele beschrijving.",
-    btnAddPhotos: "➕ Foto's toevoegen",
-    btnClose: "Sluiten",
-    noPhotosYet: "Nog geen foto's aanwezig.",
-    noPhotosHint: "Klik hierboven op \"➕ Foto's toevoegen\" om tot 20 foto's toe te voegen.",
-    photoLabel: "Foto",
-    enlargeLabel: "🔍 Vergroot",
-    clickToEnlarge: "Klik om te vergroten 🔍",
-    addDescPlaceholder: "Beschrijving toevoegen...",
-    deletePhotoTitle: "Verwijderen",
-
-    autoNumDevicesLabel: "Aantal Pulsarlube toestellen dat u wil plaatsen:",
-    autoNumDevicesHint: "Verdeel de te smeren lagers over 1 of meerdere toestellen (bijvoorbeeld 1 toestel met 4 lagers en 1 toestel met 2 lagers).",
-    autoRecHeader: "GEADVISEERDE INSTELLING OP TOESTEL",
-    btnApplyRec: "Neem advies over",
-    autoCalcHeaderTitle: "Smeerinterval & Dosering voor 1 lager",
-    labelNumBearings: "Aantal te smeren lagers",
-    autoDialSetting: "Instelstand draaiknop toestel:",
-    autoTheoCalculated: "• Theoretisch berekend:",
-    autoVolHeader1: "SMEERVOLUME (VOOR 1 LAGER)",
-    autoDailyVol1: "Berekend Dagelijks Smeervolume (voor 1 lager):",
-    autoMonthlyVol1: "Berekend Maandelijks Smeervolume (voor 1 lager):",
-    autoYearlyVol1: "Berekend Jaarlijks Smeervolume (voor 1 lager):",
-    descSinglePoint: "De <strong>Interflon Single Point Lubricator</strong> zorgt voor een continue, geautomatiseerde smering van uw lagers. Dit voorkomt onder- en oversmering en verlengt de levensduur van uw roterende apparatuur significant.",
-    descPulsarlubeM2: "De <strong>Pulsarlube M2</strong> is een elektro-mechanische automatische smeerunit die <strong>continu 24u/24u en 7d/7d doorsmeert</strong>, gestuurd door een interne micro-processor en pomp. Dit garandeert een uiterst nauwkeurige en constante vetdosering.",
-    descPulsarlubeMsp: "De <strong>Pulsarlube MSP</strong> is een extern gevoede, elektro-mechanische automatische smeerunit. Het toestel werkt synchroon met de machine en doseert enkel smeervet gedurende de actieve bedrijfsuren van de installatie.",
-    descPulsarlubePlc: "De <strong>Pulsarlube PLC</strong> is een geavanceerde, extern gestuurde elektro-mechanische smeerunit die rechtstreeks wordt aangestuurd door de <strong>PLC-besturing van de machine</strong>. Het toestel doseert uiterst nauwkeurig enkel tijdens actieve machinetijd.",
-    roiTitle: "Automation ROI",
-    roiSyncLabel: "Synchroon met Automatisering",
-    roiCalculatedGreaseCons: "Berekend Vetverbruik",
-    roiPerYear: "jaar",
-    roiLifetimeExtensionLabel: "Levensduur verlenging:",
-    roiLifetimeInfoText: "De overstap van manuele naar automatische smering verlengt de levensduur van lagers in de praktijk doorgaans met 50% tot 300% (een factor 1,5 tot 4). In zware, vervuilde of continu draaiende toepassingen kan de levensduur zelfs met een factor 4 tot 8 toenemen.",
-    roiManualCardTitle: "Manual Lubrication",
-    roiManualWithInterflonSubtext: "Met Interflon product (op jaarbasis)",
-    roiManualWithCurrentSubtext: "Met huidig product (op jaarbasis)",
-    roiOptionManualInterflon: "Manuele smering met Interflon product",
-    roiOptionManualCurrent: "Manuele smering met huidig product",
-    roiLabelYearlyCons: "Jaarlijks vetverbruik:",
-    roiLabelPricePerLiter: "Prijs vet per liter:",
-    roiLabelYearlyGreaseCost: "Jaarlijkse vetkost:",
-    roiLabelTotalBeurten: "Totaal lagersmeerbeurten/jaar:",
-    roiLabelTimePerBeurt: "Tijd per smeerbeurt (minuten):",
-    roiLabelHourlyRate: "Uurloon technieker:",
-    roiLabelYearlyLaborCost: "Jaarlijkse arbeidskost:",
-    roiLabelRepairTime: "Tijdsbesteding revisie (jaar):",
-    roiLabelPartsCost: "Materiaalkost onderdelen (jaar):",
-    roiLabelDowntimeCost: "Downtime kost (jaar):",
-    roiTotalManualTitle: "Totale Jaarkost Manueel",
-    roiAutoCardTitle: "Automatic Lubrication",
-    roiAutoCardSubtext: "Met gekozen smeerunit (op jaarbasis)",
-    roiLabelChosenDevice: "Gekozen smeerunit:",
-    roiLabelCartridgesCons: "Verbruik patronen/jaar:",
-    roiLabelEmptyDevicePrice: "Prijs leeg toestel:",
-    roiIncludedText: "Inbegrepen",
-    roiLabelPricePerPack: "Prijs per patroon / servicepack:",
-    roiLabelYearlyPacksCost: "Jaarlijkse kosten patronen:",
-    roiLabelInstallKit: "Pulsarlube installatiekit:",
-    roiLabelDividerBlocks: "Verdeelblok(ken):",
-    roiLabelCartridgeChangeLabor: "Arbeidskost patroonwissels:",
-    roiYear1Total: "Jaar 1 Totaal",
-    roiYear2PlusRecurring: "Jaar 2+ Terugkerend",
-    roiFinancialAnalysisSubtitle: "Directe vergelijking manuele arbeid & vet vs. automatische smeermodule",
-
-    "devicePulsarlubePlc": "Pulsarlube PLC (Centrale Sturing)",
-    "unitBedrijfsuren": "bedrijfsuren / jaar",
-    "techBrandLabel": "Merk van de machine",
-    "thickenerSelectLabel": "Selecteer verdikker huidig vet",
-    "modeModalSubtitle": "Maak uw keuze om de gewenste toepassing te openen:",
-    "modeModalTitle": "Welkom bij de Interflon Berekeningsmodule",
-
-    "menuSearch": "Lager Opzoeken",
-    "menuCalc": "Grease Calculation",
-    "menuOm": "TCO / Yield Model",
+  en: {
+    "selectLanguageLabel": "Select your language",
+    "passwordLabel": "Password",
+    "loginTitle": "Interflon Lubrication Calculator",
+    "loginSubtitle": "Enter the password to access the application.",
+    "loginButton": "Login",
+    "menuBearingSearch": "Bearing Search",
+    "menuGreaseCalc": "Grease Calculation",
+    "menuTcoModel": "TCO / Yield Model",
     "menuAutomation": "Automation",
     "menuRoiAutomation": "Automation ROI",
-    "menuInfo": "Informatie",
-    "menuVragenlijst": "Vragenlijst",
-    "btnPdfReport": "Rapport PDF",
-    "btnLogout": "Afmelden",
-    "welcomeModalTitle": "Welkom bij de Interflon Berekeningsmodule",
-    "welcomeModalSubtitle": "Maak uw keuze om de gewenste toepassing te openen:",
-    "selectBearingCalcTitle": "Lagerberekening",
-    "selectBearingCalcDesc": "Bepaal type vet, nasmeervolumes, smeerintervallen en instellingen voor automatisatie.",
-    "selectBearingCalcBtn": "Open Lagerberekening",
-    "selectChainCalcTitle": "Chain Calculation",
-    "selectChainCalcDesc": "Bereken olie-doseringen, volume per minuut, smeerintervallen en instellingen voor automatisatie voor aandrijf- en transportkettingen.",
-    "selectChainCalcBtn": "Open Kettingberekening",
-    "searchBearingTitle": "Lager Opzoeken",
-    "searchBearingDesc": "Voer een lagernummer in om alle technische specificaties weer te geven",
-    "bearingTypesBtn": "Lagertypes",
-
-    theoreticalRuntimeLabel: "• Theoretisch berekend:",
-
-    displaySettingLabel: "Display instelling op toestel:",
-
-    plcSettingLabel: "PLC instelling op toestel:",
-
-    dialKnobSettingLabel: "Instelstand draaiknop toestel:",
-
-    btnViewDimensions: "Bekijk afmetingen",
-
-    btnApplyRecommendation: "Neem advies over",
-
-    devicePulsarlubeQuad: "4 toestellen (Pulsarlube A, B, C & D)",
-
-    devicePulsarlubeTriple: "3 toestellen (Pulsarlube A, B & C)",
-
-    devicePulsarlubeDouble: "2 toestellen (Pulsarlube A & Pulsarlube B)",
-
-    devicePulsarlubeSingle: "1 toestel (Pulsarlube A)",
-
-    menuVragenlijst: "Vragenlijst",
-
-    roiYearsWord: "jaar",
-
-    roiSavingsAfterLabel: "Besparing na",
-
-    roiPaybackPeriodSub: "Investerings-terugverdientijd",
-
-    roiPaybackPeriodTitle: "Terugverdientijd (ROI)",
-
-    roiNetResultYear1Sub: "Inclusief initiële installatie",
-
-    roiNetResultYear1Title: "Netto Resultaat Jaar 1",
-
-    roiFromYear2Label: "Vanaf Jaar 2",
-
-    roiStructuralSavingsTitle: "Structurele Jaarlijkse Besparing",
-
-    roiFinancialAnalysisSub: "Directe vergelijking manuele arbeid & vet vs. automatische smeermodule",
-
-    roiFinancialAnalysisTitle: "Financiële Analyse & ROI Resultaat",
-
-    roiYear2PlusLabel: "Jaar 2+ Terugkerend",
-
-    roiYear1TotalLabel: "Jaar 1 Totaal",
-
-    roiDowntimeCostLabel: "Downtime kost (jaar):",
-
-    roiPartsCostLabel: "Materiaalkost onderdelen (jaar):",
-
-    roiRevisionLaborLabel: "Tijdsbesteding revisie (jaar):",
-
-    roiCartridgeChangeLaborLabel: "Arbeidskost patroonwissels:",
-
-    roiDividerBlockLabel: "Verdeelblok(ken):",
-
-    roiInstallationKitLabel: "Pulsarlube installatiekit:",
-
-    roiAnnualCartridgeCostLabel: "Jaarlijkse kosten patronen:",
-
-    roiCartridgeCostLabel: "Prijs per patroon / servicepack:",
-
-    roiEmptyUnitCostLabel: "Prijs leeg toestel:",
-
-    roiCartridgeConsumptionLabel: "Verbruik patronen/jaar:",
-
-    roiChosenUnitLabel: "Gekozen smeerunit:",
-
-    roiAutoSub: "Met gekozen smeerunit (op jaarbasis)",
-
-    roiAutoLubricationTitle: "Automatic Lubrication",
-
-    roiManualSub: "Met Interflon product (op jaarbasis)",
-
-    roiManualLubricationTitle: "Manual Lubrication",
-
-    chainAnnualConsumptionLabel: "Jaarlijks verbruik:",
-
-    chainMonthlyVolumeLabel: "Maandelijks volume:",
-
-    chainWeeklyVolumeLabel: "Wekelijks volume:",
-
-    chainHourlyVolumeLabel: "Smeervolume per uur:",
-
-    chainDailyVolumeLabel: "Dagelijks smeervolume:",
-
-    chainOutputTitle: "Berekend Smeerdebiet Ketting",
-
-    chainEnvHeavy: "Zwaar belast / Buitenopstelling (+80% smeerbehoefte)",
-
-    chainEnvHumid: "Vochtig / Nat (+50% smeerbehoefte)",
-
-    chainEnvDusty: "Stoffig / Vuil (+30% smeerbehoefte)",
-
-    chainEnvNormal: "Normaal (Schoon, droog, 20°C)",
-
-    chainEnvConditionsLabel: "Omgevingsomstandigheden",
-
-    chainMicpolFactorLabel: "Conversiefactor MicPol®",
-
-    chainTempLabel: "Bedrijfstemperatuur (°C)",
-
-    chainSpeedLabel: "Kettingsnelheid (m/s)",
-
-    chainLengthLabel: "Kettinglengte (meters)",
-
-    chainOperatingParamsTitle: "Bedrijfsparameters Ketting",
-
-    chainSelectOilLabel: "Selecteer Interflon Kettingolie",
-
-    chainInputParamsTitle: "Invoerparameters Ketting",
-
-    chainVisualDimensions: "Visuele Afmetingen",
-
-    chainTriplexLabel: "Triplex Rollenketting (3-sporig)",
-
-    chainDuplexLabel: "Duplex Rollenketting (2-sporig)",
-
-    chainSimplexLabel: "Simplex Rollenketting (1-sporig)",
-
-    chainTypeIllustration: "Ketting Type Illustratie",
-
-    btnStartChainCalc: "Start Kettingsmeerberekening",
-
-    chainPinDiamLabel: "Pendiameter (d₂)",
-
-    chainRollerDiamLabel: "Roldiameter (d₁)",
-
-    chainInnerWidthLabel: "Binnenbreedte (b₁)",
-
-    chainPitchLabel: "Steek / Pitch (p)",
-
-    chainTypeLabel: "Kettingtype / Uitvoering",
-
-    chainStandardLabel: "Standaard / Norm",
-
-    chainSpecsTitle: "Kettingspecificaties:",
-
-    noChainSelected: "Geen ketting geselecteerd",
-
-    selectChainCalcBtn: "Open Kettingberekening",
-
-    selectChainCalcDesc: "Bereken olie-doseringen, volume per minuut, smeerintervallen en instellingen voor automatisatie voor aandrijf- en transportkettingen.",
-
-    selectChainCalcTitle: "Chain Calculation",
-
-    selectBearingCalcBtn: "Open Lagerberekening",
-
-    selectBearingCalcDesc: "Bepaal type vet, nasmeervolumes, smeerintervallen en instellingen voor automatisatie.",
-
-    selectBearingCalcTitle: "Lagerberekening",
-
-    modeRoiExcludeDesc: "Slaat de pagina ROI Automatisering over in het PDF rapport.",
-
-    modeRoiExcludeTitle: "Exclusief ROI berekening automatisatie",
-
-    modeRoiIncludeDesc: "Voegt een extra pagina toe onderaan met de ROI vergelijking voor automatische smering.",
-
-    modeRoiIncludeTitle: "Inclusief ROI berekening automatisatie",
-
-    modeRoiTitle: "2. ROI Berekening Automatisatie",
-
-    modeTcoTitle: "1. TCO Calculatie Model",
-
-    modeSelectSubtitle: "Selecteer hoe het rapport moet worden opgebouwd voor deze berekening.",
-
-    modeSelectTitle: "Kies Rapporteringsmodus",
-
-    descGrease: "Bepaalt de maximale DN-factor en consistentie",
-    descHoursPerDay: "Aantal uren dat de machine per dag operationeel is.",
-    descDaysPerWeek: "Aantal dagen dat de machine per week operationeel is.",
-    bearingDimensionsTitle: "Lager Afmetingen & Massa",
-    correctionFactorsTitle: "Correctiefactoren",
-    speedGreaseLimitsTitle: "Snelheid & Vetlimieten",
-    resGreaseLimitLabel: "Vet DN-limiet",
-    freeVolInitFillTitle: "Vrije Volume & Initiële Vulling",
-    resFreeVolLabel: "Vrije volume (V)",
-    frequencyIntervalTitle: "Smeerfrequentie / Smeerinterval",
-    pageSearchTitle: "Lager Opzoeken",
-    pageSearchSubtitle: "Geef een SKF lagernummer op om alle technische specificaties te tonen.",
-    pageCalcTitle: "Grease Calculation",
-    pageCalcSubtitle: "Bereken de optimale smeerhoeveelheid en smeerinterval op basis van lagertype en bedrijfsparameters.",
-    pageInfoTitle: "Informatie",
-    pageInfoSubtitle: "Uitleg over werking, gebruikte formules en het ontwerp van de applicatie.",
-    menuAutomation: "Automation",
-    menuRoiAutomation: "Automation ROI",
-    pageRoiAutomationTitle: "Automation ROI",
-    pageRoiAutomationSubtitle: "Return on Investment berekening voor automatische smeersystemen",
-    pageAutomationTitle: "Automation",
-    pageAutomationSubtitle: "Berekening bij inzet van automatische smeertoestellen",
-    automationTitle: "Automatische Smeertoestellen",
-    automationSubtitle: "Berekening bij inzet van automatische smeertoestellen",
-    automationDeviceLabel: "Selecteer Toestel:",
-    deviceSinglePoint: "Interflon Single Point Lubricator",
-    devicePulsarlubeM2: "Pulsarlube M2",
-    devicePulsarlube: "Pulsarlube MSP",
-    devicePulsarlubePlc: "Pulsarlube PLC",
-    automationParamsTitle: "Toestel Parameters & Smeerinstelling",
-    automationCalcHeader: "Smeerinterval & Dosering",
-    labelCartridgeCap: "Patroon Capaciteit (ml)",
-    labelDispensePeriod: "Gewenste Looptijd / Leeglooptijd",
-    autoDailyVolumeLabel: "Berekend Dagelijks Smeervolume:",
-    btnShowDimensions: "Bekijk afmetingen",
-    btnShowPhoto: "Bekijk foto toestel",
-    selectLanguageLabel: "Selecteer uw taal",
-    modeModalTitle: "Welkom bij Interflon Berekeningsmodule",
-    modeModalSubtitle: "Maak uw keuze om de gewenste toepassing te openen:",
-    loginTitle: "Interflon Smeercalculator",
-    loginSubtitle: "Voer het paswoord in om toegang te krijgen tot de applicatie.",
-    passwordLabel: "Paswoord",
-    passwordPlaceholder: "Vul paswoord in...",
-    loginBtn: "Inloggen",
-    loginError: "Onjuist paswoord. Probeer opnieuw.",
-    menuSearch: "Lager Zoeken",
-    menuCalc: "Berekening",
-    menuInfo: "Informatie",
-    btnLogout: "Uitloggen",
-    operatorBadge: "Interflon contactpersoon",
-    clientBadge: "Klant",
-    opTitle: "Interflon contactpersoon",
-    opSubtitle: "Voer hier de gegevens van de Interflon contactpersoon in. Deze worden bewaard op dit apparaat en getoond op de export-rapporten.",
-    opNameLabel: "Naam",
-    opPhoneLabel: "Telefoonnummer",
-    opEmailLabel: "Emailadres",
-    opNamePlaceholder: "Bijv. Jan Janssen",
-    opPhonePlaceholder: "Bijv. +32 475 12 34 56",
-    opEmailPlaceholder: "Bijv. jan.janssen@interflon.com",
-    clientTitle: "Klant Gegevens",
-    clientSubtitle: "Voer hier de klantgegevens in. Deze worden getoond op de export-rapporten.",
-    clientCompanyLabel: "Bedrijf",
-    clientContactLabel: "Naam contactpersoon",
-    clientPhoneLabel: "Telefoonnummer",
-    clientEmailLabel: "Emailadres",
-    clientCompanyPlaceholder: "Bijv. Janssen Logistics",
-    clientContactPlaceholder: "Bijv. Peter Peeters",
-    clientPhonePlaceholder: "Bijv. +32 475 98 76 54",
-    clientEmailPlaceholder: "Bijv. p.peeters@janssenlogistics.com",
-    cancel: "Annuleren",
-    save: "Opslaan",
-    searchTitle: "Lager Smeercalculator",
-    searchSubtitle: "Selecteer een lager uit de database of geef handmatig de afmetingen in om de optimale smeerhoeveelheid en interval te berekenen.",
-    searchInputLabel: "Zoek lager op typenummer...",
-    searchInputPlaceholder: "Bijv. 6204 of NU209...",
-    btnManual: "Handmatige Invoer",
-    customAnalyze: "Analyseer...",
-    selectedBearingTitle: "Lagerspecificaties:",
-    bearingType: "Lagertype",
-    boreDiameter: "Boring / Asdiameter (d)",
-    outerDiameter: "Buitendiameter (D)",
-    widthB: "Breedte (B)",
-    weightG: "Massa",
-    limitingSpeed: "Grenstoerental",
-    dynLoad: "Dynamisch draaggetal (C)",
-    statLoad: "Statisch draaggetal (C0)",
-    refSpeed: "Referentietoerental",
-    btnToCalculations: "Start Smeerberekening",
-    calcTitle: "Berekening & Smeeradvies",
-    calcBearingLabel: "Lager:",
-    btnPdfReport: "Rapport PDF",
-    cardInputs: "Invoerparameters",
-    inputGreaseLabel: "Selecteer Interflon Vet",
-    inputTempLabel: "Bedrijfstemperatuur (°C)",
-    inputSpeedLabel: "Operationeel Toerental (RPM)",
-    inputLimitSpeedLabel: "Grenstoerental (RPM) - Optioneel",
-    inputBoreLabel: "Boring (d) [mm]",
-    inputOuterLabel: "Buitendiameter (D) [mm]",
-    inputWidthLabel: "Breedte (B) [mm]",
-    inputWeightLabel: "Massa (G) [kg]",
-    inputTeLabel: "Omgevingsfactor (Te/Tx)",
-    inputTaLabel: "Toepassingsfactor (Ta)",
-    inputHoursPerDayLabel: "Operationele uren/dag",
-    inputDaysPerWeekLabel: "Operationele dagen/week",
-    cardResults: "Berekende Resultaten",
-    resFreeVol: "Vrij Volume Lager (V)",
-    resInitialFill: "Eerste Smeervulling (40%)",
-    resInterval: "Gecorrigeerd Smeerinterval met conventioneel smeermiddel (FC)",
-    resRefillQty: "Nasmeerhoeveelheid",
-    resStrokes: "Aantal Slagen Vetpomp",
-    resBaseInterval: "Basis frequentie onder optimale labo omstandigheden (FB)",
-    resTempFactor: "Temperatuurfactor (Tt)",
-    resDnFactor: "DN-Factor Lager",
-    resGreaseLimit: "Grenstoerental Geselecteerd Vet (DN)",
-    infoTitle: "Over deze Webapplicatie",
-    infoIntro: "Welkom bij de <strong>Interflon Lager Smeercalculator</strong>. Dit systeem is speciaal ontworpen om onderhoudsengineers en operatoren te helpen bij het bepalen van de optimale smeerparameters voor roterende machines.",
-    legalDisclaimerText: "De gegenereerde gegevens bieden een betrouwbare indicatie, maar vormen geen expliciete garantie dat een product of dosering geschikt is voor elke specifieke toepassing. De calculator biedt een adviesrichtlijn; er kan geen wettelijke waarborg of aansprakelijkheid worden verleend met betrekking tot het concrete gebruik ervan in de praktijk.",
-    infoMicPolTitle: "MicPol® technologie",
-    infoMicPolText: "MicPol® is de unieke technologie in de producten van Interflon. MicPol® is intern ontwikkeld door ons eigen team van wetenschappers en onderscheidt onze producten van alle andere smeermiddelen.",
-    estimatedNote: "<strong>Let op:</strong> Dit lager is niet gevonden in de vaste database. De afmetingen hieronder zijn berekend en geschat op basis van de SKF aanduiding. Gelieve te verifiëren.",
-    warningSpeedLimit: "Waarschuwing: Het toerental (RPM) is hoger dan het grenstoerental van de lager!",
-    warningDnLimit: "Waarschuwing: De DN-factor (RPM * dm) overschrijdt de limiet van het geselecteerde vet!",
-    teOptionAvg: "Average (0.8)",
-    teOptionDust: "Dust and/or Moisture / High (0.5)",
-    teOptionMoisture: "Stof en/of vocht / Erg hoog (0,3)",
-    teOptionCondense: "Condensatie / Extreem (0,15)",
-    taOptionAvg: "Average (0.8)",
-    taOptionShock: "Shocks / High (0.5)",
-    taOptionVibe: "Vibrations / Very High (0.3)",
-    taOptionVert: "Vertical Shaft / Extreme (0.15)",
-    unitHours: "bedrijfsuren",
-    unitDays: "dagen",
-    unitWeeks: "weken",
-    unitMonths: "maanden",
-    unitStrokes: "slagen",
-    unitGrams: "gram",
-    unitGramsVet: "gram vet",
-    pdfTitle: "INTERFLON LAGER SMEERADVIES",
-    pdfDocTitle: "INTERFLON LAGER SMEERADVIES",
-    pdfDate: "Datum",
-    pdfEstimateNote: "Let op: Afmetingen en parameters zijn geschat op basis van SKF-aanduiding.",
-    pdfWatermarkText: "A world without friction",
-    pdfReportGeneratedOn: "Rapport gegenereerd op: ",
-    pdfValue: "Waarde",
-    pdfParameter: "Parameter",
-    pdfBearingSpecs: "Lager Specificaties",
-    pdfBearingNumber: "Nummer:",
-    pdfBoreD: "Boring (d):",
-    pdfOuterD: "Buitendiameter (D):",
-    pdfWidthB: "Breedte (B):",
-    pdfMassG: "Massa (G):",
-    pdfResultsTitle: "Calculatieresultaten & Smeeradvies",
-    pdfResultParameter: "Resultaatparameter",
-    pdfCalculatedValue: "Berekende Waarde",
-    pdfErrorLib: "Fout: PDF-bibliotheek kon niet worden geladen. Controleer uw internetverbinding.",
-    pdfErrorGen: "Er is een fout opgetreden bij het genereren van het PDF-rapport: ",
-    pdfGenerating: "Genereren...",
-    pdfExportTitle: "Rapport exporteren",
-    pdfExportSubtitle: "Kies hoe u het PDF-rapport wilt genereren:",
-    pdfOptInclTco: "Inclusief TCO Calculatie model",
-    pdfOptInclTcoDesc: "Genereert een 2-pagina's tellend rapport inclusief het volledige vergelijkende kostenmodel.",
-    pdfOptExclTco: "Exclusief TCO Calculatie model",
-    pdfOptExclTcoDesc: "Genereert een compact 1-pagina rapport met enkel de lagerspecificaties en het smeeradvies.",
-    pdfExportBtn: "Rapport exporteren",
-    visualDimensionsTitle: "Visuele Afmetingen",
-    visualNoteBlue: "Blauwe markeringen tonen de kogels/rollen.",
-    boreDiameterShort: "boring",
-    outerDiameterShort: "buitendiameter",
-    widthBShort: "breedte",
-    searchEmptyTitle: "Geen lager geselecteerd",
-    searchEmptyDesc: "Typ hierboven een SKF aanduiding (bijvoorbeeld <strong>6204</strong>, <strong>22220</strong> of <strong>NU210</strong>) en selecteer deze om de dimensionale gegevens te laden.",
-    calcBannerSubtitleEmpty: "Keer terug naar 'Lager Opzoeken' om een lager te laden, of vul handmatig afmetingen in.",
-    descLimitSpeed: "Grenstoerental van het lager.",
-    descSpeed: "Draaisnelheid van het lager.",
-    descTemp: "Bepaalt de temperatuurcorrectiefactor Tt.",
-    resFillPercentLabel: "Vullingspercentage",
-    resInitialFillLabel: "Initiële vulhoeveelheid",
-    resBaseIntervalLabel: "Basis frequentie onder optimale labo omstandigheden (FB)",
-    resTempFactorLabel: "Temperatuurfactor (Tt)",
-    resIntervalLabel: "Gecorrigeerd Smeerinterval met conventioneel smeermiddel (FC)",
-    resCoefCLabel: "Coefficient C",
-    techBadge: "Technical data",
-    techTitle: "Technische Gegevens",
-    techSubtitle: "Voer hier de technische gegevens van de toepassing in. Deze worden bewaard op dit apparaat en getoond op de export-rapporten.",
-    techMachineLabel: "Machine",
-    techMachinePlaceholder: "Bijv. Elektromotor pomp 3",
-    techAppLabel: "Toepassing",
-    techAppPlaceholder: "Bijv. Ventilator",
-    techProductLabel: "Huidig product",
-    techProductPlaceholder: "Bijv. Standaard EP2 vet",
-    techIntervalLabel: "Huidige smeerinterval (kalenderdagen)",
-    techPriceLabel: "Prijs huidig product / L (€)",
-    techIntervalPlaceholder: "Bijv. 30",
-    inputMicPolFactorLabel: "Selecteer convertiefactor naar Interflon MicPol® technologie",
-    descMicPolFactor: "Standtijdfactor MicPol® technologie ten opzichte van conventioneel smeermiddel",
-    resIntervalMicPolLabel: "Smeerinterval met Interflon MicPol® technologie",
-    pdfMicPolFactorLabel: "Convertiefactor naar Interflon MicPol®",
-    pdfIntervalMicPol: "Smeerinterval met Interflon MicPol®",
-    refillVolumeTitle: "Nasmeervolume (Refills)",
-    resRefillDesc: "Nasmeerhoeveelheid (D x B x C)",
-    resStrokesDesc: "Vetpomp (2g/slag)",
-    densityInfoTitle: "Dichtheidsinfo:",
-    densityInfoTextPre: "Het geselecteerde vet heeft een dichtheid van",
-    densityInfoTextPost: "Vulhoeveelheid = cm³ x dichtheid.",
-    lblDays: "Dagen",
-    lblWeeks: "Weken",
-    lblMonths: "Maanden",
-    tcoModeFormula: "Volgens formule",
-    tcoModePractical: "Huidige praktijk",
-    tcoModeHintFormula: "SKF Formule (FC)",
-    tcoModeHintPractical: "Actueel: {days}d / smeerbeurt",
-    tcoModeHintNoDays: "Vul interval in bij Tech. Gegevens",
-    
-    // Bearing types translation
-    "Eenrijig groefkogellager": "Eenrijig groefkogellager",
-    "Dubbelrijig groefkogellager": "Dubbelrijig groefkogellager",
-    "Pendelrollager": "Pendelrollager",
-    "Cilinderlager": "Cilinderlager",
-    "Kegellager": "Kegellager",
-    "Hoekcontactkogellager": "Hoekcontactkogellager",
-    "Dubbelrijig hoekcontactkogellager": "Dubbelrijig hoekcontactkogellager",
-    "Pendelkogellager": "Pendelkogellager",
-    "Axiaalkogellager": "Axiaalkogellager",
-    menuOm: "TCO / Yield Model",
-    pageOmTitle: "Opbrengstmodel (TCO)",
-    pageOmSubtitle: "Calculatiesheet berekening kostenbesparingen door inzet van Interflon smeermiddelen volgens TCO.",
-    omClientHeader: "Algemene Projectgegevens",
-    omMachineHuidigLabel: "Machine Huidig",
-    omMachineNieuwLabel: "Machine Nieuw",
-    omTypeHuidigLabel: "Type Huidig",
-    omTypeNieuwLabel: "Type Nieuw",
-    omTableTitle: "TCO Calculatie Model",
-    omInstructionText: "Vul de grijze cellen in",
-    omAutoInstructionText: "De blauwe cellen zijn automatisch berekend maar kunnen handmatig aangepast worden",
-    omGroupCurrent: "Current Situation",
-    omGroupInterflon: "Nieuwe situatie (Interflon)",
-    omGroupGeneral: "Algemene info",
-    omProductLabel: "PRODUCT",
-    omGeneralLabel: "Algemene info",
-    omProdName: "Productnaam",
-    omConsumption: "Productverbruik / smeerbeurt / per lager (g)",
-    omPricePerL: "Kostprijs product / L (€)",
-    omAnnProdCost: "Kostprijs product / machine / jaar (€)",
-    omLaborLabel: "TIJDSBESTEDING",
-    omLubesPerYear: "Aantal smeerbeurten / jaar / per lager",
-    omWorktimePerLube: "Werktijd / smeerbeurt (minuten)",
-    omRepairFreq: "Revisiefrequentie (maanden)",
-    omRepairDuration: "Revisietijd / Downtime / H",
-    omLaborRate: "Prijs werkuur / H (€)",
-    omAnnLaborCost: "Kostprijs tijdsbesteding / machine / jaar (€)",
-    omPrepDuration: "Voorbereidingstijd revisie (H)",
-    omMaterialLabel: "MATERIAAL",
-    omMaterialLifetime: "Levensduur lager (maanden)",
-    omSparePartsCost: "Kostprijs wisselstukken / set (€)",
-    omSetsPerMachine: "Aantal lagers / machine",
-    chainOmSetsPerMachine: "Aantal kettingen / machine",
-    chainOmMaterialLifetime: "Levensduur ketting (maanden)",
-    omAnnMatCost: "Kostprijs materiaal / machine / jaar (€)",
-    omNumMachines: "Aantal machines",
-    omDowntimeLabel: "DOWN-TIME",
-    omDowntimeHours: "Tijdsduur / per lager (H)",
-    omDowntimeRate: "Kostprijs down-time / H (€)",
-    omDowntimeFreq: "Aantal / jaar",
-    omAnnDowntimeCost: "Kostprijs downtime / machine / jaar (€)",
-    omCurrentCostLabel: "HUIDIGE KOSTPRIJS",
-    omNewCostLabel: "NIEUWE KOSTPRIJS (INTERFLON)",
-    omSavingsParkLabel: "BESPARING / MACHINEPARK",
-    omTotalCostPerMachine: "Totale kostprijs / jaar / machine (€)",
-    omTotalCostPark: "Totale kostprijs / jaar / park (€)",
-    omAnnSavingsLabel: "Kostenbesparing / jaar (park)",
-    omAnnSavingsMachineLabel: "Kostenbesparing / jaar / machine (€)",
-    omUploadPhotoText: "Foto uploaden",
-    omUploadPhotoDesc: "Klik of sleep",
-    omAddPhotoBtn: "Voeg foto toe",
-    omTotalSavingsLabel: "Kostenbesparing na <span class='omTcoYearsVal'>10</span> Jaar",
-    omProdCostPercentLabel: "% Product / Totale Kost",
-    omTcoPeriodLabel: "Aantal jaren voor TCO",
-    omCostPerMachineYears: "Kostprijs / machine na <span class='omTcoYearsVal'>10</span> jaar (€)",
-    omCostParkYears: "Kostprijs / machinepark na <span class='omTcoYearsVal'>10</span> jaar (€)",
-    omSavingsMachineYears: "Kostenbesparing / machine / na <span class='omTcoYearsVal'>10</span> jaar (€)",
-    omSavingsYears: "Kostenbesparing / machinepark / na <span class='omTcoYearsVal'>10</span> jaar (€)",
-    omSavingsParkYears: "Kostenbesparing / machinepark / na <span class='omTcoYearsVal'>10</span> jaar (€)",
-    close: "Sluiten",
-    speedModalTitle: "Toerental Limieten",
-    speedModalRefTitle: "Referentietoerental (Thermische grens)",
-    speedModalRefDesc: "Dit is het toerental waarbij de wrijvingswarmte van het lager in evenwicht is met de warmteafgifte aan de omgeving. Dit is geen harde mechanische grens. Met hoogwaardige smering (zoals Interflon) of betere koeling kan een lager veilig sneller draaien dan deze waarde.",
-    speedModalLimitTitle: "Grenstoerental (Mechanische grens)",
-    speedModalLimitDesc: "Dit is de absolute mechanische limiet van de lagerconstructie (zoals kooisterkte en trillingen). Dit toerental mag in principe nooit overschreden worden, omdat dit kan leiden tot mechanische schade of kooibreuk.",
-    speedModalNoteTitle: "Waarom kan het referentietoerental hoger zijn?",
-    speedModalNoteDesc: "Bij kleinere lagers of specifieke kooitypen kan een lager de wrijvingswarmte van een hoog toerental thermisch gezien prima afvoeren (referentietoerental). Echter, de mechanische onderdelen (zoals de sterkte van de kooi of de stabiliteit van de vetsmering onder invloed van centrifugaalkrachten) laten zo'n hoge snelheid fysiek niet toe (grenstoerental). In dat geval is het lagere grenstoerental de absolute veiligheidslimiet.",
-    loadModalTitle: "Draaggetallen",
-    loadModalDynTitle: "Dynamisch draaggetal (C)",
-    loadModalDynDesc: "Dit is de maximale belasting die een draaiend lager theoretisch kan verdragen gedurende 1 miljoen omwentelingen voordat de eerste tekenen van metaalmoeheid optreden. Deze waarde wordt gebruikt om de verwachte levensduur te berekenen onder wisselende of constante belasting.",
-    loadModalStatTitle: "Statisch draaggetal (C0)",
-    loadModalStatDesc: "Dit is de maximale belasting die een stilstaand of zeer langzaam draaiend lager kan verdragen zonder dat er blijvende, schadelijke vervorming (deukjes) optreedt in de loopbanen of op de rollende elementen. Dit is van belang om schade door zware schokbelastingen bij stilstand te voorkomen.",
-    selectPackaging: "Kies verpakking",
-    pricelistModalTitle: "Verpakking & Prijs Selecteren",
-    pricelistModalSubtitle: "Selecteer de gewenste verpakking en afnamehoeveelheid. De literprijs wordt automatisch berekend.",
-    noPackagesFound: "Geen verpakkingen gevonden voor dit product.",
-    btnCheckCompatibility: "Check compatibiliteit",
-    pdfViewerTitle: "Vetten Compatibiliteitstabel",
-    bearingStatusTitle: "Lager Status & Smering",
-    btnProductInfo: "Ga naar productinfo",
-    bearingIllustrationTitle: "Lager Type Illustratie",
-    btnLagertypes: "Lagertypes"
-  },
-  en: {
-    "devicePulsarlubePlc": "Pulsarlube PLC (Central Control)",
-    "unitBedrijfsuren": "operating hours / year",
-    "techBrandLabel": "Machine brand / manufacturer",
-    "thickenerSelectLabel": "Select current grease thickener",
-    "modeModalSubtitle": "Make your choice to open the desired application:",
-    "modeModalTitle": "Welcome to Interflon Calculation Module",
-
-    "menuSearch": "Search Bearing",
-    "menuCalc": "Lubrication Calculation",
-    "menuOm": "TCO Return Model",
-    "menuAutomation": "Automation Settings",
-    "menuRoiAutomation": "ROI Automation",
+    "menuChainCalc": "Chain Calculation",
+    "menuOperatorOverview": "Recommended Lubrication Intervals",
+    "menuGreaseTable": "Grease Cross-Reference Table",
+    "menuBearingTypes": "Visual Bearing Types",
+    "menuQuestionnaire": "Questionnaire / Checklist",
+    "menuSearch": "Bearing Search",
+    "menuCalc": "Grease Calculation",
+    "menuOm": "TCO / Yield Model",
     "menuInfo": "Information & Failures",
-    "menuVragenlijst": "Questionnaire",
+    "menuVragenlijst": "Questionnaire / Checklist",
     "btnPdfReport": "PDF Report",
     "btnLogout": "Log Out",
     "welcomeModalTitle": "Welcome to Interflon Calculation Module",
     "welcomeModalSubtitle": "Make your choice to open the desired application:",
     "selectBearingCalcTitle": "Bearing Calculation",
-    "selectBearingCalcDesc": "Determine grease type, relubrication quantities, lubrication intervals and automation settings.",
-    "selectBearingCalcBtn": "Open Bearing Calculation",
+    "selectBearingCalcDesc": "Determine grease type, relubrication quantity, and interval for SKF/FAG bearings.",
     "selectChainCalcTitle": "Chain Calculation",
-    "selectChainCalcDesc": "Calculate oil dosage, volume per minute, lubrication intervals and automation settings for drive and conveyor chains.",
-    "selectChainCalcBtn": "Open Chain Calculation",
-    "searchBearingTitle": "Search Bearing",
-    "searchBearingDesc": "Enter a bearing number to display all technical specifications",
-    "bearingTypesBtn": "Bearing Types",
-
-    theoreticalRuntimeLabel: "• Theoretically calculated:",
-
-    displaySettingLabel: "Display setting on lubricator:",
-
-    plcSettingLabel: "PLC setting on lubricator:",
-
-    dialKnobSettingLabel: "Dial knob setting:",
-
-    btnViewDimensions: "View dimensions",
-
-    btnApplyRecommendation: "Apply recommendation",
-
-    devicePulsarlubeQuad: "4 units (Pulsarlube A, B, C & D)",
-
-    devicePulsarlubeTriple: "3 units (Pulsarlube A, B & C)",
-
-    devicePulsarlubeDouble: "2 units (Pulsarlube A & Pulsarlube B)",
-
-    devicePulsarlubeSingle: "1 unit (Pulsarlube A)",
-
-    menuVragenlijst: "Questionnaire",
-
-    roiYearsWord: "years",
-
-    roiSavingsAfterLabel: "Savings after",
-
-    roiPaybackPeriodSub: "Investment payback time",
-
-    roiPaybackPeriodTitle: "Payback Period (ROI)",
-
-    roiNetResultYear1Sub: "Including initial installation",
-
-    roiNetResultYear1Title: "Net Result Year 1",
-
-    roiFromYear2Label: "From Year 2 Onwards",
-
-    roiStructuralSavingsTitle: "Structural Annual Savings",
-
-    roiFinancialAnalysisSub: "Direct comparison manual labor & grease vs. automatic lubrication module",
-
-    roiFinancialAnalysisTitle: "Financial Analysis & ROI Result",
-
-    roiYear2PlusLabel: "Year 2+ Recurring",
-
-    roiYear1TotalLabel: "Year 1 Total",
-
-    roiDowntimeCostLabel: "Downtime cost (annual):",
-
-    roiPartsCostLabel: "Parts material cost (annual):",
-
-    roiRevisionLaborLabel: "Overhaul time cost (annual):",
-
-    roiCartridgeChangeLaborLabel: "Cartridge replacement labor:",
-
-    roiDividerBlockLabel: "Divider block(s):",
-
-    roiInstallationKitLabel: "Pulsarlube installation kit:",
-
-    roiAnnualCartridgeCostLabel: "Annual cartridge cost:",
-
-    roiCartridgeCostLabel: "Price per cartridge / service pack:",
-
-    roiEmptyUnitCostLabel: "Price empty lubricator:",
-
-    roiCartridgeConsumptionLabel: "Cartridge usage/year:",
-
-    roiChosenUnitLabel: "Selected lubricator:",
-
-    roiAutoSub: "With selected lubricator (annual basis)",
-
-    roiAutoLubricationTitle: "Automatic Lubrication",
-
-    roiManualSub: "With Interflon product (annual basis)",
-
-    roiManualLubricationTitle: "Manual Lubrication",
-
-    chainAnnualConsumptionLabel: "Annual consumption:",
-
-    chainMonthlyVolumeLabel: "Monthly volume:",
-
-    chainWeeklyVolumeLabel: "Weekly volume:",
-
-    chainHourlyVolumeLabel: "Hourly oil volume:",
-
-    chainDailyVolumeLabel: "Daily oil volume:",
-
-    chainOutputTitle: "Calculated Chain Oil Dosage",
-
-    chainEnvHeavy: "Heavy duty / Outdoor (+80% lubrication need)",
-
-    chainEnvHumid: "Humid / Wet (+50% lubrication need)",
-
-    chainEnvDusty: "Dusty / Dirty (+30% lubrication need)",
-
-    chainEnvNormal: "Normal (Clean, dry, 20°C)",
-
-    chainEnvConditionsLabel: "Environmental Conditions",
-
-    chainMicpolFactorLabel: "MicPol® Conversion Factor",
-
-    chainTempLabel: "Operating Temperature (°C)",
-
-    chainSpeedLabel: "Chain Speed (m/s)",
-
-    chainLengthLabel: "Chain Length (meters)",
-
-    chainOperatingParamsTitle: "Chain Operating Parameters",
-
-    chainSelectOilLabel: "Select Interflon Chain Oil",
-
-    chainInputParamsTitle: "Chain Input Parameters",
-
-    chainVisualDimensions: "Visual Dimensions",
-
-    chainTriplexLabel: "Triplex Roller Chain (Triple Strand)",
-
-    chainDuplexLabel: "Duplex Roller Chain (Double Strand)",
-
-    chainSimplexLabel: "Simplex Roller Chain (Single Strand)",
-
-    chainTypeIllustration: "Chain Type Illustration",
-
-    btnStartChainCalc: "Start Chain Lubrication Calc",
-
-    chainPinDiamLabel: "Pin Diameter (d₂)",
-
-    chainRollerDiamLabel: "Roller Diameter (d₁)",
-
-    chainInnerWidthLabel: "Inner Width (b₁)",
-
-    chainPitchLabel: "Pitch (p)",
-
-    chainTypeLabel: "Chain Type / Execution",
-
-    chainStandardLabel: "Standard / Norm",
-
-    chainSpecsTitle: "Chain Specifications:",
-
-    noChainSelected: "No chain selected",
-
-    selectChainCalcBtn: "Open Chain Calculation",
-
-    selectChainCalcDesc: "Calculate oil dosage, volume per minute, lubrication intervals and automation settings for drive and conveyor chains.",
-
-    selectChainCalcTitle: "Chain Calculation",
-
-    selectBearingCalcBtn: "Open Bearing Calculation",
-
-    selectBearingCalcDesc: "Determine grease type, relubrication quantities, lubrication intervals and automation settings.",
-
-    selectBearingCalcTitle: "Bearing Calculation",
-
-    modeRoiExcludeDesc: "Skips the ROI Automation page in the PDF report.",
-
-    modeRoiExcludeTitle: "Excludes ROI calculation automation",
-
-    modeRoiIncludeDesc: "Adds an extra page at the bottom with the ROI comparison for automatic lubrication.",
-
-    modeRoiIncludeTitle: "Includes ROI calculation automation",
-
-    modeRoiTitle: "2. ROI Calculation Automation",
-
-    modeTcoTitle: "1. TCO Calculation Model",
-
-    modeSelectSubtitle: "Select how the report should be generated for this calculation.",
-
-    modeSelectTitle: "Choose Reporting Mode",
-
-    descGrease: "Determines the maximum DN factor and consistency.",
-    descHoursPerDay: "Number of hours the machine operates per day.",
-    descDaysPerWeek: "Number of days the machine is operational per week.",
-    bearingDimensionsTitle: "Bearing Dimensions & Mass",
-    correctionFactorsTitle: "Correction Factors",
-    speedGreaseLimitsTitle: "Speed & Grease Limits",
-    resGreaseLimitLabel: "Grease DN Limit",
-    freeVolInitFillTitle: "Free Volume & Initial Fill",
-    resFreeVolLabel: "Free volume (V)",
-    frequencyIntervalTitle: "Lubrication Frequency / Interval",
-    pageSearchTitle: "Search Bearing",
-    pageSearchSubtitle: "Enter an SKF bearing number to display all technical specifications.",
-    pageCalcTitle: "Lubrication Calculation",
-    pageCalcSubtitle: "Calculate the optimal lubrication quantity and interval based on bearing type and operating parameters.",
-    pageInfoTitle: "Information",
-    pageInfoSubtitle: "Explanation of operation, formulas used, and design of the application.",
-    menuAutomation: "Automation",
-    menuRoiAutomation: "ROI Automation",
-    pageRoiAutomationTitle: "ROI Automation",
-    pageRoiAutomationSubtitle: "Return on Investment calculation for automatic lubrication systems",
-    pageAutomationTitle: "Automation",
-    pageAutomationSubtitle: "Calculation for automatic lubrication units",
-    automationTitle: "Automatic Lubricators",
-    automationSubtitle: "Calculation for automatic lubrication units",
-    automationDeviceLabel: "Select Device:",
-    deviceSinglePoint: "Interflon Single Point Lubricator",
-    devicePulsarlubeM2: "Pulsarlube M2",
-    devicePulsarlube: "Pulsarlube MSP",
-    automationParamsTitle: "Device Parameters & Lubrication Setting",
-    automationCalcHeader: "Lubrication Interval & Dosage",
-    labelCartridgeCap: "Cartridge Capacity (ml)",
-    labelDispensePeriod: "Desired Dispensing Period",
-    autoDailyVolumeLabel: "Calculated Daily Lubricant Volume:",
-    btnShowDimensions: "View dimensions",
-    btnShowPhoto: "View device photo",
-    selectLanguageLabel: "Select your language",
-    modeModalTitle: "Welcome to Interflon Calculation Module",
-    modeModalSubtitle: "Make your choice to open the desired application:",
-    loginTitle: "Interflon Lubrication Calculator",
-    loginSubtitle: "Enter the password to access the application.",
-    passwordLabel: "Password",
-    passwordPlaceholder: "Enter password...",
-    loginBtn: "Log In",
-    loginError: "Incorrect password. Please try again.",
-    menuSearch: "Search Bearing",
-    menuCalc: "Calculation",
-    menuInfo: "Information",
-    btnLogout: "Log Out",
-    operatorBadge: "Interflon contact",
-    clientBadge: "Customer",
-    opTitle: "Interflon Contact Person",
-    opSubtitle: "Enter the Interflon contact person details here. These are saved on this device and shown on export reports.",
-    opNameLabel: "Name",
-    opPhoneLabel: "Phone Number",
-    opEmailLabel: "Email Address",
-    opNamePlaceholder: "E.g. John Doe",
-    opPhonePlaceholder: "E.g. +31 475 12 34 56",
-    opEmailPlaceholder: "E.g. john.doe@interflon.com",
-    clientTitle: "Customer Details",
-    clientSubtitle: "Enter the customer details here. These are shown on export reports.",
-    clientCompanyLabel: "Company",
-    clientContactLabel: "Contact Person",
-    clientPhoneLabel: "Phone Number",
-    clientEmailLabel: "Email Address",
-    clientCompanyPlaceholder: "E.g. Janssen Logistics",
-    clientContactPlaceholder: "E.g. Peter Peeters",
-    clientPhonePlaceholder: "E.g. +32 475 98 76 54",
-    clientEmailPlaceholder: "E.g. p.peeters@janssenlogistics.com",
-    cancel: "Cancel",
-    save: "Save",
-    searchTitle: "Bearing Lubrication Calculator",
-    searchSubtitle: "Select a bearing from the database or enter dimensions manually to calculate the optimal grease quantity and interval.",
-    searchInputLabel: "Search bearing by designation...",
-    searchInputPlaceholder: "E.g. 6204 or NU209...",
-    btnManual: "Manual Input",
-    customAnalyze: "Analyze...",
-    selectedBearingTitle: "Bearing Specifications:",
-    bearingType: "Bearing Type",
-    boreDiameter: "Bore / Shaft Diameter (d)",
-    outerDiameter: "Outer Diameter (D)",
-    widthB: "Width (B)",
-    weightG: "Mass",
-    limitingSpeed: "Limiting Speed",
-    dynLoad: "Dynamic Load Rating (C)",
-    statLoad: "Static Load Rating (C0)",
-    refSpeed: "Reference Speed",
-    btnToCalculations: "Start Lubrication Calculation",
-    calcTitle: "Calculation & Lubrication Advice",
-    calcBearingLabel: "Bearing:",
-    btnPdfReport: "PDF Report",
-    cardInputs: "Input Parameters",
-    inputGreaseLabel: "Select Interflon Grease",
-    inputTempLabel: "Operating Temperature (°C)",
-    inputSpeedLabel: "Operating Speed (RPM)",
-    inputLimitSpeedLabel: "Limiting Speed (RPM) - Optional",
-    inputBoreLabel: "Bore (d) [mm]",
-    inputOuterLabel: "Outer Diameter (D) [mm]",
-    inputWidthLabel: "Width (B) [mm]",
-    inputWeightLabel: "Mass (G) [kg]",
-    inputTeLabel: "Environmental Factor (Te/Tx)",
-    inputTaLabel: "Application Factor (Ta)",
-    inputHoursPerDayLabel: "Operational hours/day",
-    inputDaysPerWeekLabel: "Operational days/week",
-    cardResults: "Calculated Results",
-    resFreeVol: "Bearing Free Volume (V)",
-    resInitialFill: "Initial Grease Fill (40%)",
-    resInterval: "Corrected Lubrication Interval (FC)",
-    resRefillQty: "Relubrication Quantity",
-    resStrokes: "Grease Gun Strokes",
-    resBaseInterval: "Base Lubrication Interval (FB)",
-    resTempFactor: "Temperature Factor (Tt)",
-    resDnFactor: "Bearing DN Factor",
-    resGreaseLimit: "Selected Grease Speed Limit (DN)",
-    infoTitle: "About this Web Application",
-    infoIntro: "Welcome to the <strong>Interflon Bearing Lubrication Calculator</strong>. This system is specifically designed to help maintenance engineers and operators determine the optimal lubrication parameters for rotating machinery.",
-    legalDisclaimerText: "The generated data provide a reliable indication, but do not constitute an explicit guarantee that a product or dosage is suitable for any specific application. The calculator offers an advisory guideline; no legal warranty or liability can be granted regarding its actual use in practice.",
-    infoMicPolTitle: "MicPol® technology",
-    infoMicPolText: "MicPol® is the unique technology in Interflon products. MicPol® was developed internally by our own team of scientists and distinguishes our products from all other lubricants.",
-    estimatedNote: "<strong>Please note:</strong> This bearing was not found in the fixed database. The dimensions below are calculated and estimated based on the SKF designation. Please verify.",
-    warningSpeedLimit: "Warning: The speed (RPM) exceeds the bearing's limiting speed!",
-    warningDnLimit: "Warning: The DN factor (RPM * dm) exceeds the selected grease limit!",
-    teOptionAvg: "Average (0.8)",
-    teOptionDust: "Dust and/or moisture / High (0.5)",
-    teOptionMoisture: "Dust and/or moisture / Very high (0.3)",
-    teOptionCondense: "Condensation / Extreme (0.15)",
-    taOptionAvg: "Average (0.8)",
-    taOptionShock: "Shocks / High (0.5)",
-    taOptionVibe: "Vibrations / Very high (0.3)",
-    taOptionVert: "Vertical shaft / Extreme (0.15)",
-    unitHours: "hours",
-    unitDays: "days",
-    unitWeeks: "weeks",
-    unitMonths: "months",
-    unitStrokes: "strokes",
-    unitGrams: "grams",
-    unitGramsVet: "grams of grease",
-    pdfTitle: "INTERFLON BEARING LUBRICATION ADVICE",
-    pdfDocTitle: "INTERFLON BEARING LUBRICATION ADVICE",
-    pdfDate: "Date",
-    pdfEstimateNote: "Please note: Dimensions and parameters are estimated based on SKF designation.",
-    pdfWatermarkText: "A world without friction",
-    pdfReportGeneratedOn: "Report generated on: ",
-    pdfValue: "Value",
-    pdfParameter: "Parameter",
-    pdfBearingSpecs: "Bearing Specifications",
-    pdfBearingNumber: "Number:",
-    pdfBoreD: "Bore (d):",
-    pdfOuterD: "Outer Dia. (D):",
-    pdfWidthB: "Width (B):",
-    pdfMassG: "Mass (G):",
-    pdfResultsTitle: "Calculation Results & Lubrication Advice",
-    pdfResultParameter: "Result Parameter",
-    pdfCalculatedValue: "Calculated Value",
-    pdfErrorLib: "Error: PDF library could not be loaded. Please check your internet connection.",
-    pdfErrorGen: "An error occurred while generating the PDF report: ",
-    pdfGenerating: "Generating...",
-    pdfExportTitle: "Export Report",
-    pdfExportSubtitle: "Choose how to generate the PDF report:",
-    pdfOptInclTco: "Include TCO Calculation model",
-    pdfOptInclTcoDesc: "Generates a 2-page report including the full comparative cost model.",
-    pdfOptExclTco: "Exclude TCO Calculation model",
-    pdfOptExclTcoDesc: "Generates a compact 1-page report with only bearing specifications and lubrication advice.",
-    pdfExportBtn: "Export Report",
-    visualDimensionsTitle: "Visual Dimensions",
-    visualNoteBlue: "Blue markings show the balls/rollers.",
-    boreDiameterShort: "bore",
-    outerDiameterShort: "outer diameter",
-    widthBShort: "width",
-    searchEmptyTitle: "No bearing selected",
-    searchEmptyDesc: "Type an SKF designation above (for example <strong>6204</strong>, <strong>22220</strong> or <strong>NU210</strong>) and select it to load dimensional data.",
-    calcBannerSubtitleEmpty: "Return to 'Search Bearing' to load a bearing, or fill in dimensions manually.",
-    descLimitSpeed: "Limiting speed of the bearing.",
-    descSpeed: "Rotational speed of the bearing.",
-    descTemp: "Determines the temperature correction factor Tt.",
-    resFillPercentLabel: "Fill percentage",
-    resInitialFillLabel: "Initial grease quantity",
-    resBaseIntervalLabel: "Base frequency (FB)",
-    resTempFactorLabel: "Temperature factor (Tt)",
-    resIntervalLabel: "Corrected Lubrication Interval (FC)",
-    resCoefCLabel: "Coefficient C",
-    techBadge: "Technical data",
-    techTitle: "Technical Data",
-    techSubtitle: "Enter the technical details of the application here. These are saved on this device and shown on export reports.",
-    techMachineLabel: "Machine",
-    techMachinePlaceholder: "E.g. Electric motor pump 3",
-    techAppLabel: "Application",
-    techAppPlaceholder: "E.g. Fan",
-    techProductLabel: "Current product",
-    techProductPlaceholder: "E.g. Standard EP2 grease",
-    techIntervalLabel: "Current lubrication interval (calendar days)",
-    techPriceLabel: "Price current product / L (€)",
-    techIntervalPlaceholder: "E.g. 30",
-    inputMicPolFactorLabel: "Select conversion factor to Interflon MicPol® technology",
-    descMicPolFactor: "Service life factor of MicPol® technology compared to conventional lubricant",
-    resIntervalMicPolLabel: "Lubrication interval with Interflon MicPol® technology",
-    pdfMicPolFactorLabel: "Conversion factor to Interflon MicPol®",
-    pdfIntervalMicPol: "Lubrication interval with Interflon MicPol®",
-    refillVolumeTitle: "Relubrication Volume (Refills)",
-    resRefillDesc: "Relubrication quantity (D x B x C)",
-    resStrokesDesc: "Grease gun (2g/stroke)",
-    densityInfoTitle: "Density Info:",
-    densityInfoTextPre: "The selected grease has a density of",
-    densityInfoTextPost: "Grease quantity = cm³ x density.",
-    lblDays: "Days",
-    lblWeeks: "Weeks",
-    lblMonths: "Months",
-    tcoModeFormula: "According to formula",
-    tcoModePractical: "Current practice",
-    tcoModeHintFormula: "SKF Formula (FC)",
-    tcoModeHintPractical: "Actual: {days}d / relubrication",
-    tcoModeHintNoDays: "Set interval in Tech. Data",
-    
-    // Bearing types translation
-    "Eenrijig groefkogellager": "Single row deep groove ball bearing",
-    "Dubbelrijig groefkogellager": "Double row deep groove ball bearing",
-    "Pendelrollager": "Spherical roller bearing",
-    "Cilinderlager": "Cylindrical roller bearing",
-    "Kegellager": "Tapered roller bearing",
-    "Hoekcontactkogellager": "Angular contact ball bearing",
-    "Dubbelrijig hoekcontactkogellager": "Double row angular contact ball bearing",
-    "Pendelkogellager": "Self-aligning ball bearing",
-    "Axiaalkogellager": "Thrust ball bearing",
-    menuOm: "TCO Yield Model",
-    pageOmTitle: "TCO Yield Model (TCO)",
-    pageOmSubtitle: "Calculation of cost savings through the use of Interflon lubricants according to TCO.",
-    omClientHeader: "General Project Data",
-    omMachineHuidigLabel: "Current Machine",
-    omMachineNieuwLabel: "New Machine",
-    omTypeHuidigLabel: "Current Type",
-    omTypeNieuwLabel: "New Type",
-    omTableTitle: "TCO Calculation Model",
-    omInstructionText: "Fill in the grey cells",
-    omAutoInstructionText: "The blue cells are automatically calculated but can be manually adjusted",
-    omGroupCurrent: "Current situation",
-    omGroupInterflon: "New situation (Interflon)",
-    omGroupGeneral: "General info",
-    omProductLabel: "PRODUCT",
-    omGeneralLabel: "General info",
-    omProdName: "Product name",
-    omConsumption: "Product consumption / lube (g)",
-    omPricePerL: "Product price / L (€)",
-    omAnnProdCost: "Product cost / machine / year (€)",
-    omLaborLabel: "TIME SPENT",
-    omLubesPerYear: "Lubrications / year",
-    omWorktimePerLube: "Labor / lubrication (minutes)",
-    omRepairFreq: "Overhaul frequency (months)",
-    omRepairDuration: "Overhaul duration (hours)",
-    omLaborRate: "Labor rate (€/H)",
-    omAnnLaborCost: "Labor cost / machine / year (€)",
-    omPrepDuration: "Overhaul preparation time (H)",
-    omMaterialLabel: "MATERIAL",
-    omMaterialLifetime: "Bearing lifetime (months)",
-    omSparePartsCost: "Spare parts cost / set (€)",
-    omSetsPerMachine: "Bearings / machine",
-    chainOmSetsPerMachine: "Chains / machine",
-    chainOmMaterialLifetime: "Chain lifetime (months)",
-    omAnnMatCost: "Material cost / machine / year (€)",
-    omNumMachines: "Number of machines",
-    omDowntimeLabel: "DOWNTIME",
-    omDowntimeHours: "Duration (H)",
-    omDowntimeRate: "Downtime rate (€/H)",
-    omDowntimeFreq: "Events / year",
-    omAnnDowntimeCost: "Downtime cost / machine / year (€)",
-    omCurrentCostLabel: "CURRENT COST",
-    omNewCostLabel: "NEW COST (INTERFLON)",
-    omSavingsParkLabel: "SAVINGS / PARK",
-    omTotalCostPerMachine: "Total cost / year / machine (€)",
-    omTotalCostPark: "Total cost / year / park (€)",
-    omAnnSavingsLabel: "Cost savings / year (park)",
-    omAnnSavingsMachineLabel: "Cost savings / year / machine (€)",
-    omUploadPhotoText: "Upload photo",
-    omUploadPhotoDesc: "Click or drag",
-    omAddPhotoBtn: "Add photo",
-    omTotalSavingsLabel: "Cost savings after <span class='omTcoYearsVal'>10</span> Years",
-    omProdCostPercentLabel: "% Product / Total Cost",
-    omTcoPeriodLabel: "Years for TCO",
-    omCostPerMachineYears: "Cost / machine after <span class='omTcoYearsVal'>10</span> years (€)",
-    omCostParkYears: "Cost / park after <span class='omTcoYearsVal'>10</span> years (€)",
-    omSavingsMachineYears: "Cost savings / machine / after <span class='omTcoYearsVal'>10</span> years (€)",
-    omSavingsYears: "Cost savings / machine park / after <span class='omTcoYearsVal'>10</span> years (€)",
-    omSavingsParkYears: "Cost savings / machine park / after <span class='omTcoYearsVal'>10</span> years (€)",
-    close: "Close",
-    speedModalTitle: "Speed Limits",
-    speedModalRefTitle: "Reference Speed (Thermal limit)",
-    speedModalRefDesc: "This is the speed at which the frictional heat generated in the bearing is in equilibrium with the heat dissipation to the environment. This is not a hard mechanical limit. With high-quality lubrication (like Interflon) or enhanced cooling, a bearing can safely run faster than this value.",
-    speedModalLimitTitle: "Limiting Speed (Mechanical limit)",
-    speedModalLimitDesc: "This is the absolute mechanical limit of the bearing construction (such as cage strength and vibrations). This speed should in principle never be exceeded, as it can lead to mechanical damage or cage failure.",
-    speedModalNoteTitle: "Why can the reference speed be higher?",
-    speedModalNoteDesc: "For smaller bearings or specific cage types, a bearing can thermally dissipate the heat generated at high speeds (reference speed). However, the mechanical parts (such as cage strength or grease stability under centrifugal forces) cannot physically withstand such speeds (limiting speed). In these cases, the lower limiting speed is the absolute safety limit.",
-    loadModalTitle: "Load Ratings",
-    loadModalDynTitle: "Dynamic Load Rating (C)",
-    loadModalDynDesc: "This is the maximum load that a rotating bearing can theoretically withstand for 1 million revolutions before the first signs of metal fatigue occur. This value is used to calculate the expected service life under constant or varying load conditions.",
-    loadModalStatTitle: "Static Load Rating (C0)",
-    loadModalStatDesc: "This is the maximum load that a stationary or very slowly rotating bearing can withstand without causing permanent, harmful deformation (indentations) in the raceways or on the rolling elements. This is important to prevent damage from heavy shock loads while at standstill.",
-    selectPackaging: "Choose packaging",
-    pricelistModalTitle: "Select Packaging & Price",
-    pricelistModalSubtitle: "Select the desired packaging and order quantity. The price per liter will be calculated automatically.",
-    noPackagesFound: "No packaging found for this product.",
-    btnCheckCompatibility: "Check compatibility",
-    pdfViewerTitle: "Grease Compatibility Table",
-    bearingStatusTitle: "Bearing Status & Lubrication",
-    btnProductInfo: "Go to product info",
-    bearingIllustrationTitle: "Bearing Type Illustration",
-    btnLagertypes: "Bearing Types"
-  },
+    "selectChainCalcDesc": "Calculate optimal oil dosing, drop rate, and relubrication for industrial chains.",
+    "btnStartBearing": "Start Bearing Calculation",
+    "btnStartChain": "Start Chain Calculation",
+    "omCurrentCostLabel": "Current Cost",
+    "omNewCostLabel": "New Cost (Interflon)",
+    "omSavingsParkLabel": "Savings / Machine Fleet",
+    "omDowntimeLabel": "DOWNTIME",
+    "omDowntimeHours": "Duration / Per Bearing (H)",
+    "omDowntimeFreq": "Frequency / Year",
+    "omAnnDowntimeCost": "Downtime Cost / Machine / Year (€)",
+    "omTotalCostPerMachine": "Total Cost / Year / Machine (€)",
+    "omAnnSavingsPerMachine": "Annual Savings / Machine (€)",
+    "omTotalCostPark": "Total Cost / Year / Fleet (€)",
+    "omAnnSavingsPark": "Annual Savings / Fleet (€)",
+    "autoNumDevOpt1": "1 device (Pulsarlube A)",
+    "autoNumDevOpt2": "2 devices (Pulsarlube A & Pulsarlube B)",
+    "autoNumDevOpt3": "3 devices (Pulsarlube A, B & C)",
+    "autoNumDevOpt4": "4 devices (Pulsarlube A, B, C & D)",
+    "roiNetYearlySavingTitle": "Structural Annual Savings",
+    "roiFromYear2": "From Year 2 onwards",
+    "roiYear1NetTitle": "Net Result Year 1",
+    "roiInclInstall": "Including initial installation",
+    "roiPaybackTitle": "Payback Period (ROI)",
+    "roiPaybackSubtitle": "Investment payback time",
+    "roiSavingsAfter": "Savings after",
+    "roiDirectlyProfitable": "Directly Profitable",
+    "roiNotDirectlyProfitable": "Not Directly Profitable",
+    "roiAnnualNetSavings": "Annual Net Savings",
+    "teOptionAvg": "Average (0.8)",
+    "teOptionDust": "Dust and/or Moisture / High (0.5)",
+    "teOptionMoisture": "Dust and/or Moisture / Very High (0.3)",
+    "teOptionCondense": "Condensation / Extreme (0.15)",
+    "taOptionAvg": "Average (0.8)",
+    "taOptionShock": "Shocks / High (0.5)",
+    "taOptionVibe": "Vibrations / Very High (0.3)",
+    "taOptionVert": "Vertical Shaft / Extreme (0.15)",
+    "estimatedNote": "Calculated values are based on theoretical SKF & ISO standards.",
+    "legalDisclaimerText": "The calculated values in this application are based on theoretical SKF and ISO standards."
+},
+  nl: {
+    "selectLanguageLabel": "Select your language",
+    "passwordLabel": "Password",
+    "loginTitle": "Interflon Lubrication Calculator",
+    "loginSubtitle": "Enter the password to access the application.",
+    "loginButton": "Login",
+    "menuBearingSearch": "Bearing Search",
+    "menuGreaseCalc": "Grease Calculation",
+    "menuTcoModel": "TCO / Yield Model",
+    "menuAutomation": "Automation",
+    "menuRoiAutomation": "Automation ROI",
+    "menuChainCalc": "Chain Calculation",
+    "menuOperatorOverview": "Recommended Lubrication Intervals",
+    "menuGreaseTable": "Grease Cross-Reference Table",
+    "menuBearingTypes": "Visual Bearing Types",
+    "menuQuestionnaire": "Questionnaire / Checklist",
+    "menuSearch": "Bearing Search",
+    "menuCalc": "Grease Calculation",
+    "menuOm": "TCO / Yield Model",
+    "menuInfo": "Information & Failures",
+    "menuVragenlijst": "Questionnaire / Checklist",
+    "btnPdfReport": "PDF Report",
+    "btnLogout": "Log Out",
+    "welcomeModalTitle": "Welcome to Interflon Calculation Module",
+    "welcomeModalSubtitle": "Make your choice to open the desired application:",
+    "selectBearingCalcTitle": "Bearing Calculation",
+    "selectBearingCalcDesc": "Determine grease type, relubrication quantity, and interval for SKF/FAG bearings.",
+    "selectChainCalcTitle": "Chain Calculation",
+    "selectChainCalcDesc": "Calculate optimal oil dosing, drop rate, and relubrication for industrial chains.",
+    "btnStartBearing": "Start Bearing Calculation",
+    "btnStartChain": "Start Chain Calculation",
+    "omCurrentCostLabel": "Current Cost",
+    "omNewCostLabel": "New Cost (Interflon)",
+    "omSavingsParkLabel": "Savings / Machine Fleet",
+    "omDowntimeLabel": "DOWNTIME",
+    "omDowntimeHours": "Duration / Per Bearing (H)",
+    "omDowntimeFreq": "Frequency / Year",
+    "omAnnDowntimeCost": "Downtime Cost / Machine / Year (€)",
+    "omTotalCostPerMachine": "Total Cost / Year / Machine (€)",
+    "omAnnSavingsPerMachine": "Annual Savings / Machine (€)",
+    "omTotalCostPark": "Total Cost / Year / Fleet (€)",
+    "omAnnSavingsPark": "Annual Savings / Fleet (€)",
+    "autoNumDevOpt1": "1 device (Pulsarlube A)",
+    "autoNumDevOpt2": "2 devices (Pulsarlube A & Pulsarlube B)",
+    "autoNumDevOpt3": "3 devices (Pulsarlube A, B & C)",
+    "autoNumDevOpt4": "4 devices (Pulsarlube A, B, C & D)",
+    "roiNetYearlySavingTitle": "Structural Annual Savings",
+    "roiFromYear2": "From Year 2 onwards",
+    "roiYear1NetTitle": "Net Result Year 1",
+    "roiInclInstall": "Including initial installation",
+    "roiPaybackTitle": "Payback Period (ROI)",
+    "roiPaybackSubtitle": "Investment payback time",
+    "roiSavingsAfter": "Savings after",
+    "roiDirectlyProfitable": "Directly Profitable",
+    "roiNotDirectlyProfitable": "Not Directly Profitable",
+    "roiAnnualNetSavings": "Annual Net Savings",
+    "teOptionAvg": "Average (0.8)",
+    "teOptionDust": "Dust and/or Moisture / High (0.5)",
+    "teOptionMoisture": "Dust and/or Moisture / Very High (0.3)",
+    "teOptionCondense": "Condensation / Extreme (0.15)",
+    "taOptionAvg": "Average (0.8)",
+    "taOptionShock": "Shocks / High (0.5)",
+    "taOptionVibe": "Vibrations / Very High (0.3)",
+    "taOptionVert": "Vertical Shaft / Extreme (0.15)",
+    "estimatedNote": "Calculated values are based on theoretical SKF & ISO standards.",
+    "legalDisclaimerText": "The calculated values in this application are based on theoretical SKF and ISO standards."
+},
   fr: {
-    "devicePulsarlubePlc": "Pulsarlube PLC (Commande Centralisée)",
-    "unitBedrijfsuren": "heures de fonctionnement / an",
-    "techBrandLabel": "Marque / Fabricant de la machine",
-    "thickenerSelectLabel": "Sélectionnez l'épaississant de la graisse actuelle",
-    "modeModalSubtitle": "Faites votre choix pour ouvrir l'application souhaitée:",
-    "modeModalTitle": "Bienvenue dans le Module de Calcul Interflon",
-
-    "menuSearch": "Rechercher Roulement",
-    "menuCalc": "Calcul de Graissage",
-    "menuOm": "Modèle de Rendement TCO",
-    "menuAutomation": "Réglages Automatisation",
-    "menuRoiAutomation": "ROI Automatisation",
-    "menuInfo": "Informations & Défaillances",
-    "menuVragenlijst": "Questionnaire",
-    "btnPdfReport": "Rapport PDF",
-    "btnLogout": "Déconnexion",
-    "welcomeModalTitle": "Bienvenue dans le Module de Calcul Interflon",
-    "welcomeModalSubtitle": "Faites votre choix pour ouvrir l'application souhaitée:",
-    "selectBearingCalcTitle": "Calcul de Roulements",
-    "selectBearingCalcDesc": "Déterminez le type de graisse, les quantités de regraissage, les intervalles et les réglages d'automatisation.",
-    "selectBearingCalcBtn": "Ouvrir Calcul de Roulements",
-    "selectChainCalcTitle": "Calcul de Chaînes",
-    "selectChainCalcDesc": "Calculez le dosage d'huile, le volume par minute, les intervalles de graissage et les réglages d'automatisation pour chaînes d'entraînement et de convoyeur.",
-    "selectChainCalcBtn": "Ouvrir Calcul de Chaînes",
-    "searchBearingTitle": "Rechercher Roulement",
-    "searchBearingDesc": "Entrez une référence de roulement pour afficher toutes les spécifications techniques",
-    "bearingTypesBtn": "Types de Roulements",
-
-    theoreticalRuntimeLabel: "• Calculé théoriquement:",
-
-    displaySettingLabel: "Réglage écran sur l'appareil:",
-
-    plcSettingLabel: "Réglage PLC sur l'appareil:",
-
-    dialKnobSettingLabel: "Réglage du bouton rotatif:",
-
-    btnViewDimensions: "Voir les dimensions",
-
-    btnApplyRecommendation: "Appliquer le conseil",
-
-    devicePulsarlubeQuad: "4 appareils (Pulsarlube A, B, C & D)",
-
-    devicePulsarlubeTriple: "3 appareils (Pulsarlube A, B & C)",
-
-    devicePulsarlubeDouble: "2 appareils (Pulsarlube A & Pulsarlube B)",
-
-    devicePulsarlubeSingle: "1 appareil (Pulsarlube A)",
-
-    menuVragenlijst: "Questionnaire",
-
-    roiYearsWord: "ans",
-
-    roiSavingsAfterLabel: "Économies après",
-
-    roiPaybackPeriodSub: "Temps d'amortissement de l'investissement",
-
-    roiPaybackPeriodTitle: "Temps de Retour sur Investissement (ROI)",
-
-    roiNetResultYear1Sub: "Incluant l'installation initiale",
-
-    roiNetResultYear1Title: "Résultat Net Année 1",
-
-    roiFromYear2Label: "À Partir de l'Année 2",
-
-    roiStructuralSavingsTitle: "Économie Annuelle Structurelle",
-
-    roiFinancialAnalysisSub: "Comparaison directe main-d'œuvre & graisse manuelle vs. module de graissage automatique",
-
-    roiFinancialAnalysisTitle: "Analyse Financière & Résultat ROI",
-
-    roiYear2PlusLabel: "Année 2+ Récurrent",
-
-    roiYear1TotalLabel: "Année 1 Total",
-
-    roiDowntimeCostLabel: "Coût d'arrêt (annuel):",
-
-    roiPartsCostLabel: "Coût matériel pièces (annuel):",
-
-    roiRevisionLaborLabel: "Temps de révision (annuel):",
-
-    roiCartridgeChangeLaborLabel: "Main-d'œuvre remplacement cartouches:",
-
-    roiDividerBlockLabel: "Bloc(s) de distribution:",
-
-    roiInstallationKitLabel: "Kit d'installation Pulsarlube:",
-
-    roiAnnualCartridgeCostLabel: "Coût annuel des cartouches:",
-
-    roiCartridgeCostLabel: "Prix par cartouche / kit service:",
-
-    roiEmptyUnitCostLabel: "Prix appareil vide:",
-
-    roiCartridgeConsumptionLabel: "Consommation cartouches/an:",
-
-    roiChosenUnitLabel: "Graisseur sélectionné:",
-
-    roiAutoSub: "Avec le graisseur sélectionné (base annuelle)",
-
-    roiAutoLubricationTitle: "Graissage Automatique",
-
-    roiManualSub: "Avec produit Interflon (base annuelle)",
-
-    roiManualLubricationTitle: "Graissage Manuel",
-
-    chainAnnualConsumptionLabel: "Consommation annuelle:",
-
-    chainMonthlyVolumeLabel: "Volume mensuel:",
-
-    chainWeeklyVolumeLabel: "Volume hebdomadaire:",
-
-    chainHourlyVolumeLabel: "Volume d'huile par heure:",
-
-    chainDailyVolumeLabel: "Volume d'huile quotidien:",
-
-    chainOutputTitle: "Débit d'Huile de Chaîne Calculé",
-
-    chainEnvHeavy: "Charge lourde / Extérieur (+80% besoin de graissage)",
-
-    chainEnvHumid: "Humide / Mouillé (+50% besoin de graissage)",
-
-    chainEnvDusty: "Poussiéreux / Sale (+30% besoin de graissage)",
-
-    chainEnvNormal: "Normal (Propre, sec, 20°C)",
-
-    chainEnvConditionsLabel: "Conditions Environnementales",
-
-    chainMicpolFactorLabel: "Facteur de Conversion MicPol®",
-
-    chainTempLabel: "Température de Fonctionnement (°C)",
-
-    chainSpeedLabel: "Vitesse de Chaîne (m/s)",
-
-    chainLengthLabel: "Longueur de Chaîne (mètres)",
-
-    chainOperatingParamsTitle: "Paramètres d'Exploitation Chaîne",
-
-    chainSelectOilLabel: "Sélectionnez l'Huile de Chaîne Interflon",
-
-    chainInputParamsTitle: "Paramètres d'Entrée Chaîne",
-
-    chainVisualDimensions: "Dimensions Visuelles",
-
-    chainTriplexLabel: "Chaîne à Rouleaux Triplex (Triple Piste)",
-
-    chainDuplexLabel: "Chaîne à Rouleaux Duplex (Double Piste)",
-
-    chainSimplexLabel: "Chaîne à Rouleaux Simplex (Monopiste)",
-
-    chainTypeIllustration: "Illustration du Type de Chaîne",
-
-    btnStartChainCalc: "Démarrer Calcul de Graissage Chaîne",
-
-    chainPinDiamLabel: "Diamètre de l'Axe (d₂)",
-
-    chainRollerDiamLabel: "Diamètre du Rouleau (d₁)",
-
-    chainInnerWidthLabel: "Largeur Intérieure (b₁)",
-
-    chainPitchLabel: "Pas / Pitch (p)",
-
-    chainTypeLabel: "Type de Chaîne / Exécution",
-
-    chainStandardLabel: "Norme / Standard",
-
-    chainSpecsTitle: "Spécifications de la Chaîne:",
-
-    noChainSelected: "Aucune chaîne sélectionnée",
-
-    selectChainCalcBtn: "Ouvrir Calcul de Chaînes",
-
-    selectChainCalcDesc: "Calculez le dosage d'huile, le volume par minute, les intervalles de graissage et les réglages d'automatisation pour chaînes d'entraînement et de convoyeur.",
-
-    selectChainCalcTitle: "Calcul de Chaînes",
-
-    selectBearingCalcBtn: "Ouvrir Calcul de Roulements",
-
-    selectBearingCalcDesc: "Déterminez le type de graisse, les quantités de regraissage, les intervalles et les réglages d'automatisation.",
-
-    selectBearingCalcTitle: "Calcul de Roulements",
-
-    modeRoiExcludeDesc: "Passe la page ROI Automatisation dans le rapport PDF.",
-
-    modeRoiExcludeTitle: "Excludes ROI calculation automation",
-
-    modeRoiIncludeDesc: "Ajoute une page supplémentaire en bas avec la comparaison du ROI pour le graissage automatique.",
-
-    modeRoiIncludeTitle: "Inclut le calcul du ROI automatisation",
-
-    modeRoiTitle: "2. Calcul du ROI Automatisation",
-
-    modeTcoTitle: "1. Modèle de Calcul TCO",
-
-    modeSelectSubtitle: "Sélectionnez la façon dont le rapport doit être généré pour ce calcul.",
-
-    modeSelectTitle: "Choisissez le Mode de Rapport",
-
-    descGrease: "Détermine le facteur DN maximum et la consistance.",
-    descHoursPerDay: "Nombre d'heures pendant lesquelles la machine fonctionne par jour.",
-    descDaysPerWeek: "Nombre de jours pendant lesquels la machine est opérationnelle par semaine.",
-    bearingDimensionsTitle: "Dimensions & Masse du Roulement",
-    correctionFactorsTitle: "Facteurs de Correction",
-    speedGreaseLimitsTitle: "Vitesse & Limites de Graisse",
-    resGreaseLimitLabel: "Limite DN de la graisse",
-    freeVolInitFillTitle: "Volume Libre & Remplissage Initial",
-    resFreeVolLabel: "Volume libre (V)",
-    frequencyIntervalTitle: "Fréquence / Intervalle de Lubrification",
-    pageSearchTitle: "Recherche Roulement",
-    pageSearchSubtitle: "Saisissez un numéro de roulement SKF pour afficher toutes les spécifications techniques.",
-    pageCalcTitle: "Calcul de Lubrification",
-    pageCalcSubtitle: "Calculez la quantité et l'intervalle de lubrification optimaux en fonction du type de roulement et des paramètres de fonctionnement.",
-    pageInfoTitle: "Informations",
-    pageInfoSubtitle: "Explication du fonctionnement, des formules utilisées et de la conception de l'application.",
-    menuAutomation: "Automatisation",
-    menuRoiAutomation: "ROI Automatisation",
-    pageRoiAutomationTitle: "ROI Automatisation",
-    pageRoiAutomationSubtitle: "Calcul du retour sur investissement pour graisseurs automatiques",
-    pageAutomationTitle: "Automatisation",
-    pageAutomationSubtitle: "Calcul pour l'utilisation de graisseurs automatiques",
-    automationTitle: "Graisseurs Automatiques",
-    automationSubtitle: "Calcul pour l'utilisation de graisseurs automatiques",
-    automationDeviceLabel: "Sélectionner l'Appareil:",
-    deviceSinglePoint: "Interflon Single Point Lubricator",
-    devicePulsarlubeM2: "Pulsarlube M2",
-    devicePulsarlube: "Pulsarlube MSP",
-    automationParamsTitle: "Paramètres de l'Appareil & Réglage",
-    automationCalcHeader: "Intervalle & Dosage de Lubrification",
-    labelCartridgeCap: "Capacité de la Cartouche (ml)",
-    labelDispensePeriod: "Période de Distribution Souhaitée",
-    autoDailyVolumeLabel: "Volume Quotidien de Lubrifiant Calculé:",
-    btnShowDimensions: "Voir dimensions",
-    btnShowPhoto: "Voir photo appareil",
-    selectLanguageLabel: "Choisissez votre langue",
-    modeModalTitle: "Bienvenue sur le Module de Calcul Interflon",
-    modeModalSubtitle: "Faites votre choix pour ouvrir l'application souhaitée:",
-    loginTitle: "Calculateur de Lubrification Interflon",
-    loginSubtitle: "Saisissez le mot de passe pour accéder à l'application.",
-    passwordLabel: "Mot de passe",
-    passwordPlaceholder: "Saisir le mot de passe...",
-    loginBtn: "Se connecter",
-    loginError: "Mot de passe incorrect. Veuillez réessayer.",
-    menuSearch: "Recherche Roulement",
-    menuCalc: "Calcul",
-    menuInfo: "Informations",
-    btnLogout: "Se déconnecter",
-    operatorBadge: "Contact Interflon",
-    clientBadge: "Client",
-    opTitle: "Contact Interflon",
-    opSubtitle: "Saisissez ici les coordonnées du contact Interflon. Elles sont enregistrées sur cet appareil et affichées sur les rapports d'exportation.",
-    opNameLabel: "Nom",
-    opPhoneLabel: "Numéro de Téléphone",
-    opEmailLabel: "Adresse E-mail",
-    opNamePlaceholder: "Par ex. Jean Dupont",
-    opPhonePlaceholder: "Par ex. +33 1 23 45 67 89",
-    opEmailPlaceholder: "Par ex. jean.dupont@interflon.com",
-    clientTitle: "Informations Client",
-    clientSubtitle: "Saisissez les coordonnées du client ici. Elles sont affichées sur les rapports d'exportation.",
-    clientCompanyLabel: "Entreprise",
-    clientContactLabel: "Personne de Contact",
-    clientPhoneLabel: "Numéro de Téléphone",
-    clientEmailLabel: "Adresse E-mail",
-    clientCompanyPlaceholder: "Par ex. Janssen Logistics",
-    clientContactPlaceholder: "Par ex. Peter Peeters",
-    clientPhonePlaceholder: "Par ex. +32 475 98 76 54",
-    clientEmailPlaceholder: "Par ex. p.peeters@janssenlogistics.com",
-    cancel: "Annuler",
-    save: "Enregistrer",
-    searchTitle: "Calculateur de Lubrification des Roulements",
-    searchSubtitle: "Sélectionnez un roulement dans la base de données ou saisissez manuellement les dimensions pour calculer la quantité de graisse et l'intervalle optimaux.",
-    searchInputLabel: "Rechercher un roulement par désignation...",
-    searchInputPlaceholder: "Par ex. 6204 ou NU209...",
-    btnManual: "Saisie Manuelle",
-    customAnalyze: "Analyser...",
-    selectedBearingTitle: "Spécifications du Roulement :",
-    bearingType: "Type de Roulement",
-    boreDiameter: "Diamètre Intérieur / Alésage (d)",
-    outerDiameter: "Diamètre Extérieur (D)",
-    widthB: "Largeur (B)",
-    weightG: "Masse",
-    limitingSpeed: "Vitesse Limite",
-    dynLoad: "Capacité de charge dynamique (C)",
-    statLoad: "Capacité de charge statique (C0)",
-    refSpeed: "Vitesse de référence",
-    btnToCalculations: "Démarrer le Calcul de Smeer",
-    calcTitle: "Calcul et Conseil de Lubrification",
-    calcBearingLabel: "Roulement :",
-    btnPdfReport: "Rapport PDF",
-    cardInputs: "Paramètres d'Entrée",
-    inputGreaseLabel: "Sélectionner la Graisse Interflon",
-    inputTempLabel: "Température de Fonctionnement (°C)",
-    inputSpeedLabel: "Vitesse de Fonctionnement (RPM)",
-    inputLimitSpeedLabel: "Vitesse Limite (RPM) - Optionnel",
-    inputBoreLabel: "Alésage (d) [mm]",
-    inputOuterLabel: "Diamètre Extérieur (D) [mm]",
-    inputWidthLabel: "Largeur (B) - mm",
-    inputWeightLabel: "Masse (G) [kg]",
-    inputTeLabel: "Facteur Environnemental (Te/Tx)",
-    inputTaLabel: "Facteur d'Application (Ta)",
-    inputHoursPerDayLabel: "Heures opérationnelles/jour",
-    inputDaysPerWeekLabel: "Jours opérationnels/semaine",
-    cardResults: "Résultats Calculés",
-    resFreeVol: "Volume Libre du Roulement (V)",
-    resInitialFill: "Premier Remplissage de Graisse (40%)",
-    resInterval: "Intervalle de Lubrification Corrigé (FC)",
-    resRefillQty: "Quantité de Relubrification",
-    resStrokes: "Coups de Pompe à Graisse",
-    resBaseInterval: "Intervalle de Lubrification de Base (FB)",
-    resTempFactor: "Facteur de Température (Tt)",
-    resDnFactor: "Facteur DN du Roulement",
-    resGreaseLimit: "Vitesse Limite de la Graisse (DN)",
-    infoTitle: "À propos de cette Application Web",
-    infoIntro: "Bienvenue sur le <strong>Calculateur de Lubrification des Roulements Interflon</strong>. Ce système est spécifiquement conçu pour aider les ingénieurs de maintenance et les opérateurs à déterminer les paramètres de lubrification optimaux pour les machines tournantes.",
-    legalDisclaimerText: "Les données générées fournissent une indication fiable, mais ne constituent pas une garantie explicite qu'un produit ou un dosage convient à une application spécifique. Le calculateur propose une ligne directrice de conseil ; aucune garantie légale ou responsabilité ne peut être accordée concernant son utilisation concrète en pratique.",
-    infoMicPolTitle: "Technologie MicPol®",
-    infoMicPolText: "MicPol® est la technologie unique des produits Interflon. MicPol® a été développé en interne par notre propre équipe de scientifiques et distingue nos produits de tous les autres lubrifiants.",
-    estimatedNote: "<strong>Attention :</strong> Ce roulement n'a pas été trouvé dans la base de données fixe. Les dimensions ci-dessous sont estimées et calculées sur la base de la désignation SKF. Veuillez vérifier.",
-    warningSpeedLimit: "Avertissement : La vitesse (RPM) dépasse la vitesse limite du roulement !",
-    warningDnLimit: "Avertissement : Le facteur DN (RPM * dm) dépasse la limite de la graisse sélectionnée !",
-    teOptionAvg: "Moyen (0,8)",
-    teOptionDust: "Poussière et/ou humidité / Élevé (0,5)",
-    teOptionMoisture: "Poussière et/ou humidité / Très élevé (0,3)",
-    teOptionCondense: "Condensation / Extrême (0,15)",
-    taOptionAvg: "Moyen (0,8)",
-    taOptionShock: "Chocs / Élevé (0,5)",
-    taOptionVibe: "Vibrations / Très élevé (0,3)",
-    taOptionVert: "Arbre vertical / Extrême (0,15)",
-    unitHours: "heures",
-    unitDays: "jours",
-    unitWeeks: "semaines",
-    unitMonths: "mois",
-    unitStrokes: "coups",
-    unitGrams: "grammes",
-    unitGramsVet: "grammes de graisse",
-    pdfTitle: "CONSEIL DE LUBRIFICATION DES ROULEMENTS INTERFLON",
-    pdfDocTitle: "CONSEIL DE LUBRIFICATION DES ROULEMENTS INTERFLON",
-    pdfDate: "Date",
-    pdfEstimateNote: "Attention : Les dimensions et les paramètres sont estimés sur la base de la désignation SKF.",
-    pdfWatermarkText: "A world without friction",
-    pdfReportGeneratedOn: "Rapport généré le : ",
-    pdfValue: "Valeur",
-    pdfParameter: "Paramètre",
-    pdfBearingSpecs: "Spécifications du Roulement",
-    pdfBearingNumber: "Numéro :",
-    pdfBoreD: "Alésage (d) :",
-    pdfOuterD: "Diam. Extérieur (D) :",
-    pdfWidthB: "Largeur (B) :",
-    pdfMassG: "Masse (G) :",
-    pdfResultsTitle: "Résultats du Calcul & Conseil de Lubrification",
-    pdfResultParameter: "Paramètre de Résultat",
-    pdfCalculatedValue: "Valeur Calculée",
-    pdfErrorLib: "Erreur : La bibliothèque PDF n'a pas pu être chargée. Veuillez vérifier votre connexion Internet.",
-    pdfErrorGen: "Une erreur s'est produite lors de la génération du rapport PDF : ",
-    pdfGenerating: "Génération...",
-    pdfExportTitle: "Exporter le rapport",
-    pdfExportSubtitle: "Choisissez comment générer le rapport PDF :",
-    pdfOptInclTco: "Inclure le modèle de calcul TCO",
-    pdfOptInclTcoDesc: "Génère un rapport de 2 pages comprenant le modèle de coût comparatif complet.",
-    pdfOptExclTco: "Exclure le modèle de calcul TCO",
-    pdfOptExclTcoDesc: "Génère un rapport compact d'une page avec uniquement les spécifications du roulement et les conseils de lubrification.",
-    pdfExportBtn: "Exporter le rapport",
-    visualDimensionsTitle: "Dimensions Visuelles",
-    visualNoteBlue: "Les repères bleus indiquent les billes/rouleaux.",
-    boreDiameterShort: "alésage",
-    outerDiameterShort: "diamètre extérieur",
-    widthBShort: "largeur",
-    searchEmptyTitle: "Aucun roulement sélectionné",
-    searchEmptyDesc: "Saisissez une désignation SKF ci-dessus (par exemple <strong>6204</strong>, <strong>22220</strong> ou <strong>NU210</strong>) et sélectionnez-la pour charger les données dimensionnelles.",
-    calcBannerSubtitleEmpty: "Retournez à 'Recherche Roulement' pour charger un roulement, ou saisissez les dimensions manuellement.",
-    descLimitSpeed: "Vitesse limite du roulement.",
-    descSpeed: "Vitesse de rotation du roulement.",
-    descTemp: "Détermine le facteur de correction de température Tt.",
-    resFillPercentLabel: "Pourcentage de remplissage",
-    resInitialFillLabel: "Quantité de graisse initiale",
-    resBaseIntervalLabel: "Fréquence de base (FB)",
-    resTempFactorLabel: "Facteur de température (Tt)",
-    resIntervalLabel: "Intervalle de Lubrification Corrigé (FC)",
-    resCoefCLabel: "Coefficient C",
-    techBadge: "Technical data",
-    techTitle: "Données Techniques",
-    techSubtitle: "Saisissez ici les détails techniques de l'application. Ceux-ci sont enregistrés sur cet appareil et affichés sur les rapports d'exportation.",
-    techMachineLabel: "Machine",
-    techMachinePlaceholder: "Ex. Électromoteur pompe 3",
-    techAppLabel: "Application",
-    techAppPlaceholder: "Ex. Ventilateur",
-    techProductLabel: "Produit actuel",
-    techProductPlaceholder: "Ex. Graisse EP2 standard",
-    techIntervalLabel: "Intervalle de lubrification actuel (jours calendaires)",
-    techPriceLabel: "Prix produit actuel / L (€)",
-    techIntervalPlaceholder: "Ex. 30",
-    inputMicPolFactorLabel: "Sélectionnez le facteur de conversion vers la technologie Interflon MicPol®",
-    descMicPolFactor: "Facteur de durée de vie de la technologie MicPol® par rapport au lubrifiant conventionnel",
-    resIntervalMicPolLabel: "Intervalle de lubrification avec la technologie Interflon MicPol®",
-    pdfMicPolFactorLabel: "Facteur de conversion vers Interflon MicPol®",
-    pdfIntervalMicPol: "Intervalle de lubrification avec Interflon MicPol®",
-    refillVolumeTitle: "Volume de Relubrification (Refills)",
-    resRefillDesc: "Quantité de relubrification (D x B x C)",
-    resStrokesDesc: "Pompe à graisse (2g/coup)",
-    densityInfoTitle: "Infos de Densité :",
-    densityInfoTextPre: "La graisse sélectionnée a une densité de",
-    densityInfoTextPost: "Quantité de graisse = cm³ x densité.",
-    lblDays: "Jours",
-    lblWeeks: "Semaines",
-    lblMonths: "Mois",
-    tcoModeFormula: "Selon formule",
-    tcoModePractical: "Pratique actuelle",
-    tcoModeHintFormula: "Formule SKF (FC)",
-    tcoModeHintPractical: "Actuel : {days}j / graissage",
-    tcoModeHintNoDays: "Saisir intervalle dans Données Tech.",
-    
-    // Bearing types translation
-    "Eenrijig groefkogellager": "Roulement rigide à billes à une rangée",
-    "Dubbelrijig groefkogellager": "Roulement rigide à billes à deux rangées",
-    "Pendelrollager": "Roulement à rotule sur rouleaux",
-    "Cilinderlager": "Roulement à rouleaux cylindriques",
-    "Kegellager": "Roulement à rouleaux coniques",
-    "Hoekcontactkogellager": "Roulement à billes à contact oblique",
-    "Dubbelrijig hoekcontactkogellager": "Roulement à billes à contact oblique à deux rangées",
-    "Pendelkogellager": "Roulement à rotule sur billes",
-    "Axiaalkogellager": "Butée à billes",
-    menuOm: "Modèle de rendement TCO",
-    pageOmTitle: "Modèle TCO",
-    pageOmSubtitle: "Calcul des économies de coûts grâce à l'utilisation des lubrifiants Interflon selon le TCO.",
-    omClientHeader: "Données Générales du Projet",
-    omMachineHuidigLabel: "Machine Actuelle",
-    omMachineNieuwLabel: "Nouvelle Machine",
-    omTypeHuidigLabel: "Type Actuel",
-    omTypeNieuwLabel: "Nouveau Type",
-    omTableTitle: "Modèle de Calcul TCO",
-    omInstructionText: "Remplir les cellules grises",
-    omAutoInstructionText: "Les cellules bleues sont calculées automatiquement mais peuvent être ajustées manuellement",
-    omGroupCurrent: "Situation actuelle",
-    omGroupInterflon: "Nouvelle situation (Interflon)",
-    omGroupGeneral: "Infos générales",
-    omProductLabel: "PRODUIT",
-    omGeneralLabel: "Infos générales",
-    omProdName: "Nom du produit",
-    omConsumption: "Consommation produit / graissage (g)",
-    omPricePerL: "Prix produit / L (€)",
-    omAnnProdCost: "Coût produit / machine / an (€)",
-    omLaborLabel: "TEMPS PASSÉ",
-    omLubesPerYear: "Graissages / an",
-    omWorktimePerLube: "Temps de travail / graissage (minutes)",
-    omRepairFreq: "Fréquence de révision (mois)",
-    omRepairDuration: "Temps de révision (heures)",
-    omLaborRate: "Taux horaire (€/H)",
-    omAnnLaborCost: "Coût main d'œuvre / machine / an (€)",
-    omPrepDuration: "Temps de préparation révision (H)",
-    omMaterialLabel: "MATÉRIEL",
-    omMaterialLifetime: "Durée de vie roulement (mois)",
-    omSparePartsCost: "Prix pièces / jeu (€)",
-    omSetsPerMachine: "Roulements / machine",
-    chainOmSetsPerMachine: "Chaînes / machine",
-    chainOmMaterialLifetime: "Durée de vie chaîne (mois)",
-    omAnnMatCost: "Coût matériel / machine / an (€)",
-    omNumMachines: "Nombre de machines",
-    omDowntimeLabel: "TEMPS D'ARRÊT",
-    omDowntimeHours: "Durée (H)",
-    omDowntimeRate: "Coût temps d'arrêt / H (€)",
-    omDowntimeFreq: "Nombre / an",
-    omAnnDowntimeCost: "Coût temps d'arrêt / m / an (€)",
-    omCurrentCostLabel: "COÛT ACTUEL",
-    omNewCostLabel: "NOUVEAU COÛT (INTERFLON)",
-    omSavingsParkLabel: "ÉCONOMIES / PARC",
-    omTotalCostPerMachine: "Coût total / an / machine (€)",
-    omTotalCostPark: "Coût total / an / parc (€)",
-    omAnnSavingsLabel: "Économies / an (parc)",
-    omAnnSavingsMachineLabel: "Économies / an / machine (€)",
-    omUploadPhotoText: "Téléverser photo",
-    omUploadPhotoDesc: "Cliquer ou glisser",
-    omAddPhotoBtn: "Ajouter photo",
-    omTotalSavingsLabel: "Économies après <span class='omTcoYearsVal'>10</span> Ans",
-    omProdCostPercentLabel: "% Produit / Coût Total",
-    omTcoPeriodLabel: "Nombre d'années pour le TCO",
-    omCostPerMachineYears: "Coût / machine après <span class='omTcoYearsVal'>10</span> ans (€)",
-    omCostParkYears: "Coût / parc après <span class='omTcoYearsVal'>10</span> ans (€)",
-    omSavingsMachineYears: "Économies / machine / après <span class='omTcoYearsVal'>10</span> ans (€)",
-    omSavingsYears: "Économies / parc de machines / après <span class='omTcoYearsVal'>10</span> ans (€)",
-    omSavingsParkYears: "Économies / parc de machines / après <span class='omTcoYearsVal'>10</span> ans (€)",
-    close: "Fermer",
-    speedModalTitle: "Limites de Vitesse",
-    speedModalRefTitle: "Vitesse de Référence (Limite thermique)",
-    speedModalRefDesc: "C'est la vitesse à laquelle la chaleur de frottement générée dans le roulement est en équilibre avec la dissipation thermique dans l'environnement. Ce n'est pas une limite mécanique stricte. Avec une lubrification haut de gamme (comme Interflon) ou un refroidissement amélioré, un roulement peut tourner plus rapidement sans danger.",
-    speedModalLimitTitle: "Vitesse Limite (Limite mécanique)",
-    speedModalLimitDesc: "C'est la limite mécanique absolue de la structure du roulement (comme la résistance de la cage et les vibrations). Cette vitesse ne doit en principe jamais être dépassée, car cela peut entraîner des dommages mécaniques ou la rupture de la cage.",
-    speedModalNoteTitle: "Pourquoi la vitesse de référence peut-elle être supérieure?",
-    speedModalNoteDesc: "Pour les petits roulements ou les types de cages spécifiques, un roulement peut dissiper thermiquement la chaleur générée à grande vitesse (vitesse de référence). Cependant, les composants mécaniques (tels que la résistance de la cage ou la stabilité de la graisse sous l'effet des forces centrifuges) ne permettent pas physiquement une telle vitesse (vitesse limite). Dans ce cas, la vitesse limite inférieure reste la limite de sécurité absolue.",
-    loadModalTitle: "Charges Nominales",
-    loadModalDynTitle: "Charge Nominale Dynamique (C)",
-    loadModalDynDesc: "C'est la charge maximale qu'un roulement en rotation peut théoriquement supporter pendant 1 million de tours avant que les premiers signes de fatigue du métal n'apparaissent. Cette valeur est utilisée pour calculer la durée de vie attendue sous des charges constantes ou variables.",
-    loadModalStatTitle: "Charge Nominale Statique (C0)",
-    loadModalStatDesc: "C'est la charge maximale qu'un roulement immobile ou tournant très lentement peut supporter sans provoquer de déformation permanente et nocive (empreintes) dans les pistes ou sur les éléments roulants. C'est important pour éviter les dommages dus à de lourdes charges de choc à l'arrêt.",
-    selectPackaging: "Choisir l'emballage",
-    pricelistModalTitle: "Sélectionner l'emballage & le prix",
-    pricelistModalSubtitle: "Sélectionnez l'emballage souhaité et la quantité commandée. Le prix au litre sera calculé automatiquement.",
-    noPackagesFound: "Aucun emballage trouvé pour ce produit.",
-    btnCheckCompatibility: "Vérifier la compatibilité",
-    pdfViewerTitle: "Tableau de compatibilité des graisses",
-    bearingStatusTitle: "Statut du Roulement & Lubrification",
-    btnProductInfo: "Aller aux infos produit",
-    bearingIllustrationTitle: "Illustration du type de roulement",
-    btnLagertypes: "Types de roulement"
-  }
-};
+    "selectLanguageLabel": "Select your language",
+    "passwordLabel": "Password",
+    "loginTitle": "Interflon Lubrication Calculator",
+    "loginSubtitle": "Enter the password to access the application.",
+    "loginButton": "Login",
+    "menuBearingSearch": "Bearing Search",
+    "menuGreaseCalc": "Grease Calculation",
+    "menuTcoModel": "TCO / Yield Model",
+    "menuAutomation": "Automation",
+    "menuRoiAutomation": "Automation ROI",
+    "menuChainCalc": "Chain Calculation",
+    "menuOperatorOverview": "Recommended Lubrication Intervals",
+    "menuGreaseTable": "Grease Cross-Reference Table",
+    "menuBearingTypes": "Visual Bearing Types",
+    "menuQuestionnaire": "Questionnaire / Checklist",
+    "menuSearch": "Bearing Search",
+    "menuCalc": "Grease Calculation",
+    "menuOm": "TCO / Yield Model",
+    "menuInfo": "Information & Failures",
+    "menuVragenlijst": "Questionnaire / Checklist",
+    "btnPdfReport": "PDF Report",
+    "btnLogout": "Log Out",
+    "welcomeModalTitle": "Welcome to Interflon Calculation Module",
+    "welcomeModalSubtitle": "Make your choice to open the desired application:",
+    "selectBearingCalcTitle": "Bearing Calculation",
+    "selectBearingCalcDesc": "Determine grease type, relubrication quantity, and interval for SKF/FAG bearings.",
+    "selectChainCalcTitle": "Chain Calculation",
+    "selectChainCalcDesc": "Calculate optimal oil dosing, drop rate, and relubrication for industrial chains.",
+    "btnStartBearing": "Start Bearing Calculation",
+    "btnStartChain": "Start Chain Calculation",
+    "omCurrentCostLabel": "Current Cost",
+    "omNewCostLabel": "New Cost (Interflon)",
+    "omSavingsParkLabel": "Savings / Machine Fleet",
+    "omDowntimeLabel": "DOWNTIME",
+    "omDowntimeHours": "Duration / Per Bearing (H)",
+    "omDowntimeFreq": "Frequency / Year",
+    "omAnnDowntimeCost": "Downtime Cost / Machine / Year (€)",
+    "omTotalCostPerMachine": "Total Cost / Year / Machine (€)",
+    "omAnnSavingsPerMachine": "Annual Savings / Machine (€)",
+    "omTotalCostPark": "Total Cost / Year / Fleet (€)",
+    "omAnnSavingsPark": "Annual Savings / Fleet (€)",
+    "autoNumDevOpt1": "1 device (Pulsarlube A)",
+    "autoNumDevOpt2": "2 devices (Pulsarlube A & Pulsarlube B)",
+    "autoNumDevOpt3": "3 devices (Pulsarlube A, B & C)",
+    "autoNumDevOpt4": "4 devices (Pulsarlube A, B, C & D)",
+    "roiNetYearlySavingTitle": "Structural Annual Savings",
+    "roiFromYear2": "From Year 2 onwards",
+    "roiYear1NetTitle": "Net Result Year 1",
+    "roiInclInstall": "Including initial installation",
+    "roiPaybackTitle": "Payback Period (ROI)",
+    "roiPaybackSubtitle": "Investment payback time",
+    "roiSavingsAfter": "Savings after",
+    "roiDirectlyProfitable": "Directly Profitable",
+    "roiNotDirectlyProfitable": "Not Directly Profitable",
+    "roiAnnualNetSavings": "Annual Net Savings",
+    "teOptionAvg": "Average (0.8)",
+    "teOptionDust": "Dust and/or Moisture / High (0.5)",
+    "teOptionMoisture": "Dust and/or Moisture / Very High (0.3)",
+    "teOptionCondense": "Condensation / Extreme (0.15)",
+    "taOptionAvg": "Average (0.8)",
+    "taOptionShock": "Shocks / High (0.5)",
+    "taOptionVibe": "Vibrations / Very High (0.3)",
+    "taOptionVert": "Vertical Shaft / Extreme (0.15)",
+    "estimatedNote": "Calculated values are based on theoretical SKF & ISO standards.",
+    "legalDisclaimerText": "The calculated values in this application are based on theoretical SKF and ISO standards."
+}
+};;
 
 function translateBearingType(typeStr) {
   if (!typeStr) return "-";
@@ -3826,7 +2440,7 @@ function updateCalculatorFields() {
   const limitInput = document.getElementById("inputLimitingSpeed");
 
   lang = currentLang || "nl";
-  const langData = TRANSLATIONS[lang] || TRANSLATIONS["nl"];
+  const langData = TRANSLATIONS[lang] || TRANSLATIONS["en"];
 
   if (activeBearing) {
     // Vul velden in van actieve lager
@@ -4256,7 +2870,7 @@ function updateChainTcoModeHint(mode) {
   }
   if (!hintEl) return;
 
-  const langData = TRANSLATIONS[currentLang] || TRANSLATIONS["nl"];
+  const langData = TRANSLATIONS[currentLang] || TRANSLATIONS["en"];
   if (mode === "practical") {
     const techIntervalVal = localStorage.getItem("tech_interval");
     const intervalDays = techIntervalVal ? parseFloat(techIntervalVal) : 0;
@@ -4314,7 +2928,7 @@ function updateTcoModeHint(mode) {
   }
   if (!hintEl) return;
 
-  const langData = TRANSLATIONS[currentLang] || TRANSLATIONS["nl"];
+  const langData = TRANSLATIONS[currentLang] || TRANSLATIONS["en"];
   if (mode === "practical") {
     const techIntervalVal = localStorage.getItem("tech_interval");
     const intervalDays = techIntervalVal ? parseFloat(techIntervalVal) : 0;
@@ -4408,7 +3022,7 @@ function updateOperatorBadge(name) {
     }
     userAvatarEl.textContent = initials || "IF";
   } else {
-    const langData = TRANSLATIONS[currentLang || "nl"] || TRANSLATIONS["nl"];
+    const langData = TRANSLATIONS[currentLang || "nl"] || TRANSLATIONS["en"];
     userNameEl.textContent = langData.operatorBadge || "Interflon contactpersoon";
     userAvatarEl.textContent = "IF";
   }
@@ -4485,7 +3099,7 @@ function updateClientBadge(company, contact) {
     clientAvatarEl.textContent = initials || "KL";
   } else {
     lang = currentLang || "nl";
-    const langData = TRANSLATIONS[lang] || TRANSLATIONS["nl"];
+    const langData = TRANSLATIONS[lang] || TRANSLATIONS["en"];
     clientNameEl.textContent = langData.clientBadge || "Klant";
     
     if (lang === "en") {
@@ -4924,7 +3538,7 @@ function confirmPdfExport() {
 
 function runBearingPdfExport(includeTco, includeRoi) {
   const { jsPDF } = window.jspdf;
-  const langData = TRANSLATIONS[currentLang] || TRANSLATIONS["nl"];
+  const langData = TRANSLATIONS[currentLang] || TRANSLATIONS["en"];
   
   if (!jsPDF) {
     alert(langData.pdfErrorLib || "Fout: PDF-bibliotheek kon niet worden geladen. Controleer uw internetverbinding.");
@@ -5067,8 +3681,8 @@ function runBearingPdfExport(includeTco, includeRoi) {
       doc.text(langData.pdfBearingNumber || "Nummer:", 110, 51);
       doc.text((langData.bearingType || "Type") + ":", 110, 56);
       doc.text(langData.pdfBoreD || "Boring (d):", 110, 61);
-      doc.text(langData.pdfOuterD || "Buitendiameter (D):", 110, 66);
-      doc.text(langData.pdfWidthB || "Breedte (B):", 110, 71);
+      doc.text(langData.pdfOuterD || "Outer Diameter (D):", 110, 66);
+      doc.text(langData.pdfWidthB || "Width (B):", 110, 71);
       doc.text(langData.pdfMassG || "Massa (G):", 110, 76);
 
       doc.setFont("helvetica", "bold");
@@ -5106,7 +3720,7 @@ function runBearingPdfExport(includeTco, includeRoi) {
       doc.text(techApp, 160, 89);
       doc.text(techBrand, 160, 93.5);
       doc.text(techProduct, 160, 98);
-      doc.text(techInterval + (techInterval !== "-" ? " " + (currentLang === "nl" ? "dagen" : currentLang === "en" ? "days" : "jours") : ""), 160, 102.5);
+      doc.text(techInterval + (techInterval !== "-" ? " " + (currentLang === "nl" ? "days" : currentLang === "en" ? "days" : "jours") : ""), 160, 102.5);
       const parsedBearingPrice = parseFloat(techPrice);
       doc.text(techPrice !== "-" && !isNaN(parsedBearingPrice) ? `€ ${parsedBearingPrice.toFixed(2)}` : "-", 160, 107);
 
@@ -5499,8 +4113,8 @@ function runBearingPdfExport(includeTco, includeRoi) {
         drawCell(startX2, curY, 54, 6.5, "Productverbruik / smeerbeurt / per lager (g)", p2_cons, "blue");
         
         curY += 6.5;
-        drawCell(startX1, curY, 54, 6.5, "Kostprijs product / L (€)", p1_price, "blue");
-        drawCell(startX2, curY, 54, 6.5, "Kostprijs product / L (€)", p2_price, "blue");
+        drawCell(startX1, curY, 54, 6.5, "Product Cost / L (€)", p1_price, "blue");
+        drawCell(startX2, curY, 54, 6.5, "Product Cost / L (€)", p2_price, "blue");
         
         curY += 6.5;
         drawCell(startX1, curY, 54, 6.5, "Kostprijs product / m / j (€)", p1_ann_prod);
@@ -5513,8 +4127,8 @@ function runBearingPdfExport(includeTco, includeRoi) {
         drawCell(startX3, curY, 60, 5, "TIJDSBESTEDING", null, "section");
 
         curY = 90;
-        drawCell(startX1, curY, 54, 6.5, "Aantal smeerbeurten / jaar / per lager", p1_freq, "blue");
-        drawCell(startX2, curY, 54, 6.5, "Aantal smeerbeurten / jaar / per lager", p2_freq, "blue");
+        drawCell(startX1, curY, 54, 6.5, "Relubrication Frequency / Year / Bearing", p1_freq, "blue");
+        drawCell(startX2, curY, 54, 6.5, "Relubrication Frequency / Year / Bearing", p2_freq, "blue");
         drawCell(startX3, curY, 60, 6.5, "Werktijd / smeerbeurt (min)", shared_worktime, "grey");
 
         curY += 6.5;
@@ -5541,7 +4155,7 @@ function runBearingPdfExport(includeTco, includeRoi) {
         curY += 6.5;
         drawCell(startX1, curY, 54, 6.5, "", "");
         drawCell(startX2, curY, 54, 6.5, "", "");
-        drawCell(startX3, curY, 60, 6.5, "Aantal lagers / machine", shared_sets, "grey");
+        drawCell(startX3, curY, 60, 6.5, "Number of Bearings / Machine", shared_sets, "grey");
 
         curY += 6.5;
         drawCell(startX1, curY, 54, 6.5, "Kostprijs materiaal / m / j (€)", p1_ann_mat);
@@ -5550,28 +4164,28 @@ function runBearingPdfExport(includeTco, includeRoi) {
 
         // DOWN-TIME SECTION
         curY = 137;
-        drawCell(startX1, curY, 54, 5, "DOWN-TIME", null, "section");
-        drawCell(startX2, curY, 54, 5, "DOWN-TIME", null, "section");
-        drawCell(startX3, curY, 60, 5, "DOWN-TIME", null, "section");
+        drawCell(startX1, curY, 54, 5, "DOWNTIME", null, "section");
+        drawCell(startX2, curY, 54, 5, "DOWNTIME", null, "section");
+        drawCell(startX3, curY, 60, 5, "DOWNTIME", null, "section");
 
         curY = 142;
-        drawCell(startX1, curY, 54, 6.5, "Tijdsduur / per lager (H)", p1_dt_h, "blue");
-        drawCell(startX2, curY, 54, 6.5, "Tijdsduur / per lager (H)", p2_dt_h, "blue");
+        drawCell(startX1, curY, 54, 6.5, "Duration / Per Bearing (H)", p1_dt_h, "blue");
+        drawCell(startX2, curY, 54, 6.5, "Duration / Per Bearing (H)", p2_dt_h, "blue");
         drawCell(startX3, curY, 60, 6.5, "Kostprijs downtime / H (€)", shared_dt_rate, "grey");
 
         curY += 6.5;
-        drawCell(startX1, curY, 54, 6.5, "Aantal / jaar", p1_dt_freq, "blue");
-        drawCell(startX2, curY, 54, 6.5, "Aantal / jaar", p2_dt_freq, "blue");
-        drawCell(startX3, curY, 60, 6.5, "Voorbereidingstijd revisie (H)", shared_prep_h, "grey");
+        drawCell(startX1, curY, 54, 6.5, "Frequency / Year", p1_dt_freq, "blue");
+        drawCell(startX2, curY, 54, 6.5, "Frequency / Year", p2_dt_freq, "blue");
+        drawCell(startX3, curY, 60, 6.5, "Overhaul Prep Time (H)", shared_prep_h, "grey");
 
         curY += 6.5;
         drawCell(startX1, curY, 54, 6.5, "Kostprijs downtime / m / j (€)", p1_ann_dt);
         drawCell(startX2, curY, 54, 6.5, "Kostprijs downtime / m / j (€)", p2_ann_dt);
-        drawCell(startX3, curY, 60, 6.5, "Aantal machines", num_mach, "grey");
+        drawCell(startX3, curY, 60, 6.5, "Number of Machines", num_mach, "grey");
 
         // TCO TOTALS HEADERS
         curY = 163;
-        drawCell(startX1, curY, 54, 5, "MANUELE SMERING", null, "section");
+        drawCell(startX1, curY, 54, 5, "MANUAL LUBRICATION", null, "section");
         drawCell(startX2, curY, 54, 5, "NIEUWE KOSTPRIJS (INTERFLON)", null, "section");
         drawCell(startX3, curY, 60, 5, "BESPARING / MACHINEPARK", null, "section");
 
@@ -6787,7 +5401,7 @@ function calculateAutomationLubrication() {
     const recWeeks = recDays / 7;
 
     const recSetting = getRecommendedSettingMonths(recMonths);
-    const dialLabel = `${recSetting.months} ${recSetting.months === 1 ? 'maand' : 'maanden'}`;
+    const dialLabel = `${recSetting.months} ${recSetting.months === 1 ? 'maand' : 'months'}`;
     const theoMonthsStr = recMonths > 10 ? `${Math.round(recMonths)} maanden` : `${recMonths.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} maanden`;
 
     const dialValEl = document.getElementById("autoDialValue_" + devId);
@@ -6818,9 +5432,9 @@ function calculateAutomationLubrication() {
       if (smartAdv.isGracoRecommended) {
         recSubtextEl.innerHTML = `&#9888; <strong>Hoge vetbehoefte voor ${pointsText} (${totalDailyNeedForDev.toFixed(2).replace('.', ',')} ml/dag):</strong> Een 500 ml patroon gaat slechts ${((500 / totalDailyNeedForDev)/30.4375).toFixed(1).replace('.', ',')} maanden mee.<br>👉 <strong>Advies: Bekijk de optie Graco</strong> (centraal smeersysteem / vatpomp voor grote vetvolumes).`;
       } else if (isSmartMatch) {
-        recSubtextEl.innerHTML = `&check; <strong>Optimaal advies voor ${pointsText}: ${smartAdv.cap} ml patroon ingesteld op ${smartAdv.months} ${smartAdv.months === 1 ? 'maand' : 'maanden'}.</strong><br>&bull; Dit is de <strong>meest voordelige combinatie</strong> (slechts ${smartAdv.cartridgesPerYear.toFixed(1).replace('.', ',')} patronen/jaar &bull; € ${smartAdv.annualCost.toFixed(2).replace('.', ',')}/jaar patronen) en bespaart aanzienlijk op vervangen en onderhoud.`;
+        recSubtextEl.innerHTML = `&check; <strong>Optimaal advies voor ${pointsText}: ${smartAdv.cap} ml patroon ingesteld op ${smartAdv.months} ${smartAdv.months === 1 ? 'maand' : 'months'}.</strong><br>&bull; Dit is de <strong>meest voordelige combinatie</strong> (slechts ${smartAdv.cartridgesPerYear.toFixed(1).replace('.', ',')} patronen/jaar &bull; € ${smartAdv.annualCost.toFixed(2).replace('.', ',')}/jaar patronen) en bespaart aanzienlijk op vervangen en onderhoud.`;
       } else {
-        recSubtextEl.innerHTML = `&bull; Huidige selectie: <strong>${capMl} ml patroon op ${dialLabel}</strong> (${roundReason}).<br>&bull; <strong>Slim advies-tip:</strong> Klik op <em>'Neem advies over'</em> om automatisch te kiezen voor <strong>${smartAdv.cap} ml op ${smartAdv.months} ${smartAdv.months === 1 ? 'maand' : 'maanden'}</strong> (slechts € ${smartAdv.annualCost.toFixed(2).replace('.', ',')}/jaar patronen).`;
+        recSubtextEl.innerHTML = `&bull; Huidige selectie: <strong>${capMl} ml patroon op ${dialLabel}</strong> (${roundReason}).<br>&bull; <strong>Slim advies-tip:</strong> Klik op <em>'Neem advies over'</em> om automatisch te kiezen voor <strong>${smartAdv.cap} ml op ${smartAdv.months} ${smartAdv.months === 1 ? 'maand' : 'months'}</strong> (slechts € ${smartAdv.annualCost.toFixed(2).replace('.', ',')}/jaar patronen).`;
       }
     }
 
@@ -6897,7 +5511,7 @@ function calculateAutomationLubrication() {
         const actualDailyVol = capMl / totalDays;
         const ratio = totalDailyNeedForDev > 0 ? (actualDailyVol / totalDailyNeedForDev) : 1;
 
-        let unitLabel = lang === "fr" ? (curUnit === "weeks" ? "semaines" : (curUnit === "days" ? "jours" : "mois")) : (lang === "en" ? (curUnit === "weeks" ? "weeks" : (curUnit === "days" ? "days" : "months")) : (curUnit === "weeks" ? "weken" : (curUnit === "days" ? "dagen" : "maanden")));
+        let unitLabel = lang === "fr" ? (curUnit === "weeks" ? "semaines" : (curUnit === "days" ? "jours" : "mois")) : (lang === "en" ? (curUnit === "weeks" ? "weeks" : (curUnit === "days" ? "days" : "months")) : (curUnit === "weeks" ? "weeks" : (curUnit === "days" ? "days" : "months")));
 
         const locCode = lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "nl-BE");
         const actualStr = (actualDailyVol / points).toLocaleString(locCode, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -7358,7 +5972,7 @@ function calculateChainGrease() {
 // ==========================================================================
 function runChainPdfExport(includeTco, includeRoi) {
   const { jsPDF } = window.jspdf;
-  const langData = TRANSLATIONS[currentLang] || TRANSLATIONS["nl"];
+  const langData = TRANSLATIONS[currentLang] || TRANSLATIONS["en"];
   
   if (!jsPDF) {
     alert(langData.pdfErrorLib || "Fout: PDF-bibliotheek kon niet worden geladen. Controleer uw internetverbinding.");
@@ -7903,7 +6517,7 @@ function runChainPdfExport(includeTco, includeRoi) {
           curY += 6;
           drawCell(startX1, curY, 54, 6, "Revisiefrequentie (maanden)", p1_rep_freq, "blue");
           drawCell(startX2, curY, 54, 6, "Revisiefrequentie (maanden)", p2_rep_freq, "blue");
-          drawCell(startX3, curY, 60, 6, "Voorbereidingstijd revisie (H)", shared_prep_h, "blue");
+          drawCell(startX3, curY, 60, 6, "Overhaul Prep Time (H)", shared_prep_h, "blue");
 
           curY += 6;
           drawCell(startX1, curY, 54, 6, "Tijdsduur revisie (uren)", shared_rep_h, "grey");
@@ -7922,7 +6536,7 @@ function runChainPdfExport(includeTco, includeRoi) {
           curY += 5;
           drawCell(startX1, curY, 54, 6, "Levensduur ketting (maanden)", p1_lifetime, "blue");
           drawCell(startX2, curY, 54, 6, "Levensduur ketting (maanden)", p2_lifetime, "blue");
-          drawCell(startX3, curY, 60, 6, "Kostprijs wisselstukken / set (€)", shared_parts_cost, "blue");
+          drawCell(startX3, curY, 60, 6, "Spare Parts Cost / Set (€)", shared_parts_cost, "blue");
 
           curY += 6;
           drawCell(startX1, curY, 54, 6, "Jaarlijkse materiaalkost / machine (€)", p1_ann_mat, "pink-total");
@@ -7930,18 +6544,18 @@ function runChainPdfExport(includeTco, includeRoi) {
           drawCell(startX3, curY, 60, 6, "Aantal kettingen / machine", shared_sets, "blue");
 
           curY += 6;
-          drawCell(startX3, curY, 60, 6, "Aantal machines", shared_machines, "blue");
+          drawCell(startX3, curY, 60, 6, "Number of Machines", shared_machines, "blue");
 
           // DOWN-TIME SECTION
           curY += 8;
-          drawCell(startX1, curY, 54, 5, "DOWN-TIME", null, "section");
-          drawCell(startX2, curY, 54, 5, "DOWN-TIME", null, "section");
+          drawCell(startX1, curY, 54, 5, "DOWNTIME", null, "section");
+          drawCell(startX2, curY, 54, 5, "DOWNTIME", null, "section");
           drawCell(startX3, curY, 60, 5, "Algemene info", null, "section");
 
           curY += 5;
           drawCell(startX1, curY, 54, 6, "Tijdsduur down-time (H)", p1_dt_h, "grey");
           drawCell(startX2, curY, 54, 6, "Tijdsduur down-time (H)", p2_dt_h, "grey");
-          drawCell(startX3, curY, 60, 6, "Kostprijs down-time / H (€)", shared_dt_rate, "blue");
+          drawCell(startX3, curY, 60, 6, "Downtime Cost / Hour (€)", shared_dt_rate, "blue");
 
           curY += 6;
           drawCell(startX1, curY, 54, 6, "Downtime frequentie / jaar", p1_dt_freq, "grey");
@@ -7953,13 +6567,13 @@ function runChainPdfExport(includeTco, includeRoi) {
 
           // TOTALEN & BESPARINGEN SECTION
           curY += 8;
-          drawCell(startX1, curY, 54, 5, "Huidige kostprijs", null, "section");
-          drawCell(startX2, curY, 54, 5, "Nieuwe kostprijs (Interflon)", null, "section");
-          drawCell(startX3, curY, 60, 5, "Besparing / machinepark", null, "section");
+          drawCell(startX1, curY, 54, 5, "Current Cost", null, "section");
+          drawCell(startX2, curY, 54, 5, "New Cost (Interflon)", null, "section");
+          drawCell(startX3, curY, 60, 5, "Savings / Machine Fleet", null, "section");
 
           curY += 5;
-          drawCell(startX1, curY, 54, 6, "Totale kostprijs / jaar / machine (€)", p1_total, "pink-total");
-          drawCell(startX2, curY, 54, 6, "Totale kostprijs / jaar / machine (€)", p2_total, "green-total");
+          drawCell(startX1, curY, 54, 6, "Total Cost / Year / Machine (€)", p1_total, "pink-total");
+          drawCell(startX2, curY, 54, 6, "Total Cost / Year / Machine (€)", p2_total, "green-total");
           drawCell(startX3, curY, 60, 6, "Kostenbesparing / jaar / machine (€)", ann_savings, "green-total");
 
           curY += 6;
@@ -8599,7 +7213,7 @@ function calculateChainAutomation() {
   const recWeeks = recDays / 7;
 
   const recSetting = getRecommendedSettingMonths(recMonths);
-  const dialLabel = `${recSetting.months} ${recSetting.months === 1 ? 'maand' : 'maanden'}`;
+  const dialLabel = `${recSetting.months} ${recSetting.months === 1 ? 'maand' : 'months'}`;
   const theoMonthsStr = recMonths > 10 ? `${Math.round(recMonths)} maanden` : `${recMonths.toLocaleString("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })} maanden`;
 
   const chainDialValEl = document.getElementById("chainAutoDialValue");
@@ -8678,10 +7292,10 @@ function calculateChainAutomation() {
   const dailyMl = capMl / periodDays;
   const monthlyMl = capMl / (periodDays / 30.4375);
 
-  let unitLabel = "maanden";
-  if (unit === "weeks") unitLabel = periodVal === 1 ? "week" : "weken";
-  else if (unit === "days") unitLabel = periodVal === 1 ? "dag" : "dagen";
-  else if (unit === "months") unitLabel = periodVal === 1 ? "maand" : "maanden";
+  let unitLabel = "months";
+  if (unit === "weeks") unitLabel = periodVal === 1 ? "week" : "weeks";
+  else if (unit === "days") unitLabel = periodVal === 1 ? "dag" : "days";
+  else if (unit === "months") unitLabel = periodVal === 1 ? "maand" : "months";
 
   const activeSettingLabel = `${periodVal.toLocaleString("nl-BE", { maximumFractionDigits: 1 })} ${unitLabel}`;
   if (chainDialValEl) chainDialValEl.textContent = activeSettingLabel;
@@ -10242,7 +8856,7 @@ function addRoiPdfPage(doc, dateString, watermarkDataUrl, aspectRatio, autoDataU
 
   // Table 2: Automatische Smering
   let y2 = startY;
-  drawRow(108, y2, colW, 6, "AUTOMATISCHE SMERING", "", true, false, true);
+  drawRow(108, y2, colW, 6, "AUTOMATIC LUBRICATION", "", true, false, true);
   y2 += 6;
   drawRow(108, y2, colW, rh, "Gekozen smeerunit:", fullDeviceTitle, false, false, false);
   y2 += rh;
@@ -10332,21 +8946,21 @@ function addRoiPdfPage(doc, dateString, watermarkDataUrl, aspectRatio, autoDataU
   // Card 1: Structurele jaarlijkse besparing
   const sign1 = netYearlySaving >= 0 ? "+" : "-";
   const color1 = netYearlySaving >= 0 ? [22, 163, 74] : [220, 38, 38];
-  drawRoiCard(24, row1Y, cardW, cardH, "STRUCTURELE JAARLIJKSE BESPARING", `${sign1} € ${Math.abs(netYearlySaving).toFixed(2).replace('.', ',')} / j`, "Vanaf Jaar 2", color1);
+  drawRoiCard(24, row1Y, cardW, cardH, "STRUCTURELE JAARLIJKSE BESPARING", `${sign1} € ${Math.abs(netYearlySaving).toFixed(2).replace('.', ',')} / j`, "From Year 2 onwards", color1);
 
   // Card 2: Netto resultaat jaar 1
   const sign2 = year1NetResult >= 0 ? "+" : "-";
   const color2 = year1NetResult >= 0 ? [22, 163, 74] : [220, 38, 38];
-  drawRoiCard(80, row1Y, cardW, cardH, "NETTO RESULTAAT JAAR 1", `${sign2} € ${Math.abs(year1NetResult).toFixed(2).replace('.', ',')} (Jaar 1)`, "Inclusief initiële installatie", color2);
+  drawRoiCard(80, row1Y, cardW, cardH, "NETTO RESULTAAT JAAR 1", `${sign2} € ${Math.abs(year1NetResult).toFixed(2).replace('.', ',')} (Jaar 1)`, "Including initial installation", color2);
 
   // Card 3: Terugverdientijd
   const color3 = isPaybackGreen ? [220, 38, 38] : [100, 116, 139];
-  drawRoiCard(136, row1Y, cardW, cardH, "TERUGVERDIENTIJD (ROI)", paybackStr, "Investerings-terugverdientijd", color3);
+  drawRoiCard(136, row1Y, cardW, cardH, "TERUGVERDIENTIJD (ROI)", paybackStr, "Investment payback time", color3);
 
   // Card 4: Besparing na N jaar
   const sign4 = multiYearSaving >= 0 ? "+" : "-";
   const color4 = multiYearSaving >= 0 ? [5, 150, 105] : [220, 38, 38];
-  drawRoiCard(24, row2Y, cardW, cardH, `BESPARING NA ${numYears} JAAR`, `${sign4} € ${Math.abs(multiYearSaving).toFixed(2).replace('.', ',')}`, "Inclusief initiële installatie", color4);
+  drawRoiCard(24, row2Y, cardW, cardH, `BESPARING NA ${numYears} JAAR`, `${sign4} € ${Math.abs(multiYearSaving).toFixed(2).replace('.', ',')}`, "Including initial installation", color4);
 
   // Belangrijke Toelichting Box in PDF
   const toelW = 106;
@@ -10411,7 +9025,7 @@ function getSurveyUrl() {
   const clientEmail = localStorage.getItem("client_email") || "";
 
   let params = new URLSearchParams();
-  params.set("v", "20260825_2143");
+  params.set("v", "20260825_2151");
   if (typeof currentLang !== "undefined" && currentLang) params.set("lang", currentLang);
   if (opEmail) params.set("contact", opEmail);
   if (clientCompany) params.set("company", clientCompany);
